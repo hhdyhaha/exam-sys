@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <el-container>
+    <!-- 侧边 -->
+    <!-- width="auto" 可使侧边栏打开关闭不受到宽度限制 -->
+    <el-aside width="auto">
+      <common-aside/>
+    </el-aside>
+    <el-container>
+      <!-- 头 -->
+      <el-header>
+        <common-header/>
+      </el-header>
+      <!-- 主体 -->
+      <el-main>
+        <common-main/>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CommonHeader from "./components/CommonHeader.vue";
+import CommonAside from "./components/CommonAside.vue";
+import CommonMain from "./components/CommonMain.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    CommonHeader,
+    CommonAside,
+    CommonMain,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
