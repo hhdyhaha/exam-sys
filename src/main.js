@@ -9,12 +9,16 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 // 引入less
 import less from 'less'
+//引入store
+import store from './store'
 Vue.config.productionTip = false
 // 使用ElementUI
 Vue.use(ElementUI);
-
+// 使用VueRouter
+Vue.use(VueRouter)
 Vue.use(less)
 new Vue({
   render: h => h(App),
-  router:router
+  router:router,
+  store
 }).$mount('#app')

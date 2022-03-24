@@ -40,7 +40,17 @@
 </template>
 
 <script>
-export default {};
+import {mapState} from 'vuex'
+export default {
+  methods: {
+    name:"ConmonHeader",
+    // 操作vuex,改变isCollapse状态
+    // 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
+    headleMenu(){
+      this.$store.commit("collapseMenu")
+    }
+  },
+};
 </script>
 
 <style lang="less" scoped>
