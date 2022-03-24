@@ -14,7 +14,9 @@ export default{
     },
     //准备actions对象——响应组件中用户的动作
     actions:{
-
+        collapseMenu(){
+            
+        }
     } 
 
 }

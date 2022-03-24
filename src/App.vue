@@ -10,6 +10,8 @@
       <el-header>
         <common-header/>
       </el-header>
+      <!-- 标签 -->
+      <common-tag/>
       <!-- 主体 -->
       <el-main>
         <common-main/>
@@ -22,12 +24,14 @@
 import CommonHeader from "./components/CommonHeader.vue";
 import CommonAside from "./components/CommonAside.vue";
 import CommonMain from "./components/CommonMain.vue";
+import CommonTag from "./components/CommonTag.vue";
 export default {
   name: "App",
   components: {
     CommonHeader,
     CommonAside,
     CommonMain,
+    CommonTag, 
   },
 };
 </script>
