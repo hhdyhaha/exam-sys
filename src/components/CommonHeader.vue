@@ -11,10 +11,8 @@
       ></el-button>
       <!-- 面包屑 -->
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
-        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: 'current.path' }">{{current.label}}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <!-- 头右边 -->
@@ -43,6 +41,7 @@
 import {mapState} from 'vuex'
 export default {
   methods: {
+
     name:"ConmonHeader",
     // 操作vuex,改变isCollapse状态
     // 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
@@ -50,7 +49,14 @@ export default {
       this.$store.commit("collapseMenu")
     }
   },
+  computed:{
+    ...mapState({
+      current:state=>state.tab.currentMenu,
+    })
+    
+  }
 };
+
 </script>
 
 <style lang="less" scoped>

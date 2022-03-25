@@ -1,6 +1,8 @@
 // 该文件专门用于创建整个应用的路由器
 import VueRouter from "vue-router";
 // 引入组件
+// 上面代码是一个模块文件export-default.js，它的默认输出是一个函数。
+// 其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。
 import home from '../views/Home/home.vue'
 
 import MyRecords from '../views/onlineexam/MyRecords'
@@ -25,7 +27,7 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'Home',
+            name: 'home',
             component: home
         },
         // 在线考试

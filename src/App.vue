@@ -14,7 +14,8 @@
       <common-tag/>
       <!-- 主体 -->
       <el-main>
-        <common-main/>
+        <!-- 将主体的模板换成由router-view控制 -->
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>

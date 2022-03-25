@@ -3,12 +3,12 @@
   <el-menu
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
-    
+    default-active
   >
     <!-- 侧边栏标题 -->
     <h5 style="text-align:center">等级考试</h5>
     <!-- 首页欢迎界面 -->
-    <el-menu-item  v-for="item in noChildren" :key="item.path" @click="clickMenu(item)">
+    <el-menu-item  v-for="item in noChildren" :key="item.path" @click="clickMenu(item)" :index="item.path">
       <i class="el-icon-menu"></i>
       <span slot="title">{{item.label}}</span>
     </el-menu-item>
@@ -19,8 +19,8 @@
         <i class="el-icon-location"></i>
         <span slot="title">{{item.label}}</span>
       </template>
-      <el-menu-item-group v-for="(itemc,indexc) in item.children" :key="itemc.path">
-        <el-menu-item @click="clickMenu(itemc)" :index="indexc.toString()">{{itemc.label}}</el-menu-item>
+      <el-menu-item-group v-for="itemc in item.children" :key="itemc.path">
+        <el-menu-item @click="clickMenu(itemc)" :index="itemc.path">{{itemc.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -116,7 +116,10 @@ export default {
   methods: {
     clickMenu(item){
       this.$router.push({name:item.name})
-    }
+      // mutations中的方法名 item点击事件传过来的menu数据
+      this.$store.commit('selectMenu',item)
+    },
+    
   },
   // 定义：要用的属性不存在，要通过已有属性计算得来。
   computed: {
