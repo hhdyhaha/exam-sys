@@ -29,63 +29,85 @@ export default new VueRouter({
             path: '/',
             name: 'home',
             component: home,
-            meta:{title:'首页'}
+            meta: { title: '首页' }
         },
         // 在线考试
         {
-            path: "/OlineExam",
-            name: "OE",
-            component: OlineExam,
-            meta:{title:'在线考试'}
-        },
-        {
-            path: "/MyRecords",
-            name: "MR",
-            component: MyRecords,
-            meta:{title:'我的成绩'}
+            path: '/online',
+            name: 'ol',
+            meta: { title: '在线考试' },
+            children: [
+                {
+                    path: "OlineExam",
+                    name: "OE",
+                    component: OlineExam,
+                    meta: { title: '在线考试' }
+                },
+                {
+                    path: "MyRecords",
+                    name: "MR",
+                    component: MyRecords,
+                    meta: { title: '我的成绩' }
 
+                },
+            ]
         },
+
 
         // 考试管理
-
         {
-            path: "/QuestionBank",
-            name: "QB",
-            component: QuestionBank,
-            meta:{title:'题库'}
+            path: '/exam',
+            name: 'ex',
+            meta: { title: '考试管理' },
+            children: [
+                {
+                    path: "QuestionBank",
+                    name: "QB",
+                    component: QuestionBank,
+                    meta: { title: '题库' }
+                },
+
+                {
+                    path: "QuestionManage",
+                    name: "QM",
+                    component: QuestionManage,
+                    meta: { title: '试题管理' }
+                },
+
+                {
+                    path: "ExamManage",
+                    name: "EM",
+                    component: ExamManage,
+                    meta: { title: '考试管理' }
+                },
+            ]
         },
 
-        {
-            path: "/QuestionManage",
-            name: "QM",
-            component: QuestionManage,
-            meta:{title:'试题管理'}
-        },
-
-        {
-            path: "/ExamManage",
-            name: "EM",
-            component: ExamManage,
-            meta:{title:'考试管理'}
-        },
 
 
         // 系统设置
-
-
         {
-            path: "/SystemConfiguration",
-            name: "SC",
-            component: SystemConfiguration,
-            meta:{title:'系统配置'}
+            path: '/sys',
+            name: 'sys',
+            meta: { title: '系统设置' },
+            children: [
+                {
+                    path: "SystemConfiguration",
+                    name: "SC",
+                    component: SystemConfiguration,
+                    meta: { title: '系统配置' }
+                },
+
+                {
+                    path: "UserManage",
+                    name: "UM",
+                    component: UserManage,
+                    meta: { title: '用户管理' }
+                }
+            ]
         },
 
-        {
-            path: "/UserManage",
-            name: "UM",
-            component: UserManage,
-            meta:{title:'用户管理'}
-        }
+
 
 
     ]

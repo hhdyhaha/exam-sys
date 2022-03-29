@@ -10,9 +10,9 @@
         @click="headleMenu"
       ></el-button>
       <!-- 面包屑 -->
-      <el-breadcrumb separator="/">
+      <el-breadcrumb separator=">">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item  :to="{ path: 'current.path' }">{{current.title}}</el-breadcrumb-item>
+        <el-breadcrumb-item v-for="currentItem in current" :key="currentItem.path">{{currentItem.meta.title}}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <!-- 头右边 -->
@@ -40,36 +40,26 @@
 import { mapState } from "vuex";
 export default {
   methods: {
-    // isHome(router) {
-    //   return router.name === "home";
-    // },
-
     name: "ConmonHeader",
     // 操作vuex,改变isCollapse状态
     // 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
     headleMenu() {
       this.$store.commit("collapseMenu");
     },
-
   },
 
   computed: {
     // ...mapState({
     //   current: (state) => state.tab.currentMenu,
     // }),
-    current(){
-      return this.$route.meta
-    }
+    current() {
+      return this.$route.matched;
+    },
   },
-  mounted(){
-    // console.log(this.$router.options.routes);
-    console.log(this.$route);
+  // 查看this.$route.matched的数据
+  mounted() {
+    console.log(this.$route.matched );
   },
-  
-  // 声明周期钩子函数
-  // created() {
-  //   this.getBreadcrumb();
-  // },
 };
 </script>
 

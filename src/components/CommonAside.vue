@@ -8,19 +8,34 @@
     <!-- 侧边栏标题 -->
     <h5 style="text-align:center">等级考试</h5>
     <!-- 首页欢迎界面 -->
-    <el-menu-item  v-for="item in noChildren" :key="item.path" @click="clickMenu(item)" :index="item.path">
+    <el-menu-item
+      v-for="item in noChildren"
+      :key="item.path"
+      @click="clickMenu(item)"
+      :index="item.path"
+    >
       <i class="el-icon-menu"></i>
       <span slot="title">{{item.label}}</span>
     </el-menu-item>
     <!-- 在线考试 -->
     <!-- index记得加否则会点击一个同时展开 -->
-    <el-submenu  v-for="item in hasChildren" :key="item.path" :index="item.label">
+    <el-submenu
+      v-for="item in hasChildren"
+      :key="item.path"
+      :index="item.label"
+    >
       <template slot="title">
         <i class="el-icon-location"></i>
         <span slot="title">{{item.label}}</span>
       </template>
-      <el-menu-item-group v-for="itemc in item.children" :key="itemc.path">
-        <el-menu-item @click="clickMenu(itemc)" :index="itemc.path">{{itemc.label}}</el-menu-item>
+      <el-menu-item-group
+        v-for="itemc in item.children"
+        :key="itemc.path"
+      >
+        <el-menu-item
+          @click="clickMenu(itemc)"
+          :index="itemc.path"
+        >{{itemc.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -42,11 +57,12 @@ export default {
         },
         // 在线考试
         {
+          path: "/online",
           label: "在线考试",
           icon: "location",
           children: [
             {
-              path: "/OlineExam",
+              path: "OlineExam",
               name: "OE",
               label: "在线考试",
               icon: "setting",
@@ -63,6 +79,7 @@ export default {
         },
         // 考试管理
         {
+          path: "/exam",
           label: "考试管理",
           icon: "location",
           children: [
@@ -91,6 +108,7 @@ export default {
         },
         // 系统设置
         {
+          path: "/sys",
           label: "系统设置",
           icon: "location",
           children: [
@@ -114,23 +132,23 @@ export default {
     };
   },
   methods: {
-    clickMenu(item){
-      this.$router.push({name:item.name})
+    clickMenu(item) {
+      this.$router.push({ name: item.name });
       // mutations中的方法名 item点击事件传过来的menu数据
-      this.$store.commit('selectMenu',item)
+      this.$store.commit("selectMenu", item);
+      console.log(this.$route.matched);
     },
-    
   },
   // 定义：要用的属性不存在，要通过已有属性计算得来。
   computed: {
     // 列表渲染-替换数组:filter()、concat() 和 slice()。它们不会变更原始数组，而总是返回一个新数组。
     // 有子项目
-    noChildren(){
-      return this.menu.filter(item=>!item.children)
+    noChildren() {
+      return this.menu.filter((item) => !item.children);
     },
     // 没有子项目
-    hasChildren(){
-      return this.menu.filter(item=>item.children)
+    hasChildren() {
+      return this.menu.filter((item) => item.children);
     },
     // 接收isCollapse状态
     // 组件中读取vuex中的数据：```$store.state.sum```
