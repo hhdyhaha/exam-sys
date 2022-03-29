@@ -28,18 +28,21 @@ export default new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: home
+            component: home,
+            meta:{title:'首页'}
         },
         // 在线考试
         {
             path: "/OlineExam",
             name: "OE",
             component: OlineExam,
+            meta:{title:'在线考试'}
         },
         {
             path: "/MyRecords",
             name: "MR",
             component: MyRecords,
+            meta:{title:'我的成绩'}
 
         },
 
@@ -49,18 +52,21 @@ export default new VueRouter({
             path: "/QuestionBank",
             name: "QB",
             component: QuestionBank,
+            meta:{title:'题库'}
         },
 
         {
             path: "/QuestionManage",
             name: "QM",
             component: QuestionManage,
+            meta:{title:'试题管理'}
         },
 
         {
             path: "/ExamManage",
             name: "EM",
             component: ExamManage,
+            meta:{title:'考试管理'}
         },
 
 
@@ -71,12 +77,14 @@ export default new VueRouter({
             path: "/SystemConfiguration",
             name: "SC",
             component: SystemConfiguration,
+            meta:{title:'系统配置'}
         },
 
         {
             path: "/UserManage",
             name: "UM",
             component: UserManage,
+            meta:{title:'用户管理'}
         }
 
 

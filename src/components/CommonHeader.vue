@@ -11,8 +11,8 @@
       ></el-button>
       <!-- 面包屑 -->
       <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path: 'current.path' }">{{current.label}}</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item  :to="{ path: 'current.path' }">{{current.title}}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <!-- 头右边 -->
@@ -21,10 +21,9 @@
       <el-dropdown
         trigger="click"
         size="mini"
-
       >
         <span class="el-dropdown-link">
-        <i class="el-icon-s-custom"></i> 角色名称
+          <i class="el-icon-s-custom"></i> 角色名称
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
@@ -38,25 +37,40 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   methods: {
+    // isHome(router) {
+    //   return router.name === "home";
+    // },
 
-    name:"ConmonHeader",
+    name: "ConmonHeader",
     // 操作vuex,改变isCollapse状态
     // 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
-    headleMenu(){
-      this.$store.commit("collapseMenu")
+    headleMenu() {
+      this.$store.commit("collapseMenu");
+    },
+
+  },
+
+  computed: {
+    // ...mapState({
+    //   current: (state) => state.tab.currentMenu,
+    // }),
+    current(){
+      return this.$route.meta
     }
   },
-  computed:{
-    ...mapState({
-      current:state=>state.tab.currentMenu,
-    })
-    
-  }
+  mounted(){
+    // console.log(this.$router.options.routes);
+    console.log(this.$route);
+  },
+  
+  // 声明周期钩子函数
+  // created() {
+  //   this.getBreadcrumb();
+  // },
 };
-
 </script>
 
 <style lang="less" scoped>
