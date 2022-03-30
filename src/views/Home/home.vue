@@ -1,5 +1,7 @@
 <template>
-  <div>我是主页</div>
+  <div>
+    我是主页
+  </div>
 </template>
 
 <script>
