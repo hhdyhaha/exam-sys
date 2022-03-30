@@ -35,6 +35,12 @@ export default {
                 let result=state.tabsList.findIndex(item=>item.name===val.name)
                 result===-1?state.tabsList.push(val):''
             }
+        },
+        // 关闭标签
+        closeTag(state,val){
+            const result = state.tabsList.findIndex(item=>item.name===val.name)
+            // splice(索引,删除几个) 方法用于添加或删除数组中的元素。并返回删除的项目。
+            state.tabsList.splice(result,1)
         }
     },
     //准备actions对象——响应组件中用户的动作
