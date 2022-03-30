@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 // 引入组件
 // 上面代码是一个模块文件export-default.js，它的默认输出是一个函数。
 // 其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。
+import main from '../components/CommonMain.vue'
 import home from '../views/Home/home.vue'
 
 import MyRecords from '../views/onlineexam/MyRecords'
@@ -35,6 +36,7 @@ export default new VueRouter({
         {
             path: '/online',
             name: 'ol',
+            component:main,
             meta: { title: '在线考试' },
             children: [
                 {
@@ -58,6 +60,7 @@ export default new VueRouter({
         {
             path: '/exam',
             name: 'ex',
+            component:main,
             meta: { title: '考试管理' },
             children: [
                 {
@@ -89,6 +92,7 @@ export default new VueRouter({
         {
             path: '/sys',
             name: 'sys',
+            component:main,
             meta: { title: '系统设置' },
             children: [
                 {

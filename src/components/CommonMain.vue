@@ -1,13 +1,14 @@
 <template>
-  <div>我是主体</div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-    export default {
-
-    }
+export default {
+  name:'main'
+};
 </script>
 
 <style>
-
 </style>

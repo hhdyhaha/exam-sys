@@ -3,7 +3,18 @@ export default {
     state: {
         // 是否折叠
         isCollapse: false,
-        currentMenu: null //当前菜单
+        currentMenu: null, //当前菜单
+        // tab数组 用来展示tab数据
+        tabsList: [
+            {
+                path: '/',
+                name: 'home',
+                label: '首页',
+                icon: 'home',
+                type:''
+            }
+        ]
+
     },
     //准备mutations——用于操作数据（state）
     mutations: {
@@ -14,7 +25,16 @@ export default {
         },
         selectMenu(state, val) {
             //判断当前的名字是否等于home首页,如果不是添加
-            val.name === 'home' ? (state.currentMenu = null) : (state.currentMenu = val)
+            // val.name === 'home' ? (state.currentMenu = null) : (state.currentMenu = val)
+            // state.tabsList.push(val)
+            if(val.name==='home'){
+                state.collapseMenu=null
+            }else{
+                state.currentMenu=val
+                
+                let result=state.tabsList.findIndex(item=>item.name===val.name)
+                result===-1?state.tabsList.push(val):''
+            }
         }
     },
     //准备actions对象——响应组件中用户的动作

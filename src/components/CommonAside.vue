@@ -136,7 +136,7 @@ export default {
       this.$router.push({ name: item.name });
       // mutations中的方法名 item点击事件传过来的menu数据
       this.$store.commit("selectMenu", item);
-      console.log(this.$route.matched);
+      // console.log(this.$route.meta);
     },
   },
   // 定义：要用的属性不存在，要通过已有属性计算得来。

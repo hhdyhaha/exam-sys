@@ -6,26 +6,29 @@
       closable
       :type="tag.type"
     >
-      {{tag.name}}
+      {{tag.label}}
     </el-tag>
   </div>
 </template>
 
 <script>
 export default {
-    data() {
-      return {
-        tags: [
-          { name: '标签一', type: '' },
-          { name: '标签二', type: 'success' },
-          { name: '标签三', type: 'info' },
-          { name: '标签四', type: 'warning' },
-          { name: '标签五', type: 'danger' }
-        ]
-      };
-    }
-  }
+  computed: {
+    // tags 从vuex获取tags数据
+    tags() {
+      return this.$store.state.tab.tabsList;
+    },
+  },
+  mounted() {
+    // console.log(this.$route.meta);
+    // console.log(tags);
+  },
+};
 </script>
 
-<style>
+<style lang="less" scoped>
+.el-tag {
+  margin-right:5px;
+  margin-left:5px;
+}
 </style>

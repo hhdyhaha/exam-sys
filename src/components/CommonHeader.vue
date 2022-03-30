@@ -58,7 +58,7 @@ export default {
   },
   // 查看this.$route.matched的数据
   mounted() {
-    console.log(this.$route.matched );
+    // console.log(this.$route.matched );
   },
 };
 </script>
