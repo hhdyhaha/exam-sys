@@ -1,6 +1,12 @@
 <template>
   <div>
-    <common-table :tableData="tableData" :tableLabel="tableLabel"/>
+    <common-table
+      :tableData="tableData"
+      :tableLabel="tableLabel"
+      :currentPage="currentPage"
+      :total="total"
+      :pageSize="pageSize"
+    />
   </div>
 </template>
 
@@ -16,7 +22,10 @@ export default {
   data() {
     return {
       tableData: "",
-      tableLabel:"",
+      tableLabel: "",
+      currentPage: 1,
+      total: 20,
+      pageSize: 3,
     };
   },
   mounted() {
