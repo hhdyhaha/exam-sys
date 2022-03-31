@@ -15,10 +15,10 @@ export default {
   name: "onlineexam",
   data() {
     return {
-      tableData:'ad'
+      tableData:''
     };
   },
-  mounted() {
+  created() {
     this.getData();
   },
   methods: {
