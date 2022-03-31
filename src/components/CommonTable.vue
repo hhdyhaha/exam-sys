@@ -1,20 +1,21 @@
 <template>
-    <el-table
-      style="width: 100%">
-      <el-table-column
-      v-for="(item,index) in tableData"
+  <el-table 
+  :data="tableData"
+  style="width: 100%">
+    <el-table-column
+      v-for="(itemLabel,index) in tableLabel"
       :key="index"
-        :prop="item.date"
-        :label="item.name"
-        width="180">
-        {{item.address}}
-      </el-table-column>
-      
-    </el-table>
-  </template>
+      :prop="itemLabel.prop"
+      :label="itemLabel.label"
+      width="220"
+    >
+    </el-table-column>
+
+  </el-table>
+</template>
 
   <script>
-    export default {
-      props:["tableData"]
-    }
-  </script>
+export default {
+  props: ["tableData", "tableLabel"],
+};
+</script>
