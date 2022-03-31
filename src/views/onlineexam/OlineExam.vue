@@ -41,7 +41,7 @@ export default {
         .then((tableData) => {
           this.tableData = tableData.data.tableData;
           this.tableLabel = tableData.data.tableLabel;
-          console.log(this.tableLabel);
+          // console.log(this.tableLabel);
         });
     },
   },
