@@ -19,15 +19,15 @@ export default {
     CommonTable,
   },
   name: "onlineexam",
-  data() {
-    return {
-      tableData: "",
-      tableLabel: "",
-      currentPage: 1,
-      total: 20,
-      pageSize: 3,
-    };
-  },
+  // data() {
+  //   return {
+  //     tableData: "",
+  //     tableLabel: "",
+  //     currentPage: 1,
+  //     total: 20,
+  //     pageSize: 3,
+  //   };
+  // },
   mounted() {
     this.getData();
   },
@@ -39,9 +39,10 @@ export default {
         )
         // 箭头函数解决vue axios 数据（data）赋值问题
         .then((tableData) => {
+          
           this.tableData = tableData.data.tableData;
           this.tableLabel = tableData.data.tableLabel;
-          // console.log(this.tableLabel);
+          console.log(this.$store.state.table.tableData);
         });
     },
   },

@@ -96,7 +96,7 @@ export default {
           const tableData1 = this.tableData.filter(
             (item) => item.name === table.name
           );
-          console.log(tableData1);
+          // console.log(tableData1);
           return tableData1
         } else {
           return this.tableData;
