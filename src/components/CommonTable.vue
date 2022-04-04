@@ -9,10 +9,10 @@
       >
         <!--  -->
         <el-option
-          v-for="(item,index) in tableData"
+          v-for="(item,index) in optionData"
           :key="index"
           :label="item.name"
-          :value="item.id"
+          :value="item.name"
         >
         </el-option>
       </el-select>
@@ -25,9 +25,10 @@
           slice() 方法以新的数组对象，返回数组中被选中的元素。
           slice() 方法选择从给定的 start 参数开始的元素，并在给定的 end 参数处结束，但不包括。
           注释：slice() 方法不会改变原始数组。
+          :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
        -->
       <el-table
-        :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
+        :data="(selectData? this.tableData2:tableData).slice((currentPage-1)*pageSize,currentPage*pageSize)"
         style="width: 100%"
       >
         <el-table-column
@@ -60,50 +61,77 @@
         :page-sizes="[3,5,10,20]"
         :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="tableData.length"
+        :total="(selectData? this.tableData2:tableData).length"
       >
       </el-pagination>
     </div>
+    <div>{{tableData}}</div>
+    <div>{{this.tableData2}}</div>
+    <div>{{optionData}}</div>
   </div>
 
 </template>
 
   <script>
+import { mapState } from "vuex";
 export default {
-  props: ["tableData", "tableLabel", "currentPage", "total", "pageSize"],
+  data() {
+    return {
+      // haha:"a",
+      // selectData1: this.$store.state.table.selectData,
+
+      // tableData: this.$store.state.table.tableData,
+      tableData2: "", //过滤后的数据
+    };
+  },
+
   methods: {
     //每页条数改变时触发 选择一页显示多少行
     handleSizeChange(val) {
-      // console.log(`每页 ${val} 条`);
-      this.currentPage = 1;
-      this.pageSize = val;
+      this.$store.commit("table/handleSizeChange", val);
     },
     //当前页改变时触发 跳转其他页
     handleCurrentChange(val) {
-      // console.log(`当前页: ${val}`);
-      this.currentPage = val;
+      this.$store.commit("table/handleCurrentChange", val);
     },
     // 下拉框点击时将数组进行过滤
     selectClick(val) {
-      // 将数据库的tableData循环出来
-      for (let index = 0; index < this.tableData.length; index++) {
-        // 一行数据
-        const table = this.tableData[index];
-        // 判断选中的id和元素的id是否相等
-        if (val === table.id) {
-          // return this.tableData.filter(item=>item.name===table.name)
-          // 将tableData数据过滤,不会破坏原数组
-          const tableData1 = this.tableData.filter(
-            (item) => item.name === table.name
-          );
-          // console.log(tableData1);
-          return tableData1
-        } else {
-          return this.tableData;
-        }
-      }
+      const tableData1 = this.$store.getters["table/selectClick"](val);
+      // 第一个参数（2）定义了应添加新元素的位置（拼接）。
+      // 第二个参数（0）定义应删除多少元素。
+      // 其余参数（“Lemon”，“Kiwi”）定义要添加的新元素。
+      console.log(tableData1);
+      this.tableData2 = tableData1;
+      // this.tableData2.splice(0, this.tableData2.length, tableData1);
+      this.$store.commit("table/selectClick", val);
     },
   },
-
+  // 当一个组件需要获取多个状态的时候，将这些状态都声明为计算属性会有些重复和冗余。
+  // 为了解决这个问题，我们可以使用 mapState 辅助函数帮助我们生成计算属性，让你少按几次键：
+  computed: {
+    // 列表数据
+    tableData() {
+      return this.$store.state.table.tableData;
+    },
+    // 是否点击了选择框
+    selectData() {
+      return this.$store.state.table.selectData;
+    },
+    // 下拉栏数据去重
+    optionData() {
+      const tableData = this.$store.state.table.tableData;
+      const res = new Map();
+      return tableData.filter(
+        (tableData) => !res.has(tableData.name) && res.set(tableData.name, 1)
+      );
+    },
+    ...mapState({
+      // tableData:state=>state.table.tableData,
+      tableLabel: (state) => state.table.tableLabel,
+      currentPage: (state) => state.table.currentPage,
+      total: (state) => state.table.total,
+      pageSize: (state) => state.table.pageSize,
+    }),
+  },
 };
 </script>

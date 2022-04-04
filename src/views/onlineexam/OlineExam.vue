@@ -1,12 +1,6 @@
 <template>
   <div>
-    <common-table
-      :tableData="tableData"
-      :tableLabel="tableLabel"
-      :currentPage="currentPage"
-      :total="total"
-      :pageSize="pageSize"
-    />
+    <common-table/>
   </div>
 </template>
 
@@ -19,15 +13,6 @@ export default {
     CommonTable,
   },
   name: "onlineexam",
-  // data() {
-  //   return {
-  //     tableData: "",
-  //     tableLabel: "",
-  //     currentPage: 1,
-  //     total: 20,
-  //     pageSize: 3,
-  //   };
-  // },
   mounted() {
     this.getData();
   },
@@ -39,10 +24,12 @@ export default {
         )
         // 箭头函数解决vue axios 数据（data）赋值问题
         .then((tableData) => {
-          
-          this.tableData = tableData.data.tableData;
-          this.tableLabel = tableData.data.tableLabel;
-          console.log(this.$store.state.table.tableData);
+          this.$store.commit('table/giveTableData',tableData.data.tableData)
+          this.$store.commit('table/giveTableLabel',tableData.data.tableLabel)
+          this.$store.commit('table/giveCurrentPage',tableData.data.currentPage)
+          this.$store.commit('table/giveTotal',tableData.data.total)
+          this.$store.commit('table/givePageSize',tableData.data.pageSize)
+          // console.log(this.$store.state.table);
         });
     },
   },
