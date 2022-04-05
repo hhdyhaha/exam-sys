@@ -1,6 +1,9 @@
 <template>
   <div>
+   
     <common-table/>
+
+    
   </div>
 </template>
 

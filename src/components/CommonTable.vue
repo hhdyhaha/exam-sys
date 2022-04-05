@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <!-- select 选择器 -->
     <div>
       <el-select
@@ -17,6 +18,7 @@
         </el-option>
       </el-select>
     </div>
+
     <!-- 表格 -->
     <div class="table">
       <!-- data 将格式正确的数据渲染在表格中 -->
@@ -27,6 +29,7 @@
           注释：slice() 方法不会改变原始数组。
           :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
        -->
+
       <el-table
         :data="(selectData? this.tableData2:tableData).slice((currentPage-1)*pageSize,currentPage*pageSize)"
         style="width: 100%"
@@ -40,6 +43,7 @@
         >
         </el-table-column>
       </el-table>
+
     </div>
     <!-- 分页 -->
     <div>
@@ -65,9 +69,7 @@
       >
       </el-pagination>
     </div>
-    <div>{{tableData}}</div>
     <div>{{this.tableData2}}</div>
-    <div>{{optionData}}</div>
   </div>
 
 </template>
@@ -75,6 +77,7 @@
   <script>
 import { mapState } from "vuex";
 export default {
+  name:'commonTable',
   data() {
     return {
       // haha:"a",
