@@ -23,15 +23,25 @@ export default {
     getData() {
       axios
         .get(
-          "https://www.fastmock.site/mock/a809009dfa7a985020b61723d2bb36a1/index/online/OlineExam"
+          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/online/OlineExam",{
+            params:{
+              _token:'$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO'
+            }
+          }
         )
         // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((tableData) => {
-          this.$store.commit('table/giveTableData',tableData.data.tableData)
-          this.$store.commit('table/giveTableLabel',tableData.data.tableLabel)
-          this.$store.commit('table/giveCurrentPage',tableData.data.currentPage)
-          this.$store.commit('table/giveTotal',tableData.data.total)
-          this.$store.commit('table/givePageSize',tableData.data.pageSize)
+        .then((response) => {
+          const tableData = response.data.data.tableData
+          const tableLabel = response.data.data.tableLabel
+          const currentPage = response.data.data.currentPage
+          const total = response.data.data.total
+          const pageSize = response.data.data.pageSize
+          // console.log(response.data.data.tableData);
+          this.$store.commit('table/giveTableData',tableData)
+          this.$store.commit('table/giveTableLabel',tableLabel)
+          this.$store.commit('table/giveCurrentPage',currentPage)
+          this.$store.commit('table/giveTotal',total)
+          this.$store.commit('table/givePageSize',pageSize)
           // console.log(this.$store.state.table);
         });
     },

@@ -27,11 +27,11 @@
           slice() 方法以新的数组对象，返回数组中被选中的元素。
           slice() 方法选择从给定的 start 参数开始的元素，并在给定的 end 参数处结束，但不包括。
           注释：slice() 方法不会改变原始数组。
-          :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
        -->
 
       <el-table
-        :data="(selectData? this.tableData2:tableData).slice((currentPage-1)*pageSize,currentPage*pageSize)"
+        
+        :data="(selectData? tableData2:tableData).slice((currentPage-1)*pageSize,currentPage*pageSize)"
         style="width: 100%"
       >
         <el-table-column
@@ -39,7 +39,7 @@
           :key="index"
           :prop="itemLabel.prop"
           :label="itemLabel.label"
-          width="220"
+          width="itemLabel.width"
         >
         </el-table-column>
       </el-table>
@@ -69,7 +69,7 @@
       >
       </el-pagination>
     </div>
-    <div>{{this.tableData2}}</div>
+    <!-- <div>{{tableData}}</div> -->
   </div>
 
 </template>

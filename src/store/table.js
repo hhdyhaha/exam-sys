@@ -16,7 +16,7 @@ export default {
         // 第二个参数由commit传入数据
         giveTableData(state, val) {
             state.tableData = val
-            // console.log(val);
+            // console.log(state.tableData);
         },
         giveTableLabel(state, val) {
             state.tableLabel = val
