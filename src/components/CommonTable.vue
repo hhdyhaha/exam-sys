@@ -1,14 +1,12 @@
 <template>
   <div>
-
     <!-- select 选择器 -->
     <div>
       <el-select
-        v-model="tableData.name"
+        v-model="value"
         placeholder="请选择姓名"
         @change="selectClick"
       >
-        <!--  -->
         <el-option
           v-for="(item,index) in optionData"
           :key="index"
@@ -30,7 +28,6 @@
        -->
 
       <el-table
-        
         :data="(selectData? tableData2:tableData).slice((currentPage-1)*pageSize,currentPage*pageSize)"
         style="width: 100%"
       >
@@ -69,62 +66,48 @@
       >
       </el-pagination>
     </div>
-    <!-- <div>{{tableData}}</div> -->
   </div>
 
 </template>
 
   <script>
-import { mapState } from "vuex";
 export default {
-  name:'commonTable',
-  data() {
-    return {
-    };
-  },
+  name: "commonTable",
+  props: [
+    "tableData",
+    "selectData",
+    "tableLabel",
+    "currentPage",
+    "total",
+    "pageSize",
+    "tableData2",
+  ],
 
   methods: {
     //每页条数改变时触发 选择一页显示多少行
     handleSizeChange(val) {
-      this.$store.commit("table/handleSizeChange", val);
+      this.currentPage = 1;
+      this.pageSize = val;
     },
     //当前页改变时触发 跳转其他页
     handleCurrentChange(val) {
-      this.$store.commit("table/handleCurrentChange", val);
+      this.currentPage = val;
     },
     // 下拉框点击时将数组进行过滤
     selectClick(val) {
-      this.$store.getters["table/selectClick"](val);
-      this.$store.commit("table/selectClick", val);
+      this.selectData = val;
+      this.tableData2 = this.tableData.filter((item) => item.name === val);
     },
   },
-  // 当一个组件需要获取多个状态的时候，将这些状态都声明为计算属性会有些重复和冗余。
-  // 为了解决这个问题，我们可以使用 mapState 辅助函数帮助我们生成计算属性，让你少按几次键：
   computed: {
-    // 列表数据
-    tableData() {
-      return this.$store.state.table.tableData;
-    },
-    // 是否点击了选择框
-    selectData() {
-      return this.$store.state.table.selectData;
-    },
     // 下拉栏数据去重
     optionData() {
-      const tableData = this.$store.state.table.tableData;
+      const tableData = this.tableData;
       const res = new Map();
       return tableData.filter(
         (tableData) => !res.has(tableData.name) && res.set(tableData.name, 1)
       );
     },
-    ...mapState({
-      // tableData:state=>state.table.tableData,
-      tableData2:(state) => state.table.tableData2,
-      tableLabel: (state) => state.table.tableLabel,
-      currentPage: (state) => state.table.currentPage,
-      total: (state) => state.table.total,
-      pageSize: (state) => state.table.pageSize,
-    }),
   },
 };
 </script>
