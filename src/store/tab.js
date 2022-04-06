@@ -20,6 +20,7 @@ export default {
     mutations: {
         // 这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
         // 第二个参数由commit传入数据
+        // 是否折叠
         collapseMenu(state, val) {
             state.isCollapse = !state.isCollapse
         },

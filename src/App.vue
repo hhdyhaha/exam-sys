@@ -10,8 +10,11 @@
       <el-header>
         <common-header />
       </el-header>
+
       <!-- 标签 -->
       <common-tag />
+
+      
       <!-- 主体 -->
       <el-main>
         <!-- keep-alive 保持组件活跃状态 -->

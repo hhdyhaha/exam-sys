@@ -103,7 +103,7 @@ export default {
       // 第一个参数（2）定义了应添加新元素的位置（拼接）。
       // 第二个参数（0）定义应删除多少元素。
       // 其余参数（“Lemon”，“Kiwi”）定义要添加的新元素。
-      console.log(tableData1);
+      // console.log(tableData1);
       this.tableData2 = tableData1;
       // this.tableData2.splice(0, this.tableData2.length, tableData1);
       this.$store.commit("table/selectClick", val);

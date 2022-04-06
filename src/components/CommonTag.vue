@@ -40,7 +40,7 @@ export default {
     //选择标签跳转路由
     changeMenu(tag) {
       this.$router.push({ name: tag.name });
-      console.log(this.tags[0].name);
+      // console.log(this.tags[0].name);
     },
     // 关闭标签
     handleClose(tag,index) {
@@ -61,6 +61,7 @@ export default {
     },
   },
   mounted() {
+    // console.log(this);
     // console.log(this.$route.meta);
     // console.log(tags);
   },
