@@ -8,6 +8,7 @@ export default {
         currentPage: 1,
         total: 20,
         pageSize: 3,
+        tableData2:[]
     },
     //准备mutations——用于操作数据（state）
     mutations: {
@@ -50,6 +51,7 @@ export default {
     },
     getters: {
         selectClick: (state) => (val) => {
+            state.tableData2 = state.tableData.filter(item=>item.name===val)
             // 使用find返回的是一个对象,使用filter返回的是一个数组,数组里面是对象
             return state.tableData.filter(item=>item.name===val)
         }

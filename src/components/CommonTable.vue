@@ -80,11 +80,6 @@ export default {
   name:'commonTable',
   data() {
     return {
-      // haha:"a",
-      // selectData1: this.$store.state.table.selectData,
-
-      // tableData: this.$store.state.table.tableData,
-      tableData2: "", //过滤后的数据
     };
   },
 
@@ -99,13 +94,7 @@ export default {
     },
     // 下拉框点击时将数组进行过滤
     selectClick(val) {
-      const tableData1 = this.$store.getters["table/selectClick"](val);
-      // 第一个参数（2）定义了应添加新元素的位置（拼接）。
-      // 第二个参数（0）定义应删除多少元素。
-      // 其余参数（“Lemon”，“Kiwi”）定义要添加的新元素。
-      // console.log(tableData1);
-      this.tableData2 = tableData1;
-      // this.tableData2.splice(0, this.tableData2.length, tableData1);
+      this.$store.getters["table/selectClick"](val);
       this.$store.commit("table/selectClick", val);
     },
   },
@@ -130,6 +119,7 @@ export default {
     },
     ...mapState({
       // tableData:state=>state.table.tableData,
+      tableData2:(state) => state.table.tableData2,
       tableLabel: (state) => state.table.tableLabel,
       currentPage: (state) => state.table.currentPage,
       total: (state) => state.table.total,
