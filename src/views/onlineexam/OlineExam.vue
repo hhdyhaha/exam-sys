@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <common-table
       :tableData="tableData"
       :selectData="selectData"
@@ -9,10 +8,26 @@
       :total="total"
       :pageSize="pageSize"
       :tableData2="tableData2"
-    />
-
+    >
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="100"
+        align="center"
+      >
+        <template slot-scope="scope">
+          <el-button
+            @click="handleClick(scope.row)"
+            type="primary"
+            size="small"
+          >去考试</el-button>
+        </template>
+      </el-table-column>
+    </common-table>
+  <router-view></router-view>
   </div>
 </template>
+
 
 <script>
 import CommonTable from "../../components/CommonTable.vue";
@@ -56,7 +71,12 @@ export default {
           this.currentPage = Number(response.data.data.currentPage);
           this.total = Number(response.data.data.total);
           this.pageSize = Number(response.data.data.pageSize);
+          this.lastLabel = this.tableLabel.pop();
         });
+    },
+    handleClick(row) {
+      console.log(row);
+      this.$router.push({ name: 'PE' });
     },
   },
 };

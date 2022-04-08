@@ -15,6 +15,7 @@ import ExamManage from '../views/exammanage/ExamManage'
 
 import SystemConfiguration from '../views/syssetup/SystemConfiguration'
 import UserManage from '../views/syssetup/UserManage'
+import PrepareExam from '../components/CommonPrepareExam.vue'
 
 
 
@@ -43,7 +44,19 @@ export default new VueRouter({
                     path: "OlineExam",
                     name: "OE",
                     component: OlineExam,
-                    meta: { title: '在线考试' }
+                    meta: { title: '在线考试' },
+                    // children:[{
+                    //     path:"PrepareExam",
+                    //     name:"PE",
+                    //     component:PrepareExam,
+                    //     meta:{title:'准备考试'}
+                    // }]
+                },
+                {
+                    path:"PrepareExam",
+                    name:"PE",
+                    component:PrepareExam,
+                    meta:{title:'准备考试'}
                 },
                 {
                     path: "MyRecords",

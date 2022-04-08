@@ -37,8 +37,11 @@
           :prop="itemLabel.prop"
           :label="itemLabel.label"
           width="itemLabel.width"
+          align="center"
         >
         </el-table-column>
+        <!-- 插槽 -->
+        <slot></slot>
       </el-table>
 
     </div>
