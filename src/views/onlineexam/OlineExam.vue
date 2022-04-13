@@ -1,32 +1,40 @@
 <template>
   <div>
-    <common-table
-      :tableData="tableData"
-      :selectData="selectData"
-      :tableLabel="tableLabel"
-      :currentPage="currentPage"
-      :total="total"
-      :pageSize="pageSize"
-      :tableData2="tableData2"
-    >
-      <el-table-column
-        fixed="right"
-        label="操作"
-        width="100"
-        align="center"
+    <!-- 三级路由视图 -->
+    <div v-if="this.$route.name==='PE'">
+      <router-view></router-view>
+    </div>
+    <!-- 二级路由数据 -->
+    <div v-else>
+      <common-table
+        :tableData="tableData"
+        :selectData="selectData"
+        :tableLabel="tableLabel"
+        :currentPage="currentPage"
+        :total="total"
+        :pageSize="pageSize"
+        :tableData2="tableData2"
       >
-        <template slot-scope="scope">
-          <el-button
-            @click="handleClick(scope.row)"
-            type="primary"
-            size="small"
-          >去考试</el-button>
-        </template>
-      </el-table-column>
-    </common-table>
-  <router-view></router-view>
+        <el-table-column
+          fixed="right"
+          label="操作"
+          width="100"
+          align="center"
+        >
+          <template slot-scope="scope">
+            <el-button
+              @click="handleClick(scope.row)"
+              type="primary"
+              size="small"
+            >去考试</el-button>
+          </template>
+        </el-table-column>
+      </common-table>
+    </div>
+
   </div>
 </template>
+
 
 
 <script>
@@ -75,10 +83,11 @@ export default {
         });
     },
     handleClick(row) {
-      console.log(row);
-      this.$router.push({ name: 'PE' });
+      // console.log(this.$route);
+      this.$router.push({ name: "PE" });
     },
   },
+
 };
 </script>
 

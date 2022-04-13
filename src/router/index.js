@@ -43,21 +43,22 @@ export default new VueRouter({
                 {
                     path: "OlineExam",
                     name: "OE",
+                    
                     component: OlineExam,
                     meta: { title: '在线考试' },
-                    // children:[{
-                    //     path:"PrepareExam",
-                    //     name:"PE",
-                    //     component:PrepareExam,
-                    //     meta:{title:'准备考试'}
-                    // }]
+                    children:[{
+                        path:"PrepareExam",
+                        name:"PE",
+                        component:PrepareExam,
+                        meta:{title:'准备考试'}
+                    }]
                 },
-                {
-                    path:"PrepareExam",
-                    name:"PE",
-                    component:PrepareExam,
-                    meta:{title:'准备考试'}
-                },
+                // {
+                //     path:"PrepareExam",
+                //     name:"PE",
+                //     component:PrepareExam,
+                //     meta:{title:'准备考试'}
+                // },
                 {
                     path: "MyRecords",
                     name: "MR",
