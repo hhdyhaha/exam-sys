@@ -69,9 +69,16 @@ export default {
               url: "Other/PageOne",
             },
             {
-              path: "/MyRecords",
+              path: "MyRecords",
               name: "MR",
               label: "我的成绩",
+              icon: "setting",
+              url: "Other/PageTwo",
+            },
+            {
+              path: "PrepareExam",
+              name: "PE",
+              label: "准备考试",
               icon: "setting",
               url: "Other/PageTwo",
             },

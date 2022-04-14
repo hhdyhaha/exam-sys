@@ -22,6 +22,18 @@ VueRouter.prototype.push = function push(location) {
 // 使用VueRouter
 Vue.use(VueRouter)
 Vue.use(less)
+
+
+// 导航守卫
+// router.beforeEach((to,from,next)=>{
+//   console.log(to);
+// 	if(to.name==='CE'){
+// 		next({name:'CE'})
+// 	}else{
+// 		next()
+// 	}
+// })
+
 new Vue({
   render: h => h(App),
   router:router,

@@ -71,6 +71,7 @@ export default {
 <style lang="less" scoped>
 .tag {
   padding: 20px;
+  padding-bottom: 0px;
   // cursor 属性规定要显示的光标的类型（形状）。
   .el-tag {
     margin-right: 15px;
