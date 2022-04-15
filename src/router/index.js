@@ -16,6 +16,7 @@ import ExamManage from '../views/exammanage/ExamManage'
 import SystemConfiguration from '../views/syssetup/SystemConfiguration'
 import UserManage from '../views/syssetup/UserManage'
 import PrepareExam from '../components/CommonPrepareExam.vue'
+import CommonExam from '../components/CommonExam.vue'
 
 
 
@@ -31,27 +32,34 @@ export default new VueRouter({
             path: '/',
             name: 'home',
             component: home,
-            meta: { title: '首页' }
+            meta: { title: '首页' ,keepalive:true}
         },
         // 在线考试
         {
             path: '/online',
             name: 'ol',
             component:main,
-            meta: { title: '在线考试' },
+            meta: { title: '在线考试',keepalive:true },
             children: [
                 {
                     path: "OlineExam",
                     name: "OE",
                     
                     component: OlineExam,
-                    meta: { title: '在线考试' },
+                    meta: { title: '在线考试' ,keepalive:true},
                     children:[{
                         path:"PrepareExam",
                         name:"PE",
                         component:PrepareExam,
-                        meta:{title:'准备考试'}
-                    }]
+                        meta:{title:'准备考试',keepalive:true}
+                    },
+                    {
+                        path:"CommonExam",
+                        name:"CE",
+                        component:CommonExam,
+                        meta:{title:'开始考试',keepalive:false}
+                    }
+                ]
                 },
                 // {
                 //     path:"PrepareExam",
@@ -63,7 +71,7 @@ export default new VueRouter({
                     path: "MyRecords",
                     name: "MR",
                     component: MyRecords,
-                    meta: { title: '我的成绩' }
+                    meta: { title: '我的成绩',keepalive:true }
 
                 },
             ]
@@ -81,21 +89,21 @@ export default new VueRouter({
                     path: "QuestionBank",
                     name: "QB",
                     component: QuestionBank,
-                    meta: { title: '题库' }
+                    meta: { title: '题库' ,keepalive:true}
                 },
 
                 {
                     path: "QuestionManage",
                     name: "QM",
                     component: QuestionManage,
-                    meta: { title: '试题管理' }
+                    meta: { title: '试题管理',keepalive:true }
                 },
 
                 {
                     path: "ExamManage",
                     name: "EM",
                     component: ExamManage,
-                    meta: { title: '考试管理' }
+                    meta: { title: '考试管理',keepalive:true }
                 },
             ]
         },
@@ -107,20 +115,20 @@ export default new VueRouter({
             path: '/sys',
             name: 'sys',
             component:main,
-            meta: { title: '系统设置' },
+            meta: { title: '系统设置' ,keepalive:true},
             children: [
                 {
                     path: "SystemConfiguration",
                     name: "SC",
                     component: SystemConfiguration,
-                    meta: { title: '系统配置' }
+                    meta: { title: '系统配置',keepalive:true }
                 },
 
                 {
                     path: "UserManage",
                     name: "UM",
                     component: UserManage,
-                    meta: { title: '用户管理' }
+                    meta: { title: '用户管理',keepalive:true }
                 }
             ]
         },

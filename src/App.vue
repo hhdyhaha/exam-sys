@@ -1,32 +1,33 @@
 <template>
-  <el-container>
-    <!-- 侧边 -->
-    <!-- width="auto" 可使侧边栏打开关闭不受到宽度限制 -->
-    <el-aside width="auto">
-      <common-aside />
-    </el-aside>
-    <el-container>
-      <!-- 头 -->
-      <el-header>
-        <common-header />
-      </el-header>
+  <div id="app">
+    <el-container v-if="$route.meta.keepalive">
+      <!-- 侧边 -->
+      <!-- width="auto" 可使侧边栏打开关闭不受到宽度限制 -->
+      <el-aside width="auto">
+        <common-aside />
+      </el-aside>
+      <el-container>
+        <!-- 头 -->
+        <el-header>
+          <common-header />
+        </el-header>
 
-      <!-- 标签 -->
-      <common-tag />
+        <!-- 标签 -->
+        <common-tag />
 
-      
-      <!-- 主体 -->
-      <el-main>
-        <!-- keep-alive 保持组件活跃状态 -->
-        <keep-alive>
-        <!-- 将主体的模板换成由router-view控制 -->
-        <router-view></router-view>
-        </keep-alive>
-        
-
-      </el-main>
+        <!-- 主体 -->
+        <el-main>
+          <!-- keep-alive 保持组件活跃状态 -->
+          <keep-alive>
+            <!-- 将主体的模板换成由router-view控制 -->
+            <router-view></router-view>
+          </keep-alive>
+        </el-main>
+      </el-container>
     </el-container>
-  </el-container>
+    <router-view v-if="!$route.meta.keepalive"></router-view>
+  </div>
+
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 三级路由视图 -->
-    <div v-if="this.$route.name==='PE'">
+    <div v-if="this.$route.name==='PE' || this.$route.name==='CE'">
       <router-view></router-view>
     </div>
     <!-- 二级路由数据 -->
