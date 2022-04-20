@@ -70,6 +70,16 @@
             </div>
           </el-card>
         </div>
+        <div style="margin-top: 20px">
+          <el-button  type="primary" icon="el-icon-back" @click="handPrevious()">
+            上一题
+          </el-button>
+
+          <el-button  type="warning" icon="el-icon-right" @click="handNext()">
+            下一题
+          </el-button>
+
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -96,7 +106,7 @@ export default {
   padding: 20px 20px 20px 0px;
 }
 .r-main {
-  padding: 20px 0px 20px 0px;
+  padding: 20px 0px 0px 0px;
 }
 .card-title {
   background: #eee;
