@@ -86,15 +86,56 @@
 </template>
 
 <script>
+// axios.<method> 能够提供自动完成和参数类型推断功能
+const axios = require("axios").default;
 export default {
   data () {
       return {
-        radio1: '北京',
+        radio1: '上海',
         radio2: '上海',
         radio3: '上海',
         radio4: '上海'
       };
-    }
+    },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      axios
+        .post(
+          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
+          // "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText",
+          {
+            
+            id:"119"
+            
+          },
+          // {
+          //   headers:{
+          //     "_token":
+          //       "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
+              
+          //   },
+           
+          // }
+        )
+        // 箭头函数解决vue axios 数据（data）赋值问题
+        .then((response) => {
+          console.log('haha');
+          // this.tableData = response.data.data.tableData;
+          // this.tableLabel = response.data.data.tableLabel;
+          // this.currentPage = Number(response.data.data.currentPage);
+          // this.total = Number(response.data.data.total);
+          // this.pageSize = Number(response.data.data.pageSize);
+          // this.lastLabel = this.tableLabel.pop();
+        })
+        .catch((e) => {
+          console.log(e)
+        });
+    },
+  },
+  
 };
 </script>
 
