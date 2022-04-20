@@ -61,11 +61,11 @@
           >
             <p>关于Python的编程环境，下列的哪个表述是正确的？</p>
             <div class="option-radio-button">
-              <el-radio-group v-model="radio1" >
-              <el-radio class="radio-button" label="上海">A.Python的编程环境是图形化的；</el-radio>
-              <el-radio class="radio-button" label="北京">B.Python只有一种编程环境ipython；</el-radio>
-              <el-radio class="radio-button" label="广州">C.Python自带的编程环境是IDLE；</el-radio>
-              <el-radio class="radio-button" label="深圳">D.用windows自带的文本编辑器也可以给Python编程，并且也可以在该编辑器下运行；</el-radio>
+              <el-radio-group v-model="radio1">
+              <el-radio  class="radio-button1" label="上海">A.Python的编程环境是图形化的；</el-radio>
+              <el-radio  class="radio-button1" label="北京">B.Python只有一种编程环境ipython；</el-radio>
+              <el-radio  class="radio-button1" label="广州">C.Python自带的编程环境是IDLE；</el-radio>
+              <el-radio  class="radio-button1" label="深圳">D.用windows自带的文本编辑器也可以给Python编程，并且也可以在该编辑器下运行；</el-radio>
             </el-radio-group>
             </div>
           </el-card>
@@ -79,7 +79,7 @@
 export default {
   data () {
       return {
-        radio1: '上海',
+        radio1: '北京',
         radio2: '上海',
         radio3: '上海',
         radio4: '上海'
@@ -88,7 +88,7 @@ export default {
 };
 </script>
 
-<style lang="less" >
+<style lang="less" scope>
 .CommonExam {
   padding: 20px;
 }
@@ -115,7 +115,7 @@ export default {
   }
 }
 
-.radio-button{
+.radio-button1{
   width:80%;
   display: inline-block;
   padding: 9px 20px 9px 10px;
@@ -128,7 +128,11 @@ export default {
   white-space: nowrap;
 }
 // 去除radio小圆点 在全局css样式中写样式（在组件的局部样式中写似乎不起作用）
-.el-radio__input{
+#defaultImages .el-radio__input{
     display: none;
 }
+// 修改边框label高度
+.el-radio__label{
+    line-height: 30px;
+  }
 </style>
