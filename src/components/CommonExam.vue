@@ -59,24 +59,35 @@
             class="box-card"
             shadow="always"
           >
-            <p>关于Python的编程环境，下列的哪个表述是正确的？</p>
-            <div class="option-radio-button">
-              <el-radio-group v-model="radio1">
-              <el-radio  class="radio-button1" label="上海">A.Python的编程环境是图形化的；</el-radio>
-              <el-radio  class="radio-button1" label="北京">B.Python只有一种编程环境ipython；</el-radio>
-              <el-radio  class="radio-button1" label="广州">C.Python自带的编程环境是IDLE；</el-radio>
-              <el-radio  class="radio-button1" label="深圳">D.用windows自带的文本编辑器也可以给Python编程，并且也可以在该编辑器下运行；</el-radio>
-            </el-radio-group>
+            <!-- 将题目数组里面的对象循环出来 -->
+            <div class="option-radio-button" v-for="question in questionList" :key="question.id">
+              <!-- 单选题 题目 判断之后显示-->
+              <p v-if="question.id-2265===num && question.type==='1'">{{question.id-2264}}.{{questionList[num].title}}</p>
+              <!-- 选项 -->
+              <div v-if="question.id-2265===num && question.type==='1'"> <!--判断是第几题的选项-->
+                <el-radio-group class="radio-button1" v-model="userAnswer[num]" v-for="(option,index) in question.optionList" :key="index" @change="userSelect">
+                  <el-radio  :label="option.id">{{option.id}}. {{option.content}}</el-radio>
+                </el-radio-group>
+              </div>
+              <!-- 判断题 -->
+              <div v-else-if="question.id-2265===num && question.type==='3'">
+                {{question.id-2264}}.{{questionList[num].title}}<br>
+                <el-radio-group  v-model="userAnswer[num]"  @change="userSelect">
+                  <el-radio class="radio-button1"  :label="true" style="margin-top:20px;width:30%;text-align:center">正确</el-radio>
+                  <el-radio class="radio-button1"  :label="false" style="width:30%;text-align:center">错误</el-radio>
+                </el-radio-group>
+              </div>
+              
             </div>
           </el-card>
         </div>
         <div style="margin-top: 20px">
-          <el-button  type="primary" icon="el-icon-back" @click="handPrevious()">
+          <el-button  type="primary" icon="el-icon-back" @click="handPrevious()" :disabled="preDisabled">
             上一题
           </el-button>
 
-          <el-button  type="warning" icon="el-icon-right" @click="handNext()">
-            下一题
+          <el-button  type="warning" icon="el-icon-right" @click="handNext()" :disabled="nextDisabled">
+            下一题{{num}}
           </el-button>
 
         </div>
@@ -91,10 +102,30 @@ const axios = require("axios").default;
 export default {
   data () {
       return {
-        radio1: '上海',
-        radio2: '上海',
-        radio3: '上海',
-        radio4: '上海'
+        // // 题目编号
+        // id:'',
+        // // 题目
+        // title:'',
+        // //答案数组
+        // optionList:[],
+        // //正确答案
+        // answer:'',
+        // // 是否展示答案
+        // showAnswer:false,
+        // // 是否是图片
+        // optionImgFlag:false,
+        //用户回答
+        userAnswer:[],
+        // //题型 1 单选 3 判断
+        // type:'1',
+        // 问题列表
+        questionList:[],
+        // 第几题
+        num:0,
+        //上禁用按钮
+        preDisabled: true, 
+        //下禁用按钮
+        nextDisabled: false, 
       };
     },
   mounted() {
@@ -105,37 +136,59 @@ export default {
       axios
         .post(
           "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-          // "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText",
           {
-            
-            id:"119"
-            
+            id:"119"   
           },
-          // {
-          //   headers:{
-          //     "_token":
-          //       "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-              
-          //   },
-           
-          // }
         )
         // 箭头函数解决vue axios 数据（data）赋值问题
         .then((response) => {
-          console.log('haha');
-          // this.tableData = response.data.data.tableData;
-          // this.tableLabel = response.data.data.tableLabel;
-          // this.currentPage = Number(response.data.data.currentPage);
-          // this.total = Number(response.data.data.total);
-          // this.pageSize = Number(response.data.data.pageSize);
-          // this.lastLabel = this.tableLabel.pop();
+          const questionList = response.data.data.questionList
+          // console.log(questionList);
+          this.questionList = questionList
         })
         .catch((e) => {
           console.log(e)
         });
     },
+    // 上一题
+    handPrevious(){
+      if (this.num === 0) {
+        this.num = 0;
+      } else {
+        this.num -= 1;
+      }
+    },
+    // 下一题
+    handNext(){
+      this.preDisabled = false;
+      if(this.num<this.questionList.length-1){
+        this.num+=1
+      }
+    },
+    // 用户选择 传的是label的值
+    userSelect(val){
+      console.log(val);
+      // 将数据类型改为数组,可以直接使用索引存入
+      // this.userAnswer.push(val)
+      console.log(this.userAnswer);
+    }
   },
-  
+  // 监视按钮
+  watch: {
+    //第一题和最后一题禁用按钮
+    num(now, old) {
+      // console.log(now);
+      if (now == this.questionList.length - 1) {
+        this.nextDisabled = true;
+      } else {
+        this.nextDisabled = false;
+      }
+      if (now < 1) {
+        this.preDisabled = true;
+      }
+    }
+  }
+
 };
 </script>
 
