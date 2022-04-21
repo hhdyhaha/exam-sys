@@ -17,6 +17,7 @@
       </el-col>
     </el-row>
     <!-- 一行两列 -->
+    <!-- 左侧 题目序号 -->
     <el-row id="defaultImages">
       <el-col :span="6">
         <div class="l-main">
@@ -27,20 +28,16 @@
           >
             <!-- 单选题 -->
             <p class="card-title">单选题</p>
-            <div class="tags">
-              <el-tag type="info">1</el-tag>
-              <el-tag type="success">2</el-tag>
-              <el-tag type="info">3</el-tag>
-              <el-tag type="info">4</el-tag>
-              <el-tag type="info">5</el-tag>
+            <div class="tags" style="">
+            <el-tag class="tag" :type="tagClass(question.id-2264)" v-for="question in questionList" :key="question.id" effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
             </div>
 
             <!-- 多选题 -->
-            <p class="card-title">多选题</p>
+            <!-- <p class="card-title">多选题</p>
             <div class="tags">
               <el-tag type="info">6</el-tag>
               <el-tag type="success">7</el-tag>
-            </div>
+            </div> -->
 
             <!-- 判断题 -->
             <p class="card-title">判断题</p>
@@ -52,6 +49,7 @@
 
         </div>
       </el-col>
+      <!-- 题目 -->
       <el-col :span="18">
         <div class="r-main">
           <!-- 卡片 -->
@@ -167,23 +165,39 @@ export default {
     },
     // 用户选择 传的是label的值
     userSelect(val){
-      console.log(val);
+      // console.log(val);
       // 将数据类型改为数组,可以直接使用索引存入
       // this.userAnswer.push(val)
-      console.log(this.userAnswer);
+      // console.log(this.userAnswer);
+    },
+    // tag颜色
+    tagClass(id){
+      if(id===this.num+1){
+        return ''
+      }else{
+        return 'info'
+      }
+      // console.log(id);
+    },
+    // 如果id盒num不一致,则切换为一致的
+    handleTag(id){
+      // console.log(question);
+      if(id!==this.num+1){
+        this.num=id-1
+      }
     }
   },
   // 监视按钮
   watch: {
     //第一题和最后一题禁用按钮
     num(now, old) {
-      // console.log(now);
+      console.log(now);
       if (now == this.questionList.length - 1) {
         this.nextDisabled = true;
       } else {
         this.nextDisabled = false;
       }
-      if (now < 1) {
+      if (now < 0) {
         this.preDisabled = true;
       }
     }
@@ -210,12 +224,23 @@ export default {
 }
 
 .tags {
-  padding: 0px 20px 20px 0px;
+  display: flex;
+  justify-content: flex-start;
+  // align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 20px 20px 20px;
   padding-bottom: 0px;
   // cursor 属性规定要显示的光标的类型（形状）。
-  .el-tag {
-    margin-right: 15px;
+  .tag {
+    width:28px;
+    height:28px;
+    margin-right:15px;
     cursor: pointer;
+    margin-top:20px;
+    text-align:center;
+    font-size:12px;
+    padding: 0px;
+    margin-top:10px;
   }
 }
 
@@ -231,6 +256,10 @@ export default {
   margin-right: 30px;
   white-space: nowrap;
 }
+// #defaultImages{
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 // 去除radio小圆点 在全局css样式中写样式（在组件的局部样式中写似乎不起作用）
 #defaultImages .el-radio__input{
     display: none;
