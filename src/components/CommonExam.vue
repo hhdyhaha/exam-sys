@@ -197,8 +197,10 @@ export default {
       } else {
         this.nextDisabled = false;
       }
-      if (now < 0) {
+      if (now < 1) {
         this.preDisabled = true;
+      }else{
+        this.preDisabled = false;
       }
     }
   }
