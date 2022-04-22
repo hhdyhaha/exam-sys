@@ -26,10 +26,16 @@
             class="box-card"
             shadow="always"
           >
+            <!-- 是否作答 -->
+            <p class="card-title">答题卡</p>
+            <el-row :gutter="24" class="card-line" style="padding-left: 10px;">
+              <el-tag type="info">未作答</el-tag>
+              <el-tag type="success">已作答</el-tag>
+            </el-row>
             <!-- 单选题 -->
             <p class="card-title">单选题</p>
             <div class="tags" style="">
-            <el-tag class="tag" :type="tagClass(question.id-2264)" v-for="question in questionList" :key="question.id" effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
+            <el-tag class="tag" :type="tagClass(question.id-2265)" v-for="question in questionList" :key="question.id" effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
             </div>
 
             <!-- 多选题 -->
@@ -165,23 +171,34 @@ export default {
     },
     // 用户选择 传的是label的值
     userSelect(val){
-      // console.log(val);
+      console.log(val);
       // 将数据类型改为数组,可以直接使用索引存入
       // this.userAnswer.push(val)
       // console.log(this.userAnswer);
+      // 点击完选项之后自动跳到下一题
+      this.num+=1
     },
     // tag颜色
     tagClass(id){
-      if(id===this.num+1){
+      // console.log(this.userAnswer);
+      for (const key in this.userAnswer) {
+        if (id===Number(key)) {
+          // console.log(id);
+          // console.log(key);
+          return 'success'
+          
+        }
+      }
+
+      if(id===this.num){
         return ''
       }else{
         return 'info'
       }
-      // console.log(id);
+
     },
     // 如果id盒num不一致,则切换为一致的
     handleTag(id){
-      // console.log(question);
       if(id!==this.num+1){
         this.num=id-1
       }
@@ -191,7 +208,7 @@ export default {
   watch: {
     //第一题和最后一题禁用按钮
     num(now, old) {
-      console.log(now);
+      // console.log(now);
       if (now == this.questionList.length - 1) {
         this.nextDisabled = true;
       } else {
@@ -214,6 +231,10 @@ export default {
 }
 .l-main {
   padding: 20px 20px 20px 0px;
+  .card-line{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .r-main {
   padding: 20px 0px 0px 0px;
@@ -270,4 +291,6 @@ export default {
 .el-radio__label{
     line-height: 30px;
   }
+
+
 </style>
