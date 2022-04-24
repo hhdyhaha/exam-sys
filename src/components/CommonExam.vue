@@ -5,12 +5,14 @@
       <el-col :span="24">
 
         <el-card shadow="always">
-          <span>距离考试结束还有: 1小时</span>
+          <!-- <span>距离考试结束还有: 1小时</span> -->
+          <span>距离考试结束还有:  {{ `${hr}: ${min}: ${sec}` }}</span>
           <el-button
             class="submitExam"
             type="primary"
             size="small"
             style="float:right ;margin-top:-5px"
+            @click="open"
           >交卷</el-button>
         </el-card>
 
@@ -130,10 +132,18 @@ export default {
         preDisabled: true, 
         //下禁用按钮
         nextDisabled: false, 
+        // 时间
+        isshow1: true,
+        time: '',
+        hr: 3,
+        min: 30,
+        sec: 0,
       };
     },
   mounted() {
     this.getData();
+    this.begin()
+    this.countdown()
   },
   methods: {
     getData() {
@@ -202,7 +212,72 @@ export default {
       if(id!==this.num+1){
         this.num=id-1
       }
+    },
+    // 计时器
+    begin() {
+        // 点击按钮后开始计算指定长度的时间
+        this.time = (Date.parse(new Date()) + ((1 * 60 * 60)) * 1000);
+        // 开始执行倒计时
+        this.countdown();
+        // 更换按钮，根据情况选择v-if或v-show
+        this.isshow1 = false;
+
+        this.$message({
+            type: 'success',
+            message: '开始答题'
+        });
+    },
+    countdown() {
+        const end = this.time; // 定义结束时间
+        const now = Date.parse(new Date()); // 获取本地时间
+        const msec = end - now; // 定义总共所需的时间
+        // 将时间戳进行格式化
+        let hr = parseInt(msec / 1000 / 60 / 60 % 24);
+        let min = parseInt(msec / 1000 / 60 % 60);
+        let sec = parseInt(msec / 1000 % 60);
+        // 倒计时结束时的操作
+        const that = this;
+        if (this.hr == 0 && this.min == 0 && this.sec == 0) {
+            console.log('时间已经结束，答题完毕');
+            this.hr = 1;
+            this.min = 0;
+            this.sec = 0;
+        } else {
+            // 如时间未归零则继续在一秒后执行
+            this.hr = hr > 9 ? hr : '0' + hr;
+            this.min = min > 9 ? min : '0' + min;
+            this.sec = sec > 9 ? sec : '0' + sec;
+            setTimeout(that.countdown, 1000)
+        }
+    },
+    open() {
+        this.$confirm('即将结束答题, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+        }).then((action) => {
+            // eleUI的确定结束回调函数方法
+            if (action === 'confirm') {
+                this.hr = 0;
+                this.min = 0;
+                this.sec = 0;
+                console.log(this.hr + ',' + this.min + ',' + this.sec);
+                this.isshow1 = true;
+            }
+            this.$message({
+                type: 'success',
+                message: '交卷成功!'
+            });
+        }).catch(() => {
+            // 点击取消后
+            this.$message({
+                type: 'info',
+                message: '已取消交卷'
+            });
+        });
+
     }
+    
   },
   // 监视按钮
   watch: {
