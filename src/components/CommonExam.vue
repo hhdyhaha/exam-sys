@@ -138,6 +138,8 @@ export default {
         hr: 3,
         min: 30,
         sec: 0,
+        // 答题开始时间
+        now:''
       };
     },
   mounted() {
@@ -181,7 +183,7 @@ export default {
     },
     // 用户选择 传的是label的值
     userSelect(val){
-      console.log(val);
+      // console.log(val);
       // 将数据类型改为数组,可以直接使用索引存入
       // this.userAnswer.push(val)
       // console.log(this.userAnswer);
@@ -231,6 +233,8 @@ export default {
         const end = this.time; // 定义结束时间
         const now = Date.parse(new Date()); // 获取本地时间
         const msec = end - now; // 定义总共所需的时间
+        // 试卷创建时间
+        this.now=now
         // 将时间戳进行格式化
         let hr = parseInt(msec / 1000 / 60 / 60 % 24);
         let min = parseInt(msec / 1000 / 60 % 60);
@@ -238,6 +242,7 @@ export default {
         // 倒计时结束时的操作
         const that = this;
         if (this.hr == 0 && this.min == 0 && this.sec == 0) {
+            // console.log(this.now);
             console.log('时间已经结束，答题完毕');
             this.hr = 1;
             this.min = 0;
@@ -258,22 +263,31 @@ export default {
         }).then((action) => {
             // eleUI的确定结束回调函数方法
             if (action === 'confirm') {
+              console.log(this.hr + ',' + this.min + ',' + this.sec);
                 this.hr = 0;
                 this.min = 0;
                 this.sec = 0;
-                console.log(this.hr + ',' + this.min + ',' + this.sec);
+                // console.log(this.hr + ',' + this.min + ',' + this.sec);
                 this.isshow1 = true;
             }
             this.$message({
                 type: 'success',
                 message: '交卷成功!'
+                
             });
+            // 路由跳转
+            this.$router.push({ name: 'CSE'})
+            // vuex数据提交
+            this.$store.commit('showexam/examSave',[this.userAnswer,this.questionList,this.now])
+            console.log('haha');
+
         }).catch(() => {
             // 点击取消后
             this.$message({
                 type: 'info',
                 message: '已取消交卷'
             });
+            console.log('xixi');
         });
 
     }

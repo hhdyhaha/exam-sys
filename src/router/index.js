@@ -17,6 +17,7 @@ import SystemConfiguration from '../views/syssetup/SystemConfiguration'
 import UserManage from '../views/syssetup/UserManage'
 import PrepareExam from '../components/CommonPrepareExam.vue'
 import CommonExam from '../components/CommonExam.vue'
+import CommonShowExam from '../components/CommonShowExam.vue'
 
 
 
@@ -71,7 +72,15 @@ export default new VueRouter({
                     path: "MyRecords",
                     name: "MR",
                     component: MyRecords,
-                    meta: { title: '我的成绩',keepalive:true }
+                    meta: { title: '我的成绩',keepalive:true },
+                    children:[
+                        {
+                            path:"CommonShowExam",
+                            name:"CSE",
+                            component:CommonShowExam,
+                            meta:{title:'考试结果',keepalive:true}
+                        }
+                    ]
 
                 },
             ]
