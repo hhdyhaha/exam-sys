@@ -263,7 +263,7 @@ export default {
         }).then((action) => {
             // eleUI的确定结束回调函数方法
             if (action === 'confirm') {
-              console.log(this.hr + ',' + this.min + ',' + this.sec);
+              // console.log(this.hr + ',' + this.min + ',' + this.sec);
                 this.hr = 0;
                 this.min = 0;
                 this.sec = 0;
@@ -279,7 +279,10 @@ export default {
             this.$router.push({ name: 'CSE'})
             // vuex数据提交
             this.$store.commit('showexam/examSave',[this.userAnswer,this.questionList,this.now])
-            console.log('haha');
+            // console.log('haha');
+            var moment = require('moment');
+            // moment().format();
+            console.log( moment());
 
         }).catch(() => {
             // 点击取消后
@@ -287,7 +290,7 @@ export default {
                 type: 'info',
                 message: '已取消交卷'
             });
-            console.log('xixi');
+            // console.log('xixi');
         });
 
     }
