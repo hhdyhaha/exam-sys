@@ -6,7 +6,8 @@
 
         <el-card shadow="always">
           <!-- <span>距离考试结束还有: 1小时</span> -->
-          <span>距离考试结束还有:  {{ `${hr}: ${min}: ${sec}` }}</span>
+          <!-- <span>距离考试结束还有:  {{ `${hr}: ${min}: ${sec}` }}</span> -->
+          <span>距离考试结束还有:  {{ `${time}` }}</span>
           <el-button
             class="submitExam"
             type="primary"
@@ -133,19 +134,25 @@ export default {
         //下禁用按钮
         nextDisabled: false, 
         // 时间
-        isshow1: true,
+
         time: '',
         hr: 3,
         min: 30,
         sec: 0,
         // 答题开始时间
-        now:''
+        now:'',
+        // 答题结束时间
+        end:'',
+        // 手动交卷用时
+        handleTime:'',
+        // 定时器
+        timer:""
       };
     },
   mounted() {
     this.getData();
     this.begin()
-    this.countdown()
+    // this.countdown()
   },
   methods: {
     getData() {
@@ -220,6 +227,7 @@ export default {
         // 点击按钮后开始计算指定长度的时间
         this.time = (Date.parse(new Date()) + ((1 * 60 * 60)) * 1000);
         // 开始执行倒计时
+        this.secTime()
         this.countdown();
         // 更换按钮，根据情况选择v-if或v-show
         this.isshow1 = false;
@@ -229,31 +237,62 @@ export default {
             message: '开始答题'
         });
     },
+    secTime(){
+      var moment = require('moment');
+      const now = moment(); //当前时间
+      const end = moment().add(10, 'seconds');
+      //秒
+      const sec = end.diff(now,"seconds");
+      //分钟
+      const min = (sec/60);
+      //小时
+      const hr = (min/60);
+      this.sec = sec
+      // console.log(typeof(sec));
+      // const sec1 = moment.duration(sec, 'seconds');
+      // console.log(typeof(sec1.minutes()));
+      // 试卷创建时间
+      this.now=now
+    },
     countdown() {
-        const end = this.time; // 定义结束时间
-        const now = Date.parse(new Date()); // 获取本地时间
-        const msec = end - now; // 定义总共所需的时间
-        // 试卷创建时间
-        this.now=now
-        // 将时间戳进行格式化
-        let hr = parseInt(msec / 1000 / 60 / 60 % 24);
-        let min = parseInt(msec / 1000 / 60 % 60);
-        let sec = parseInt(msec / 1000 % 60);
-        // 倒计时结束时的操作
-        const that = this;
-        if (this.hr == 0 && this.min == 0 && this.sec == 0) {
-            // console.log(this.now);
-            console.log('时间已经结束，答题完毕');
-            this.hr = 1;
-            this.min = 0;
-            this.sec = 0;
-        } else {
-            // 如时间未归零则继续在一秒后执行
-            this.hr = hr > 9 ? hr : '0' + hr;
-            this.min = min > 9 ? min : '0' + min;
-            this.sec = sec > 9 ? sec : '0' + sec;
-            setTimeout(that.countdown, 1000)
-        }
+      var moment = require('moment');
+      // 将sec转化为时分秒格式
+      const time = moment.utc(this.sec*1000).format('HH:mm:ss')
+      this.time = time
+      // console.log(this.sec);
+      // 倒计时结束时的操作
+      // const that = this;
+      if (this.sec == 0) {
+          // console.log(this.now);
+          // 路由跳转
+          this.$router.push({ name: 'CSE'})
+          // vuex数据提交
+          this.$store.commit('showexam/examSave',[this.userAnswer,this.questionList,this.now,this.handleTime])
+          // 调用考试用时
+          this.handleTime1()
+          // 提示交卷成功
+          this.$message({
+                type: 'success',
+                message: '交卷成功!'
+                
+            });
+          console.log('时间已经结束，答题完毕');
+          this.hr = 1;
+          this.min = 0;
+          this.sec = 0;
+      } else {
+          // 如时间未归零则继续在一秒后执行
+          this.sec--;
+          this.timer = setTimeout(this.countdown, 1000)
+      }
+    },
+    // 考试用时
+    handleTime1(){
+      var moment = require('moment');
+      const handleEndTime = moment(); //结束时间
+      const handleTime = handleEndTime.diff(this.now,"seconds");
+      this.handleTime = handleTime
+      // console.log(this.handleTime);
     },
     open() {
         this.$confirm('即将结束答题, 是否继续?', '提示', {
@@ -263,12 +302,15 @@ export default {
         }).then((action) => {
             // eleUI的确定结束回调函数方法
             if (action === 'confirm') {
-              // console.log(this.hr + ',' + this.min + ',' + this.sec);
-                this.hr = 0;
-                this.min = 0;
-                this.sec = 0;
-                // console.log(this.hr + ',' + this.min + ',' + this.sec);
-                this.isshow1 = true;
+              // 调用考试用时
+              this.handleTime1()
+             
+              // this.hr = 0;
+              // this.min = 0;
+              this.sec = 0;
+              // this.isshow1 = true;
+              // 结束计时器
+              clearTimeout(this.timer);
             }
             this.$message({
                 type: 'success',
@@ -278,11 +320,8 @@ export default {
             // 路由跳转
             this.$router.push({ name: 'CSE'})
             // vuex数据提交
-            this.$store.commit('showexam/examSave',[this.userAnswer,this.questionList,this.now])
+            this.$store.commit('showexam/examSave',[this.userAnswer,this.questionList,this.now,this.handleTime])
             // console.log('haha');
-            var moment = require('moment');
-            // moment().format();
-            console.log( moment());
 
         }).catch(() => {
             // 点击取消后

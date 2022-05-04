@@ -1,32 +1,32 @@
 <template>
   <div>
-    <h2 class="text-center">演示考试</h2>
+    <h2 class="text-center" style="text-align:center;">演示考试</h2>
+    <p style="text-align:center;">试卷创建时间:&nbsp;{{nowtime}}</p>
     <el-row
     id="defaultImages"
       :gutter="24"
-      style="margin-top: 50px"
     >
       <el-col
         :span="8"
         class="text-center"
       >
-        考生姓名：haha
+        考生姓名&nbsp;haha
       </el-col>
       <el-col
         :span="8"
         class="text-center"
       >
-        考试用时：1分钟
+        考试用时:&nbsp;{{handleTime}}
       </el-col>
       <el-col
         :span="8"
         class="text-center"
       >
-        考试得分：15
+        考试得分&nbsp;15
       </el-col>
     </el-row>
 
-    <el-card>
+    <el-card style="margin-top:20px">
       <!-- 将题目数组里面的对象循环出来 -->
             <div class="option-radio-button" v-for="question in questionList" :key="question.id">
               <!-- 单选题 题目 判断之后显示-->
@@ -61,7 +61,10 @@ export default {
     ...mapState({
       userAnswer: (state) => state.showexam.userAnswer,
       questionList: (state) => state.showexam.questionList,
+      // 创建时间
       nowtime: (state) => state.showexam.nowtime,
+      // 考试用时
+      handleTime: (state) => state.showexam.handleTime,
     }),
   },
 };
@@ -78,6 +81,17 @@ export default {
   margin-right: 30px;
   white-space: nowrap;
 }
-// 去除radio小圆点 在全局css样式中写样式（在组件的局部样式中写似乎不起作用）
+.el-row{
+  width: 100%;
+  height: 18px;
+  margin-top:50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .el-col{
+    text-align: center;
+  }
+  
+}
 
 </style>
