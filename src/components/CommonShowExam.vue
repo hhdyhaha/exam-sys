@@ -10,7 +10,7 @@
         :span="8"
         class="text-center"
       >
-        考生姓名&nbsp;haha
+        考生姓名:&nbsp;haha
       </el-col>
       <el-col
         :span="8"
@@ -22,7 +22,7 @@
         :span="8"
         class="text-center"
       >
-        考试得分&nbsp;15
+        考试得分:&nbsp;{{score}}分
       </el-col>
     </el-row>
 
@@ -65,6 +65,7 @@ export default {
       nowtime: (state) => state.showexam.nowtime,
       // 考试用时
       handleTime: (state) => state.showexam.handleTime,
+      score:(state) => state.showexam.score,
     }),
   },
 };

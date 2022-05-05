@@ -94,7 +94,7 @@
           </el-button>
 
           <el-button  type="warning" icon="el-icon-right" @click="handNext()" :disabled="nextDisabled">
-            下一题{{num}}
+            下一题
           </el-button>
 
         </div>
@@ -146,7 +146,7 @@ export default {
         // 手动交卷用时
         handleTime:'',
         // 定时器
-        timer:""
+        timer:"",
       };
     },
   mounted() {
@@ -156,22 +156,9 @@ export default {
   },
   methods: {
     getData() {
-      axios
-        .post(
-          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-          {
-            id:"119"   
-          },
-        )
-        // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((response) => {
-          const questionList = response.data.data.questionList
-          // console.log(questionList);
-          this.questionList = questionList
-        })
-        .catch((e) => {
-          console.log(e)
-        });
+      // 获取点击的试卷id
+      const questionList = this.$route.params.questionList
+      this.questionList = questionList
     },
     // 上一题
     handPrevious(){
@@ -240,7 +227,7 @@ export default {
     secTime(){
       var moment = require('moment');
       const now = moment(); //当前时间
-      const end = moment().add(10, 'seconds');
+      const end = moment().add(1, 'hours');
       //秒
       const sec = end.diff(now,"seconds");
       //分钟

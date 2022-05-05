@@ -64,7 +64,8 @@ export default {
     getData() {
       axios
         .get(
-          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/online/OlineExam",
+          // "https://api.virapi.com/vir_gitee4agf83h3314f6/index/online/OlineExam",
+          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryTextPaperList",
           {
             params: {
               _token:
@@ -73,18 +74,21 @@ export default {
           }
         )
         // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((response) => {
-          this.tableData = response.data.data.tableData;
+        .then((response) => {          
+          // this.tableData = response.data.data.tableData;
+          this.tableData = response.data.data.textPaperList;
+          // console.log(this.tableData);
           this.tableLabel = response.data.data.tableLabel;
           this.currentPage = Number(response.data.data.currentPage);
           this.total = Number(response.data.data.total);
           this.pageSize = Number(response.data.data.pageSize);
-          this.lastLabel = this.tableLabel.pop();
+          // this.lastLabel = this.tableLabel.pop();
         });
     },
     handleClick(row) {
       // console.log(this.$route);
-      this.$router.push({ name: "PE" });
+      // console.log(row.id);
+      this.$router.push({ name: "PE",params:{exam:row }});
     },
   },
 

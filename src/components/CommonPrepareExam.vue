@@ -17,14 +17,15 @@
           slot="header"
           class="clearfix"
         >
-          <span>准备考试</span>
+          <span><b>准备考试</b></span>
         </div>
         <div
-          v-for="o in 4"
-          :key="o"
-          class="text item"
+          class="text_item"
         >
-          {{'列表内容 ' + o }}
+          <p> <b>考试名称:</b> {{exam_info.name}}</p> 
+          <p> <b>考试时长:</b> {{exam_info.examtime}}分钟</p> 
+          <p><b>试卷总分:</b> 100分</p>
+          <p><b>及格分数:</b> 60分</p>
         </div>
       </el-card>
     </div>
@@ -43,14 +44,40 @@
 </template>
 
 <script>
+// axios.<method> 能够提供自动完成和参数类型推断功能
+const axios = require("axios").default;
 export default {
   data() {
-    return {};
+    return {
+      exam_info:this.$route.params.exam
+    };
   },
   methods:{
     StartExam(){
       // console.log(this);
-      this.$router.push({name: "CE" })
+      // 获取点击的试卷id
+      const id = this.exam_info['id']+''
+      axios
+        .post(
+          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
+          {
+            id:id  
+          },
+        )
+        // 箭头函数解决vue axios 数据（data）赋值问题 试卷有题携带数据跳转,没有题,提示没有题目
+        .then((response) => {
+          const questionList = response.data.data.questionList
+          this.$router.push({name: "CE",params:{exam_info:this.exam_info,questionList:questionList} })
+        })
+        .catch((e) => {
+          console.log(e)
+          this.$message({
+            // type: 'success',
+            message: '没有考试题目'
+          });
+        });
+
+      
     }
   }
 };
