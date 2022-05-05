@@ -18,6 +18,7 @@ import UserManage from '../views/syssetup/UserManage'
 import PrepareExam from '../components/CommonPrepareExam.vue'
 import CommonExam from '../components/CommonExam.vue'
 import CommonShowExam from '../components/CommonShowExam.vue'
+import CommonLogin from '../components/CommonLogin.vue'
 
 
 
@@ -34,6 +35,12 @@ export default new VueRouter({
             name: 'home',
             component: home,
             meta: { title: '首页' ,keepalive:true}
+        },
+        {
+            path:"/Login",
+            name:"Lg",
+            component:CommonLogin,
+            meta:{title:'注册登录',keepalive:false}
         },
         // 在线考试
         {
