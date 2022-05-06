@@ -25,18 +25,30 @@ Vue.use(less)
 
 
 // 导航守卫
-// router.beforeEach((to,from,next)=>{
-//   console.log(to);
-// 	if(to.name==='CE'){
-// 		next({name:'CE'})
-// 	}else{
-// 		next()
-// 	}
-// })
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  // 路由中设置的needLogin字段就在to当中
+  if (window.sessionStorage.data) {
+    // console.log(window.sessionStorage);
+
+    if (to.path === '/') {
+      next({ path: '/index' })
+    }else{
+      next()
+    }
+  } else {
+    // 没有session,访问任何页面都会跳转到登录页面
+    if(to.path==='/'){
+      next()
+    }else{
+      next({path:'/'})
+    }
+  }
+})
 
 new Vue({
   render: h => h(App),
-  router:router,
+  router: router,
   store
 }).$mount('#app')
 

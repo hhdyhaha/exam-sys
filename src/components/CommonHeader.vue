@@ -26,13 +26,14 @@
       <el-dropdown
         trigger="click"
         size="mini"
+        @command="handleCommand"
       >
         <span class="el-dropdown-link">
           <i class="el-icon-s-custom"></i> 角色名称
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item command="a">个人中心</el-dropdown-item>
+          <el-dropdown-item command="b">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -44,12 +45,21 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  name: "ConmonHeader",
   methods: {
-    name: "ConmonHeader",
     // 操作vuex,改变isCollapse状态
     // 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
     headleMenu() {
       this.$store.commit("collapseMenu");
+    },
+    // command	点击菜单项触发的事件回调
+    handleCommand(command) {
+      console.log(command);
+      if (command === "b") {
+        // 退出后,清除session信息,并返回登录页
+        window.sessionStorage.removeItem("data");
+        this.$router.push("/");
+      }
     },
   },
 

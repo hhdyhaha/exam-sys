@@ -54,6 +54,8 @@
 </template>
 
 <script>
+// axios.<method> 能够提供自动完成和参数类型推断功能
+const axios = require("axios").default;
 export default {
   data() {
     //账号格式5-12位数字
@@ -70,7 +72,7 @@ export default {
       // 延时一秒
       setTimeout(() => {
         if (accountPattern.test(value)) {
-          console.log("haha");
+          // console.log("haha");
           callback();
         } else {
           callback(new Error("请输入4到16位字符（字母，数字，下划线，减号）"));
@@ -83,7 +85,7 @@ export default {
         callback(new Error("请输入密码"));
       } else {
         if (passwordPattern.test(value)) {
-          console.log("haha");
+          // console.log("haha");
           callback();
         } else {
           callback(new Error("请输入6-22位字母数字"));
@@ -106,6 +108,7 @@ export default {
         pass: "",
         checkPass: "",
       },
+      userToken: "",
       // rules 属性传入约定的验证规则
       rules: {
         // validator的参数有：(rule, value, callback, source, options)，前三个比较重要。
@@ -122,15 +125,55 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      console.log(this.$refs);
+      let _this = this;
+      // console.log(this.$refs);
       //   validate 对整个表单进行校验的方法，参数为一个回调函数。
       //   该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          axios
+            .get("https://api.virapi.com/vir_gitee4agf83h3314f6/index/login", {
+              params: {
+                _token:
+                  "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
+              },
+            })
+            // 箭头函数解决vue axios 数据（data）赋值问题
+            .then((response) => {
+              // 获取到用户信息 let定义多个变量 ,隔开
+              let res = response.data.data.data,
+                len = res.length,
+                // 存放获取到的用户和密码
+                userNameArr = [],
+                passWordArr = [],
+                ses = window.sessionStorage;
+              for (let index = 0; index < len; index++) {
+                userNameArr.push(res[index].username);
+                passWordArr.push(res[index].password);
+              }
+              // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
+              if (userNameArr.indexOf(this.ruleForm.account) === -1) {
+                alert("账号不存在");
+              } else {
+                //返回的是索引
+                let index = userNameArr.indexOf(this.ruleForm.account);
+                // 判断密码是否正确
+                if (passWordArr[index] === this.ruleForm.pass) {
+                  // 把token放在sessionStorage中
+                  ses.setItem("data", res[index].token);
+                  alert("密码正确");
+                  this.$router.push({ name: "home" });
+                } else {
+                  alert("密码错误");
+                }
+              }
+            })
+            .catch((err) => {
+              console.log("连接数据库失败");
+            });
         } else {
           //   console.log(formName);
-          console.log("error submit!!");
+          // console.log("error submit!!");
           alert("error submit!!!");
           return false;
         }

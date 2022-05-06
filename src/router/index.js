@@ -31,41 +31,41 @@ export default new VueRouter({
     // 路由配置
     routes: [
         {
-            path: '/',
+            path: '/index',
             name: 'home',
             component: home,
-            meta: { title: '首页' ,keepalive:true}
+            meta: { title: '首页' ,keepalive:true,needLogin: true}
         },
         {
-            path:"/Login",
+            path:"/",
             name:"Lg",
             component:CommonLogin,
-            meta:{title:'注册登录',keepalive:false}
+            meta:{title:'注册登录',keepalive:false,needLogin: false}
         },
         // 在线考试
         {
             path: '/online',
             name: 'ol',
             component:main,
-            meta: { title: '在线考试',keepalive:true },
+            meta: { title: '在线考试',keepalive:true,needLogin: true },
             children: [
                 {
                     path: "OlineExam",
                     name: "OE",
                     
                     component: OlineExam,
-                    meta: { title: '在线考试' ,keepalive:true},
+                    meta: { title: '在线考试' ,keepalive:true,needLogin: true},
                     children:[{
                         path:"PrepareExam",
                         name:"PE",
                         component:PrepareExam,
-                        meta:{title:'准备考试',keepalive:true}
+                        meta:{title:'准备考试',keepalive:true,needLogin: true}
                     },
                     {
                         path:"CommonExam",
                         name:"CE",
                         component:CommonExam,
-                        meta:{title:'开始考试',keepalive:false}
+                        meta:{title:'开始考试',keepalive:false,needLogin: true}
                     }
                 ]
                 },
@@ -79,13 +79,13 @@ export default new VueRouter({
                     path: "MyRecords",
                     name: "MR",
                     component: MyRecords,
-                    meta: { title: '我的成绩',keepalive:true },
+                    meta: { title: '我的成绩',keepalive:true,needLogin: true },
                     children:[
                         {
                             path:"CommonShowExam",
                             name:"CSE",
                             component:CommonShowExam,
-                            meta:{title:'考试结果',keepalive:true}
+                            meta:{title:'考试结果',keepalive:true,needLogin: true}
                         }
                     ]
 
@@ -99,27 +99,27 @@ export default new VueRouter({
             path: '/exam',
             name: 'ex',
             component:main,
-            meta: { title: '考试管理' },
+            meta: { title: '考试管理',needLogin: true },
             children: [
                 {
                     path: "QuestionBank",
                     name: "QB",
                     component: QuestionBank,
-                    meta: { title: '题库' ,keepalive:true}
+                    meta: { title: '题库' ,keepalive:true,needLogin: true}
                 },
 
                 {
                     path: "QuestionManage",
                     name: "QM",
                     component: QuestionManage,
-                    meta: { title: '试题管理',keepalive:true }
+                    meta: { title: '试题管理',keepalive:true,needLogin: true }
                 },
 
                 {
                     path: "ExamManage",
                     name: "EM",
                     component: ExamManage,
-                    meta: { title: '考试管理',keepalive:true }
+                    meta: { title: '考试管理',keepalive:true,needLogin: true }
                 },
             ]
         },
@@ -131,20 +131,20 @@ export default new VueRouter({
             path: '/sys',
             name: 'sys',
             component:main,
-            meta: { title: '系统设置' ,keepalive:true},
+            meta: { title: '系统设置' ,keepalive:true,needLogin: true},
             children: [
                 {
                     path: "SystemConfiguration",
                     name: "SC",
                     component: SystemConfiguration,
-                    meta: { title: '系统配置',keepalive:true }
+                    meta: { title: '系统配置',keepalive:true,needLogin: true }
                 },
 
                 {
                     path: "UserManage",
                     name: "UM",
                     component: UserManage,
-                    meta: { title: '用户管理',keepalive:true }
+                    meta: { title: '用户管理',keepalive:true,needLogin: true }
                 }
             ]
         },
