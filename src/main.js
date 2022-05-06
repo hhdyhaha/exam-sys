@@ -26,7 +26,7 @@ Vue.use(less)
 
 // 导航守卫
 router.beforeEach((to, from, next) => {
-  console.log(to);
+  // console.log(to);
   // 路由中设置的needLogin字段就在to当中
   if (window.sessionStorage.data) {
     // console.log(window.sessionStorage);
