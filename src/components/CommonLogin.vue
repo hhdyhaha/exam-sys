@@ -141,14 +141,14 @@ export default {
             // 箭头函数解决vue axios 数据（data）赋值问题
             .then((response) => {
               // 获取到用户信息 let定义多个变量 ,隔开
-              let res = response.data.data.data,
+              let res = response.data.data.userInfoList,
                 len = res.length,
                 // 存放获取到的用户和密码
                 userNameArr = [],
                 passWordArr = [],
                 ses = window.sessionStorage;
               for (let index = 0; index < len; index++) {
-                userNameArr.push(res[index].username);
+                userNameArr.push(res[index].name);
                 passWordArr.push(res[index].password);
               }
               // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
