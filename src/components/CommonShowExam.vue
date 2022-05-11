@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-center" style="text-align:center;">演示考试</h2>
+    <h2 class="text-center" style="text-align:center;">{{exam_info.name}}</h2>
     <p style="text-align:center;">试卷创建时间:&nbsp;{{nowtime}}</p>
     <el-row
     id="defaultImages"
@@ -58,6 +58,9 @@
 import { mapState } from "vuex";
 export default {
   computed: {
+    exam_info(){
+      return JSON.parse(sessionStorage.getItem('exam_info'))||[]
+    },
     ...mapState({
       userAnswer: (state) => state.showexam.userAnswer,
       questionList: (state) => state.showexam.questionList,

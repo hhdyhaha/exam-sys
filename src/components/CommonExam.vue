@@ -109,27 +109,11 @@ const axios = require("axios").default;
 export default {
   data () {
       return {
-        // // 题目编号
-        // id:'',
-        // // 题目
-        // title:'',
-        // //答案数组
-        // optionList:[],
-        // //正确答案
-        // answer:'',
-        // // 是否展示答案
-        // showAnswer:false,
-        // // 是否是图片
-        // optionImgFlag:false,
         //用户回答
         userAnswer:JSON.parse(sessionStorage.getItem('userAnswer'))||[],
-        // userAnswer:sessionStorage.setItem('userAnswer',JSON.stringify()||[] ),
-        // //题型 1 单选 3 判断
-        // type:'1',
         // 问题列表
         questionList:[],
         // 第几题
-        // num:0,
         num:JSON.parse(sessionStorage.getItem('num'))||0,
         //上禁用按钮
         preDisabled: true, 
@@ -139,10 +123,8 @@ export default {
         time:JSON.parse(sessionStorage.getItem('time'))||'',
         hr: 3,
         min: 30,
-        // sec: 0,
         sec:JSON.parse(sessionStorage.getItem('sec'))||0,
         // 答题开始时间
-        // now:'',
         now:JSON.parse(sessionStorage.getItem('now'))||0,
         // 答题结束时间
         end:'',
@@ -163,7 +145,10 @@ export default {
       // 获取点击的试卷id
       // const questionList = this.$route.params.questionList
       // 从sessionstorage中获取数据
+      
       let questionList = JSON.parse(sessionStorage.getItem('questionList'))||[]
+      
+      console.log(JSON.parse(sessionStorage.getItem('exam_info')));
       this.questionList = questionList
     },
     // 上一题
@@ -350,15 +335,9 @@ export default {
     userAnswer(now,old){
       sessionStorage.setItem('userAnswer',JSON.stringify(now)||[] )
     },
-    // time(now,old){
-    //   sessionStorage.setItem('time',JSON.stringify(now)||'' )
-    // },
     sec(now,old){
       sessionStorage.setItem('sec',JSON.stringify(now)||'' )
     },
-    // now(now,old){
-    //   sessionStorage.setItem('sec',JSON.stringify(now)||'' )
-    // },
   }
 
 };
