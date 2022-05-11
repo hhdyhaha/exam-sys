@@ -49,7 +49,8 @@ const axios = require("axios").default;
 export default {
   data() {
     return {
-      exam_info:this.$route.params.exam
+      // 从缓存里提取数据
+      exam_info:JSON.parse(sessionStorage.getItem('exam_info'))||[]
     };
   },
   methods:{
@@ -67,6 +68,9 @@ export default {
         // 箭头函数解决vue axios 数据（data）赋值问题 试卷有题携带数据跳转,没有题,提示没有题目
         .then((response) => {
           const questionList = response.data.data.questionList
+          // 将数据缓存在session中
+          sessionStorage.setItem('exam_info',JSON.stringify(this.exam_info) )
+          sessionStorage.setItem('questionList',JSON.stringify(questionList) )
           this.$router.push({name: "CE",params:{exam_info:this.exam_info,questionList:questionList} })
         })
         .catch((e) => {
@@ -79,7 +83,12 @@ export default {
 
       
     }
-  }
+  },
+  // computed:{
+  //   exam_info(){
+  //     return this.$route.params.exam
+  //   }
+  // }
 };
 </script>
 

@@ -10,7 +10,7 @@
         :span="8"
         class="text-center"
       >
-        考生姓名:&nbsp;haha
+        考生姓名:&nbsp;{{ruleForm.account}}
       </el-col>
       <el-col
         :span="8"
@@ -66,6 +66,8 @@ export default {
       // 考试用时
       handleTime: (state) => state.showexam.handleTime,
       score:(state) => state.showexam.score,
+      // 用户账号信息
+      ruleForm: (state) => state.tab.ruleForm,
     }),
   },
 };

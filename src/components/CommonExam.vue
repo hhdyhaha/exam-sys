@@ -122,25 +122,28 @@ export default {
         // // 是否是图片
         // optionImgFlag:false,
         //用户回答
-        userAnswer:[],
+        userAnswer:JSON.parse(sessionStorage.getItem('userAnswer'))||[],
+        // userAnswer:sessionStorage.setItem('userAnswer',JSON.stringify()||[] ),
         // //题型 1 单选 3 判断
         // type:'1',
         // 问题列表
         questionList:[],
         // 第几题
-        num:0,
+        // num:0,
+        num:JSON.parse(sessionStorage.getItem('num'))||0,
         //上禁用按钮
         preDisabled: true, 
         //下禁用按钮
         nextDisabled: false, 
         // 时间
-
-        time: '',
+        time:JSON.parse(sessionStorage.getItem('time'))||'',
         hr: 3,
         min: 30,
-        sec: 0,
+        // sec: 0,
+        sec:JSON.parse(sessionStorage.getItem('sec'))||0,
         // 答题开始时间
-        now:'',
+        // now:'',
+        now:JSON.parse(sessionStorage.getItem('now'))||0,
         // 答题结束时间
         end:'',
         // 手动交卷用时
@@ -152,12 +155,15 @@ export default {
   mounted() {
     this.getData();
     this.begin()
+    // alert('刷新或关闭')
     // this.countdown()
   },
   methods: {
     getData() {
       // 获取点击的试卷id
-      const questionList = this.$route.params.questionList
+      // const questionList = this.$route.params.questionList
+      // 从sessionstorage中获取数据
+      let questionList = JSON.parse(sessionStorage.getItem('questionList'))||[]
       this.questionList = questionList
     },
     // 上一题
@@ -234,7 +240,9 @@ export default {
       const min = (sec/60);
       //小时
       const hr = (min/60);
-      this.sec = sec
+      this.sec = JSON.parse(sessionStorage.getItem('sec'))?JSON.parse(sessionStorage.getItem('sec')):sec
+      // this.sec = sec
+      
       // console.log(typeof(sec));
       // const sec1 = moment.duration(sec, 'seconds');
       // console.log(typeof(sec1.minutes()));
@@ -337,7 +345,20 @@ export default {
       }else{
         this.preDisabled = false;
       }
-    }
+      sessionStorage.setItem('num',JSON.stringify(now)||0 )
+    },
+    userAnswer(now,old){
+      sessionStorage.setItem('userAnswer',JSON.stringify(now)||[] )
+    },
+    // time(now,old){
+    //   sessionStorage.setItem('time',JSON.stringify(now)||'' )
+    // },
+    sec(now,old){
+      sessionStorage.setItem('sec',JSON.stringify(now)||'' )
+    },
+    // now(now,old){
+    //   sessionStorage.setItem('sec',JSON.stringify(now)||'' )
+    // },
   }
 
 };

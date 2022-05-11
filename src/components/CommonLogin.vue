@@ -162,6 +162,8 @@ export default {
                   // 把token放在sessionStorage中
                   ses.setItem("data", res[index].token);
                   alert("密码正确");
+                  // 提交用户名和密码以供其他组件使用
+                  this.$store.commit('tab/getRuleForm',this.ruleForm)
                   this.$router.push({ name: "home" });
                 } else {
                   alert("密码错误");
