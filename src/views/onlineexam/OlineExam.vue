@@ -51,6 +51,14 @@ export default {
       total: 20,
       pageSize: 3,
       tableData2: [],
+      // 准备考试信息
+      peInfo:{
+          path: "PrepareExam",
+          name: "PE",
+          label: "准备考试",
+          icon: "setting",
+          url: "Other/PageTwo",
+        },
     };
   },
   components: {
@@ -88,7 +96,10 @@ export default {
     handleClick(row) {
       // console.log(this.$route);
       // console.log(row.id);
+      sessionStorage.setItem('exam_info',JSON.stringify(row) )
       this.$router.push({ name: "PE",params:{exam:row }});
+      // // 提交去考试
+      this.$store.commit("tab/selectMenu", this.peInfo);
     },
   },
 

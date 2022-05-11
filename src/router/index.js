@@ -60,6 +60,7 @@ export default new VueRouter({
                         name:"PE",
                         component:PrepareExam,
                         meta:{title:'准备考试',keepalive:true,needLogin: true}
+                        // meta:{keepalive:true,needLogin: true}
                     },
                     {
                         path:"CommonExam",
@@ -113,6 +114,7 @@ export default new VueRouter({
                     name: "QM",
                     component: QuestionManage,
                     meta: { title: '试题管理',keepalive:true,needLogin: true }
+                    // meta: {keepalive:true,needLogin: true }
                 },
 
                 {
@@ -120,6 +122,7 @@ export default new VueRouter({
                     name: "EM",
                     component: ExamManage,
                     meta: { title: '考试管理',keepalive:true,needLogin: true }
+                    // meta: { keepalive:true,needLogin: true }
                 },
             ]
         },

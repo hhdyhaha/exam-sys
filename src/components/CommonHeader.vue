@@ -29,7 +29,7 @@
         @command="handleCommand"
       >
         <span class="el-dropdown-link">
-          <i class="el-icon-s-custom"></i> 角色名称
+          <i class="el-icon-s-custom"></i> {{ruleForm.account}}
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="a">个人中心</el-dropdown-item>
@@ -50,13 +50,15 @@ export default {
     // 操作vuex,改变isCollapse状态
     // 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
     headleMenu() {
-      this.$store.commit("collapseMenu");
+      this.$store.commit("tab/collapseMenu");
     },
     // command	点击菜单项触发的事件回调
     handleCommand(command) {
       console.log(command);
       if (command === "b") {
-        // 退出后,清除session信息,并返回登录页
+        // 退出后,清除local和session信息,并返回登录页
+        localStorage.clear();
+        sessionStorage.clear()
         window.sessionStorage.removeItem("data");
         this.$router.push("/");
       }
@@ -64,9 +66,9 @@ export default {
   },
 
   computed: {
-    // ...mapState({
-    //   current: (state) => state.tab.currentMenu,
-    // }),
+    ...mapState({
+      ruleForm: (state) => state.tab.ruleForm,
+    }),
     current() {
       return this.$route.matched;
     },

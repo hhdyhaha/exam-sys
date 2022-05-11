@@ -16,6 +16,7 @@
       @close="handleClose(tag,index)"
     >
       {{tag.label}}
+      <!-- {{tag.meta.title}} -->
     </el-tag>
   </div>
 </template>
@@ -29,13 +30,16 @@ export default {
     tags() {
       return this.$store.state.tab.tabsList;
     },
+    current() {
+      return this.$route.matched;
+    },
   },
   methods: {
     // 你可以在组件中使用 this.$store.commit('xxx') 提交 mutation，
     // 或者使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）。
     ...mapMutations({
       //起个别名
-      close: "closeTag",// 将 `this.close()` 映射为 `this.$store.commit('close')`
+      close: "tab/closeTag",// 将 `this.close()` 映射为 `this.$store.commit('close')`
     }),
     //选择标签跳转路由
     changeMenu(tag) {

@@ -35,6 +35,7 @@
         <el-menu-item
           @click="clickMenu(itemc)"
           :index="itemc.path"
+          v-if="itemc.label!=='准备考试'"
         >{{itemc.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
@@ -97,20 +98,20 @@ export default {
               icon: "setting",
               url: "Other/PageOne",
             },
-            {
-              path: "/QuestionManage",
-              name: "QM",
-              label: "试题管理",
-              icon: "setting",
-              url: "Other/PageTwo",
-            },
-            {
-              path: "/ExamManage",
-              name: "EM",
-              label: "考试管理",
-              icon: "setting",
-              url: "Other/PageTwo",
-            },
+            // {
+            //   path: "/QuestionManage",
+            //   name: "QM",
+            //   label: "试题管理",
+            //   icon: "setting",
+            //   url: "Other/PageTwo",
+            // },
+            // {
+            //   path: "/ExamManage",
+            //   name: "EM",
+            //   label: "考试管理",
+            //   icon: "setting",
+            //   url: "Other/PageTwo",
+            // },
           ],
         },
         // 系统设置
@@ -119,13 +120,13 @@ export default {
           label: "系统设置",
           icon: "location",
           children: [
-            {
-              path: "/SystemConfiguration",
-              name: "SC",
-              label: "系统配置",
-              icon: "setting",
-              url: "Other/PageOne",
-            },
+            // {
+            //   path: "/SystemConfiguration",
+            //   name: "SC",
+            //   label: "系统配置",
+            //   icon: "setting",
+            //   url: "Other/PageOne",
+            // },
             {
               path: "/UserManage",
               name: "UM",
@@ -142,7 +143,7 @@ export default {
     clickMenu(item) {
       this.$router.push({ name: item.name });
       // mutations中的方法名 item点击事件传过来的menu数据
-      this.$store.commit("selectMenu", item);
+      this.$store.commit("tab/selectMenu", item);
       // console.log(this.$route.meta);
     },
   },
