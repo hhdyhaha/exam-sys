@@ -9,7 +9,7 @@
       <el-col
         :span="8"
         class="text-center"
-      >
+      > 
         考生姓名:&nbsp;{{ruleForm.account}}
       </el-col>
       <el-col
