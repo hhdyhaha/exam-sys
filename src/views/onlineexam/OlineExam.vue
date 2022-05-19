@@ -39,6 +39,7 @@
 
 <script>
 import CommonTable from "../../components/CommonTable.vue";
+import CommonExam from "../../components/CommonExam.vue";
 // axios.<method> 能够提供自动完成和参数类型推断功能
 const axios = require("axios").default;
 export default {
@@ -63,6 +64,7 @@ export default {
   },
   components: {
     CommonTable,
+    CommonExam
   },
   name: "onlineexam",
   mounted() {

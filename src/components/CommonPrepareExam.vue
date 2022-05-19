@@ -72,6 +72,7 @@ export default {
           sessionStorage.setItem('exam_info',JSON.stringify(this.exam_info) )
           sessionStorage.setItem('questionList',JSON.stringify(questionList) )
           this.$router.push({name: "CE",params:{exam_info:this.exam_info,questionList:questionList} })
+          // this.$router.replace({name: "CE",params:{exam_info:this.exam_info,questionList:questionList} })
         })
         .catch((e) => {
           console.log(e)

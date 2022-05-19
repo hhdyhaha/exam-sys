@@ -104,6 +104,15 @@
 </template>
 
 <script>
+// import {resetRouter} from '../router';
+// resetRouter() //执行方法
+//防止页面后退
+// history.pushState(null, null, document.URL);
+// // popstate 事件，history 实体改变时触发的事件。监听 popstate 事件
+// window.addEventListener('popstate', function () {
+//     history.pushState(null, null, document.URL);
+// });
+
 // axios.<method> 能够提供自动完成和参数类型推断功能
 const axios = require("axios").default;
 export default {
@@ -148,7 +157,7 @@ export default {
       
       let questionList = JSON.parse(sessionStorage.getItem('questionList'))||[]
       
-      console.log(JSON.parse(sessionStorage.getItem('exam_info')));
+      // console.log(JSON.parse(sessionStorage.getItem('exam_info')));
       this.questionList = questionList
     },
     // 上一题
@@ -298,7 +307,8 @@ export default {
                 
             });
             // 路由跳转
-            this.$router.push({ name: 'CSE'})
+            // this.$router.push({ name: 'CSE'})
+            this.$router.replace({ name: 'CSE'})
             // vuex数据提交
             this.$store.commit('showexam/examSave',[this.userAnswer,this.questionList,this.now,this.handleTime])
             // console.log('haha');
@@ -338,8 +348,18 @@ export default {
     sec(now,old){
       sessionStorage.setItem('sec',JSON.stringify(now)||'' )
     },
-  }
+  },
 
+  // 导航守卫 如果离开时不是去到展示页面,就始终在考试页面
+  beforeRouteLeave(to, from,next) {
+    if (to.path==='/online/MyRecords/CommonShowExam') {
+      // replace: true只是一个设置信息，告诉VUE本次操作后，不能通过浏览器后退按钮，返回前一个路由。
+      next({replace:true})
+    }else{
+      next({ path: '/online/OlineExam/CommonExam'})
+    }
+  }
+  
 };
 </script>
 

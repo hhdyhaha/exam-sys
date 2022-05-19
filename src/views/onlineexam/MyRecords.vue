@@ -2,8 +2,8 @@
   <div>
     <!-- 三级路由视图 -->
     <div v-if="this.$route.name==='CSE'">
-      <common-show-exam/>
-      <!-- <router-view></router-view> -->
+      <!-- <common-show-exam/> -->
+      <router-view></router-view>
     </div>
     <!-- 二级路由数据 -->
     <div v-else>

@@ -66,7 +66,7 @@ export default new VueRouter({
                         path:"CommonExam",
                         name:"CE",
                         component:CommonExam,
-                        meta:{title:'开始考试',keepalive:false,needLogin: true}
+                        meta:{title:'开始考试',keepalive:false,needLogin: true,allowBack: false}
                     }
                 ]
                 },

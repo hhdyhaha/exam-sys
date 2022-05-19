@@ -48,13 +48,14 @@
                 </el-radio-group>
                 <p style="color:red;margin-top:0px;padding-left:10px">正确答案:&nbsp;&nbsp;{{question.answer}}</p>
               </div>
-              
+              <!-- <el-button @click="haha">haha</el-button> -->
             </div>
     </el-card>
   </div>
 </template>
 
 <script>
+// history.pushState(null, null, document.URL);
 import { mapState } from "vuex";
 export default {
   computed: {
@@ -73,6 +74,30 @@ export default {
       ruleForm: (state) => state.tab.ruleForm,
     }),
   },
+  methods:{
+    haha(){
+      this.$router.push({ name: 'CE'})
+    }
+  },
+  mounted() {
+    // 展示信息后清除sessionstorage
+    // sessionStorage.removeItem("exam_info");
+    sessionStorage.removeItem("sec");
+    sessionStorage.removeItem("questionList");
+    sessionStorage.removeItem("userAnswer");
+    sessionStorage.removeItem("num");
+  },
+  // 导航守卫 如果离开时不是去到展示页面,就始终在考试页面  
+  // beforeRouteLeave(to,from,next){
+  //   if (to.path==='/online/OlineExam/CommonExam') {
+  //     // next()
+  //     next({ path: '/online/OlineExam/PrepareExam',replace:true})
+      
+  //   }else{
+  //     console.log('sdfasdf');
+  //     next({replace:true})
+  //   }
+  // }
 };
 </script>
 
