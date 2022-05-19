@@ -1,24 +1,21 @@
 <template>
-  <div class="box-bg">
+  <div>
     <el-form
       :model="ruleForm"
       status-icon
       :rules="rules"
       ref="ruleForm"
-      class="login-form animate__animated animate__jello"
     >
       <!-- 输入账号 -->
       <!-- Form-Item 的 prop 属性设置为需校验的字段名  prop 表单域 model 字段，在使用 validate、resetFields 方法的情况下，该属性是必填的 -->
       <el-form-item
         label="账号"
         prop="account"
-        class="login-form-item"
       >
         <!-- value / v-model	绑定值 -->
         <el-input
           type="text"
           v-model="ruleForm.account"
-          class="login-form-item-input"
         ></el-input>
       </el-form-item>
       <!-- autocomplete 让input表单输入框不记录输入过信息 -->
@@ -26,36 +23,31 @@
       <el-form-item
         label="密码"
         prop="pass"
-        class="login-form-item"
       >
         <el-input
           type="password"
           v-model="ruleForm.pass"
           autocomplete="off"
-          class="login-form-item-input"
         ></el-input>
       </el-form-item>
       <!-- 确认密码 -->
       <el-form-item
         label="确认密码"
         prop="checkPass"
-        class="login-form-item"
       >
         <el-input
           type="password"
           v-model="ruleForm.checkPass"
           autocomplete="off"
-          class="login-form-item-input"
         ></el-input>
       </el-form-item>
       <!-- 点击按钮 -->
-      <el-form-item class="login-form-item">
+      <el-form-item>
         <el-button
           type="primary"
           @click="submitForm('ruleForm')"
-          class="login-form-item-input"
         >提交</el-button>
-        <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -171,7 +163,7 @@ export default {
                   ses.setItem("data", res[index].token);
                   alert("密码正确");
                   // 提交用户名和密码以供其他组件使用
-                  this.$store.commit("tab/getRuleForm", this.ruleForm);
+                  this.$store.commit('tab/getRuleForm',this.ruleForm)
                   this.$router.push({ name: "home" });
                 } else {
                   alert("密码错误");
@@ -197,28 +189,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.box-bg {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  min-width: 1000px;
-  z-index: -10;
-  zoom: 1;
-  background-color: #fff;
-  background: url("../assets/image/哆啦A梦.jpeg") no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-position: center 0;
-}
-.login-form {
-  width: 30%;
-  position: relative;
-  left: 30%;
-  top: 25%;
-  text-align: center;
-}
+<style>
 </style>

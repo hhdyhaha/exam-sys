@@ -11,6 +11,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import less from 'less'
 //引入store
 import store from './store'
+// 引入animate动画
+import animated from 'animate.css' 
 Vue.config.productionTip = false
 // 使用ElementUI
 Vue.use(ElementUI);
@@ -22,7 +24,8 @@ VueRouter.prototype.push = function push(location) {
 // 使用VueRouter
 Vue.use(VueRouter)
 Vue.use(less)
-
+// 使用animate动画
+Vue.use(animated)
 
 // 导航守卫
 router.beforeEach((to, from, next) => {
