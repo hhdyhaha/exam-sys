@@ -114,3 +114,52 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+// 最外层透明
+/deep/ .el-table,
+/deep/ .el-table__expanded-cell {
+  background-color: transparent;
+}
+// 表格内背景颜色
+/deep/ .el-table th,
+/deep/ .el-table tr,
+/deep/ .el-table td {
+  background-color: transparent !important;
+  // background-color: transparent ;
+}
+
+// 设置表格头的字体颜色
+/deep/ .el-table thead {
+  color: #000000;
+  font-weight: 500;
+}
+
+// 分页透明
+/deep/ .msg-pagination-container.is-background ,/deep/ .el-pager li {
+  /*对页数的样式进行修改*/
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}
+/deep/ .msg-pagination-container.is-background ,/deep/ .btn-next {
+  /*对下一页的按钮样式进行修改*/
+  background-color: transparent !important;
+  color: rgb(196, 40, 40);
+}
+/deep/ .msg-pagination-container.is-background,/deep/  .btn-prev {
+  /*对上一页的按钮样式进行修改*/
+  background-color: transparent !important;
+  color: rgb(0, 0, 0);
+}
+/deep/ .msg-pagination-container.is-background ,/deep/ .el-pager li:not(.disabled).active {
+  /*当前选中页数的样式进行修改*/
+  background-color: #99CCCC;
+  color: #fff;
+}
+/deep/ .msg-pagination-container.is-background ,/deep/ .el-input__inner{
+  /*当前选中页数的样式进行修改*/
+  background-color: transparent;
+  color: rgb(2, 2, 2);
+  border-color:rgba(0, 0, 0, 0.2);
+}
+</style>

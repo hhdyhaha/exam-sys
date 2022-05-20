@@ -52,5 +52,33 @@ html,body,#app{
   margin: 0;
   padding: 0;
   height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+   min-width: 1000px;
+  background-color: #fff;
+  background: url("./assets/image/哆啦A梦.jpeg") no-repeat;
+
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-position: center 0;
+  
+  z-index: 1;
 }
+
+#app::after{
+    content: "";
+    width:100%;
+    height:100%;
+    /* 子绝父相 */
+    position: absolute;
+    left:0;
+    top:0;
+    /* 背景继承 */
+    background: inherit;
+    filter: blur(2px);
+    z-index: -1;
+}
+
 </style>

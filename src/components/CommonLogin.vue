@@ -204,21 +204,26 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  min-width: 1000px;
-  z-index: -10;
-  zoom: 1;
+  /* min-width: 1000px;
   background-color: #fff;
   background: url("../assets/image/哆啦A梦.jpeg") no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-position: center 0;
+  
+  z-index: 1; */
 }
+/* 伪元素 ::after 能够在指定元素的后面插入一些内容，在 ::after 中需要使用 content 属性来定义要追加的内容，
+而且在 ::after 中必须定义 content 属性才会生效（没有需要插入的内容时可以将 content 属性的值定义为空""）。 */
+
+
+
 .login-form {
   width: 30%;
   position: relative;
   left: 30%;
   top: 25%;
-  text-align: center;
+  text-align: center;  
 }
 </style>
