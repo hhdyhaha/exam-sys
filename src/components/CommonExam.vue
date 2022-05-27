@@ -37,23 +37,20 @@
             </el-row>
             <!-- 单选题 -->
             <p class="card-title">单选题</p>
-            <div class="tags" style="">
-            <el-tag class="tag" :type="tagClass(question.id-2265)" v-for="question in questionList" :key="question.id" effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
-            </div>
-
-            <!-- 多选题 -->
-            <!-- <p class="card-title">多选题</p>
             <div class="tags">
-              <el-tag type="info">6</el-tag>
-              <el-tag type="success">7</el-tag>
-            </div> -->
+              <div  style="" v-for="question in questionList" :key="question.id" >
+                <el-tag class="tag" size="medium"  :type="tagClass(question.id-2265)" v-if="question.type==='1'"   effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
+              </div>
+            </div>
 
             <!-- 判断题 -->
             <p class="card-title">判断题</p>
             <div class="tags">
-              <el-tag type="info">8</el-tag>
-              <el-tag type="success">9</el-tag>
+              <div  v-for="question in questionList" :key="question.id">
+                <el-tag class="tag1" size="medium"   :type="tagClass(question.id-2265)" v-if="question.type==='3'"  effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
+              </div>
             </div>
+            
           </el-card>
 
         </div>
@@ -69,11 +66,11 @@
             <!-- 将题目数组里面的对象循环出来 -->
             <div class="option-radio-button" v-for="question in questionList" :key="question.id">
               <!-- 单选题 题目 判断之后显示-->
-              <p v-if="question.id-2265===num && question.type==='1'">{{question.id-2264}}.{{questionList[num].title}}</p>
+              <p v-if="question.id-2265===num && question.type==='1'">{{question.id-2264}}.{{questionList[num].title}}{{typeof(question.type)}}</p>
               <!-- 选项 -->
               <div v-if="question.id-2265===num && question.type==='1'"> <!--判断是第几题的选项-->
-                <el-radio-group class="radio-button1" v-model="userAnswer[num]" v-for="(option,index) in question.optionList" :key="index" @change="userSelect">
-                  <el-radio  :label="option.id">{{option.id}}. {{option.content}}</el-radio>
+                <el-radio-group  v-model="userAnswer[num]" v-for="(option,index) in question.optionList" :key="index" @change="userSelect">
+                  <el-radio class="radio-button1"  :label="option.id">{{option.id}}. {{option.content}}</el-radio>
                 </el-radio-group>
               </div>
               <!-- 判断题 -->
@@ -368,6 +365,7 @@ export default {
   padding: 20px;
 }
 .l-main {
+  
   padding: 20px 20px 20px 0px;
   .card-line{
     display: flex;
@@ -375,6 +373,7 @@ export default {
   }
 }
 .r-main {
+
   padding: 20px 0px 0px 0px;
 }
 .card-title {
@@ -384,39 +383,48 @@ export default {
   font-size: 14px;
 }
 
-.tags {
+.tags{
   display: flex;
-  justify-content: flex-start;
-  // align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
-  padding: 0px 20px 20px 20px;
-  padding-bottom: 0px;
-  // cursor 属性规定要显示的光标的类型（形状）。
-  .tag {
-    width:28px;
-    height:28px;
-    margin-right:15px;
-    cursor: pointer;
-    margin-top:20px;
-    text-align:center;
-    font-size:12px;
-    padding: 0px;
-    margin-top:10px;
-  }
+  text-align:center;
+  justify-content: flex-start;
 }
 
+.tag1 {
+  width:35px;
+  height:35px;
+  margin-right:15px;
+  margin-left:15px;
+  cursor: pointer;
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  padding: 0px;
+  margin-top:10px;
+
+}
+// .option-radio-button{
+//   width: 1000px;
+// }
+.el-radio-group{
+  width: 100%;
+}
 .radio-button1{
-  width:80%;
-  display: inline-block;
+  width:50%;
+  display: block;
   padding: 9px 20px 9px 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #dcdfe6;
   margin-bottom: 10px;
   line-height: 2;
   font-size: 14px;
   margin-right: 30px;
-  white-space: nowrap;
+
+  background-color: #fff;
 }
+
+
 // #defaultImages{
 //   display: flex;
 //   flex-wrap: wrap;
