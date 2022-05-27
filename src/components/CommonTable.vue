@@ -6,6 +6,7 @@
         v-model="value"
         placeholder="请选择姓名"
         @change="selectClick"
+        clearable
       >
         <el-option
           v-for="(item,index) in optionData"
