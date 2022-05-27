@@ -84,11 +84,13 @@ export default {
 // 如果想让一个元素的百分比css高度height: 100%;起作用，你需要给这个元素的所有父元素的高度设定一个有效值。
 // 父元素
 .header {
-  display: flex;
+  display: flex ;
   height: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  // padding-left:130px ;
+
 }
 .l-header {
   display: flex;
@@ -97,6 +99,7 @@ export default {
   align-items: center;
   .el-button {
     margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }
 </style>>

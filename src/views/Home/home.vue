@@ -17,21 +17,33 @@
               <!-- 考试类型 -->
               <p class="info">{{infoList.name}}</p>
             </div>
-            <el-col class="info" :span="12">
-                <p>考试级别</p>
-              </el-col>
-              <el-col class="info" :span="12">
-                <p>理论综合</p>
-              </el-col>
+            <el-col
+              class="info"
+              :span="12"
+            >
+              <p>考试级别</p>
+            </el-col>
+            <el-col
+              class="info"
+              :span="12"
+            >
+              <p>理论综合</p>
+            </el-col>
 
             <div
               v-for="(value,key) in infoList.exam"
               :key="key"
             >
-              <el-col class="info" :span="12">
+              <el-col
+                class="info"
+                :span="12"
+              >
                 <p>{{key}}</p>
               </el-col>
-              <el-col class="info" :span="12">
+              <el-col
+                class="info"
+                :span="12"
+              >
                 <p>{{value}}</p>
               </el-col>
 
@@ -82,10 +94,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.info{
-  text-align: center;
+.el-col {
+  background-color: #C9E0F2;
 }
-.el-card{
-  margin-top: 20px;
+
+.el-card {
+  margin:0 20px 20;
+  background-color: #C9E0F2;
+  padding: 0;
+}
+
+.info {
+  text-align: center;
 }
 </style>

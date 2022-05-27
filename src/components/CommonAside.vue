@@ -4,6 +4,8 @@
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     default-active
+    background-color="#C9E0F2"
+    unique-opened = true
   >
     <!-- 侧边栏标题 -->
     <h5 style="text-align:center">等级考试</h5>
@@ -172,14 +174,20 @@ export default {
 </script>
 
 <style lang="less" scoped>
+// .el-menu{
+//     background-color:#DC143C;
+// }
 // overflow 属性规定当内容溢出元素框时发生的事情。
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 150px;
-  min-height: 400px;
+  min-height: 500px;
   // overflow-x:hidden
+  background-color: rgba(255, 255, 255, 0);
 }
 // !important最高优先权
 .el-menu-item {
   min-width: 64px !important;
 }
+
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-container v-if="$route.meta.keepalive">
+    <el-container  v-if="$route.meta.keepalive" style="height: 100%; border: 1px solid #eee">
       <!-- 侧边 -->
       <!-- width="auto" 可使侧边栏打开关闭不受到宽度限制 -->
       <el-aside width="auto">
@@ -13,7 +13,7 @@
         </el-header>
 
         <!-- 标签 -->
-        <common-tag />
+        <common-tag/>
 
         <!-- 主体 -->
         <el-main>
@@ -23,6 +23,7 @@
             <router-view></router-view>
           </keep-alive>
         </el-main>
+
       </el-container>
     </el-container>
     <router-view v-if="!$route.meta.keepalive"></router-view>
@@ -47,7 +48,7 @@ export default {
  
 </script>
 
-<style>
+<style lang="less">
 html,body,#app{
   margin: 0;
   padding: 0;
@@ -57,7 +58,7 @@ html,body,#app{
   left: 0;
    min-width: 1000px;
   background-color: #fff;
-  background: url("./assets/image/哆啦A梦.jpeg") no-repeat;
+  background: url("./assets/image/猫和老鼠.jpeg") no-repeat;
 
   background-size: cover;
   -webkit-background-size: cover;
@@ -80,5 +81,6 @@ html,body,#app{
     filter: blur(2px);
     z-index: -1;
 }
+
 
 </style>

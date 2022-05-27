@@ -101,4 +101,11 @@ export default {
   margin-top: 0px;
   margin-bottom: 20px;
 }
+.el-card__header {
+
+  background-color: #C9E0F2;
+}
+.el-card__body{
+background-color: #C9E0F2;
+}
 </style>
