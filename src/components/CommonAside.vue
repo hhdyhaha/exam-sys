@@ -71,13 +71,13 @@ export default {
               icon: "setting",
               url: "Other/PageOne",
             },
-            {
-              path: "MyRecords",
-              name: "MR",
-              label: "我的成绩",
-              icon: "setting",
-              url: "Other/PageTwo",
-            },
+            // {
+            //   path: "MyRecords",
+            //   name: "MR",
+            //   label: "我的成绩",
+            //   icon: "setting",
+            //   url: "Other/PageTwo",
+            // },
             {
               path: "PrepareExam",
               name: "PE",

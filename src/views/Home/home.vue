@@ -94,17 +94,21 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-col {
-  background-color: #C9E0F2;
-}
-
 .el-card {
-  margin:0 20px 20;
-  background-color: #C9E0F2;
+  margin:0 0 20px 0;
+  // background-color: #C9E0F2;
+  background-color: #fff;
   padding: 0;
 }
 
 .info {
   text-align: center;
+}
+/deep/ .el-card__header{
+  background-color: #C9E0F2;
+  background-image: linear-gradient(-225deg,#D7FFFE 100%,#FFFEFF 0%);
+}
+/deep/ .el-card__body{
+background-color: #fff;
 }
 </style>

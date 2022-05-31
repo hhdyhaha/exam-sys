@@ -39,7 +39,7 @@
             <p class="card-title">单选题</p>
             <div class="tags">
               <div  style="" v-for="question in questionList" :key="question.id" >
-                <el-tag class="tag" size="medium"  :type="tagClass(question.id-2265)" v-if="question.type==='1'"   effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
+                <el-tag class="tag1" size="medium"  :type="tagClass(question.id-2265)" v-if="question.type==='1'"   effect="dark" @click="handleTag(question.id-2264)">{{question.id-2264}}</el-tag>
               </div>
             </div>
 
@@ -66,7 +66,7 @@
             <!-- 将题目数组里面的对象循环出来 -->
             <div class="option-radio-button" v-for="question in questionList" :key="question.id">
               <!-- 单选题 题目 判断之后显示-->
-              <p v-if="question.id-2265===num && question.type==='1'">{{question.id-2264}}.{{questionList[num].title}}{{typeof(question.type)}}</p>
+              <p v-if="question.id-2265===num && question.type==='1'">{{question.id-2264}}.{{questionList[num].title}}</p>
               <!-- 选项 -->
               <div v-if="question.id-2265===num && question.type==='1'"> <!--判断是第几题的选项-->
                 <el-radio-group  v-model="userAnswer[num]" v-for="(option,index) in question.optionList" :key="index" @change="userSelect">
