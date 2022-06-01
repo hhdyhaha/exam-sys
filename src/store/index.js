@@ -16,7 +16,7 @@ export default new Vuex.Store({
     showexam,
   },
   plugins: [createPersistedState({
-    storage: window.localStorage,
+    storage: window.sessionStorage,
     paths: ['tab','showexam']
   }),
   ]

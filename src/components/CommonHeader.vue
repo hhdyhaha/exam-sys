@@ -56,6 +56,8 @@ export default {
     handleCommand(command) {
       console.log(command);
       if (command === "b") {
+        // 退出之前向vuex发送消息,清除vuex中tab信息
+        this.$store.commit('tab/clearTabs')
         // 退出后,清除local和session信息,并返回登录页
         localStorage.clear();
         sessionStorage.clear()

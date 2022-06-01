@@ -77,12 +77,12 @@ export default {
     getData() {
         // 箭头函数解决vue axios 数据（data）赋值问题
         getTextInfo().then((response) => {
-          console.log(response);
+          // console.log(response);
           let res = response.data.data;
           this.textInfoLabel = res.textInfoLabel;
           this.textInfoList = res.textInfoList;
-          console.log(this.textInfoLabel);
-          console.log(this.textInfoList);
+          // console.log(this.textInfoLabel);
+          // console.log(this.textInfoList);
         });
     },
   },

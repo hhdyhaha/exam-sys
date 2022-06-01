@@ -43,7 +43,7 @@ export default {
     getData() {
         // 箭头函数解决vue axios 数据（data）赋值问题
         getTextPaperListInfo().then((response) => {
-          console.log(response);
+          // console.log(response);
           this.tableData = response.data.data.textPaperList;
           this.tableLabel = response.data.data.tableLabel;
           this.currentPage = Number(response.data.data.currentPage);

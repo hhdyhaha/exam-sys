@@ -14,6 +14,7 @@ export default {
                 icon: 'home',
                 type:''
             }
+            // sessionStorage.getItem('val')
         ],
         // 登录用户的账号密码
         ruleForm:[]
@@ -35,11 +36,31 @@ export default {
             if(val.name==='home'){
                 state.collapseMenu=null
             }else{
-                state.currentMenu=val
+                // console.log(val);
+                // 将对象转化成字符串才能存入到session中
+                let val1 = JSON.stringify(val)
+                sessionStorage.setItem('val',val1)
                 
+                // let val2 = sessionStorage.getItem('val')
+                // console.log(val2);
+                state.currentMenu=val
                 let result=state.tabsList.findIndex(item=>item.name===val.name)
-                result===-1?state.tabsList.push(val):''
+                result===-1?state.tabsList.push(val):''  
+                // let val1 = JSON.stringify(val)    
+                // result===-1?sessionStorage.setItem('val',val1):''
+                
             }
+        },
+        // 清除tabsList
+        clearTabs(state){
+            // for(var i=0;i<=state.tabsList.length;i++){
+            //     // delete state.tabsList[i];
+            //     state.tabsList.splice(i,1)
+            // }
+            const len =  state.tabsList.length-1
+            state.tabsList.splice(1,len)
+            
+            
         },
         // 关闭标签
         closeTag(state,val){
