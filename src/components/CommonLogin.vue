@@ -163,12 +163,16 @@ export default {
                 if (passWordArr[index] === this.ruleForm.pass) {
                   // 把token放在sessionStorage中
                   ses.setItem("data", res[index].token);
-                  alert("密码正确");
+                  // alert("密码正确");
+                  this.$message({
+                    message: '密码正确',
+                    type: 'success'
+                  });
                   // 提交用户名和密码以供其他组件使用
                   this.$store.commit("tab/getRuleForm", this.ruleForm);
                   this.$router.push({ name: "home" });
                 } else {
-                  alert("密码错误");
+                  this.$message.error('密码错误');
                 }
               }
             })
@@ -178,7 +182,10 @@ export default {
         } else {
           //   console.log(formName);
           // console.log("error submit!!");
-          alert("error submit!!!");
+          this.$message({
+          message: '请正确输入账号/密码',
+          type: 'warning'
+        });
           return false;
         }
       });
