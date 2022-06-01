@@ -57,9 +57,12 @@
 </template>
 
 <script>
+// export 命名使用{}
+import {getTextInfo} from "@/http/api/textInfo"
 // axios.<method> 能够提供自动完成和参数类型推断功能
-const axios = require("axios").default;
+// const axios = require("axios").default;
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "home",
   data() {
     return {
@@ -72,16 +75,9 @@ export default {
   },
   methods: {
     getData() {
-      axios
-        .get("https://api.virapi.com/vir_gitee4agf83h3314f6/index/textInfo", {
-          params: {
-            _token:
-              "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-          },
-        })
         // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((response) => {
-          // console.log(response);
+        getTextInfo().then((response) => {
+          console.log(response);
           let res = response.data.data;
           this.textInfoLabel = res.textInfoLabel;
           this.textInfoList = res.textInfoList;

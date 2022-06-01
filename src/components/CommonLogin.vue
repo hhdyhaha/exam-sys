@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import {getLoginInfo} from "@/http/api/login"
 // axios.<method> 能够提供自动完成和参数类型推断功能
 const axios = require("axios").default;
 export default {
@@ -139,15 +140,8 @@ export default {
       //   该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios
-            .get("https://api.virapi.com/vir_gitee4agf83h3314f6/index/login", {
-              params: {
-                _token:
-                  "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-              },
-            })
             // 箭头函数解决vue axios 数据（data）赋值问题
-            .then((response) => {
+            getLoginInfo().then((response) => {
               // 获取到用户信息 let定义多个变量 ,隔开
               let res = response.data.data.userInfoList,
                 len = res.length,

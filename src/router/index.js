@@ -27,7 +27,7 @@ import CommonLogin from '../components/CommonLogin.vue'
 // 创建并暴露一个路由器
 export default new VueRouter({
     // 地址干净，美观 。 history 加引号
-    mode: 'history',
+    mode: 'hash',
     // 路由配置
     routes: [
         {

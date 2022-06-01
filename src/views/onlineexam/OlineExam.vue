@@ -38,6 +38,7 @@
 
 
 <script>
+import {getTextPaperListInfo} from "@/http/api/queryTextPaperList"
 import CommonTable from "../../components/CommonTable.vue";
 import CommonExam from "../../components/CommonExam.vue";
 // axios.<method> 能够提供自动完成和参数类型推断功能
@@ -72,19 +73,8 @@ export default {
   },
   methods: {
     getData() {
-      axios
-        .get(
-          // "https://api.virapi.com/vir_gitee4agf83h3314f6/index/online/OlineExam",
-          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryTextPaperList",
-          {
-            params: {
-              _token:
-                "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-            },
-          }
-        )
         // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((response) => {          
+        getTextPaperListInfo().then((response) => {          
           // this.tableData = response.data.data.tableData;
           this.tableData = response.data.data.textPaperList;
           // console.log(this.tableData);

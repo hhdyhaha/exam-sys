@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import {getQuestionTextInfo} from "@/http/api/queryQuestionText"
 // axios.<method> 能够提供自动完成和参数类型推断功能
 const axios = require("axios").default;
 export default {
@@ -58,15 +59,8 @@ export default {
       // console.log(this);
       // 获取点击的试卷id
       const id = this.exam_info['id']+''
-      axios
-        .post(
-          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryQuestionText?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-          {
-            id:id  
-          },
-        )
         // 箭头函数解决vue axios 数据（data）赋值问题 试卷有题携带数据跳转,没有题,提示没有题目
-        .then((response) => {
+        getQuestionTextInfo(id).then((response) => {
           const questionList = response.data.data.questionList
           // 将数据缓存在session中
           sessionStorage.setItem('exam_info',JSON.stringify(this.exam_info) )

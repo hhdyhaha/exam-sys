@@ -15,6 +15,7 @@
 <script>
 const axios = require("axios").default;
 import CommonTable from "../../components/CommonTable.vue";
+import {getLoginInfo} from "@/http/api/login"
 export default {
   name: "usermanage",
   data() {
@@ -36,15 +37,8 @@ export default {
   },
   methods: {
     getData() {
-      axios
-        .get("https://api.virapi.com/vir_gitee4agf83h3314f6/index/login", {
-          params: {
-            _token:
-              "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-          },
-        })
         // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((response) => {
+        getLoginInfo().then((response) => {
           let res = response.data.data
           console.log(res);
            // this.tableData = response.data.data.tableData;

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import {getTextPaperListInfo} from "@/http/api/queryTextPaperList"
 import CommonTable from "../../components/CommonTable.vue";
 // axios.<method> 能够提供自动完成和参数类型推断功能
 const axios = require("axios").default;
@@ -40,18 +41,8 @@ export default {
   },
   methods: {
     getData() {
-      axios
-        .get(
-          "https://api.virapi.com/vir_gitee4agf83h3314f6/index/queryTextPaperList",
-          {
-            params: {
-              _token:
-                "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-            },
-          }
-        )
         // 箭头函数解决vue axios 数据（data）赋值问题
-        .then((response) => {
+        getTextPaperListInfo().then((response) => {
           console.log(response);
           this.tableData = response.data.data.textPaperList;
           this.tableLabel = response.data.data.tableLabel;
