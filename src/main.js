@@ -13,6 +13,8 @@ import less from 'less'
 import store from './store'
 // 引入animate动画
 import animated from 'animate.css' 
+// 引入Mock数据
+import '@/mock/mockServe'
 Vue.config.productionTip = false
 // 使用ElementUI
 Vue.use(ElementUI);

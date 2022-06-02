@@ -1,0 +1,43 @@
+{
+    "error_code": 0,
+    "userInfoList": [
+        {
+            "id": "1",
+            "usertitle": "管理员",
+            "name": "student1",
+            "password": "123456",
+            "token": "@guid"
+        },
+        {
+            "id": "2",
+            "usertitle": "超级管理员",
+            "name": "admin",
+            "password": "admin123",
+            "token": "@guid"
+        },
+        {
+            "id": "3",
+            "usertitle": "学生",
+            "name": "student2",
+            "password": "student",
+            "token": "@guid"
+        }
+    ],
+    "userLabel": [
+        {
+            "prop": "usertitle",
+            "label": "角色类型"
+        },
+        {
+            "prop": "name",
+            "label": "用户名称"
+        },
+        {
+            "prop": "password",
+            "label": "用户密码"
+        }
+    ],
+    "currentPage": "1",
+    "total": "20",
+    "pageSize": "3"
+}

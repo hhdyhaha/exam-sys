@@ -54,7 +54,7 @@ export default {
     },
     // command	点击菜单项触发的事件回调
     handleCommand(command) {
-      console.log(command);
+      // console.log(command);
       if (command === "b") {
         // 退出之前向vuex发送消息,清除vuex中tab信息
         this.$store.commit('tab/clearTabs')

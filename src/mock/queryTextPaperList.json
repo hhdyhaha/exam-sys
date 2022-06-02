@@ -1,0 +1,147 @@
+{
+    "textPaperList": [
+        {
+            "testtime": "2021-12-05",
+            "id": 291,
+            "type": "0",
+            "name": "202112Python等级考试一级",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2021-12-05",
+            "id": 292,
+            "type": "1",
+            "name": "202112Python等级考试一级编程",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2021-09-05",
+            "id": 242,
+            "type": "0",
+            "name": "202109Python等级考试一级",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2021-09-05",
+            "id": 243,
+            "type": "1",
+            "name": "202109Python等级考试一级编程",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2021-06-20",
+            "id": 207,
+            "type": "0",
+            "name": "202006Python等级考试一级",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2021-06-20",
+            "id": 208,
+            "type": "1",
+            "name": "202106Python等级考试一级编程",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2021-03-21",
+            "id": 161,
+            "type": "0",
+            "name": "Python等级考试一级",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2021-03-21",
+            "id": 162,
+            "type": "1",
+            "name": "Python等级考试一级编程题",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2020-12-20",
+            "id": 199,
+            "type": "0",
+            "name": "202012Python等级考试一级",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2020-12-20",
+            "id": 200,
+            "type": "1",
+            "name": "202012Python等级考试一级编程",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2020-09-13",
+            "id": 80,
+            "type": "0",
+            "name": "20200913Python编程等级考试一级",
+            "examtime": "60"
+        },
+        {
+            "testtime": "2020-09-13",
+            "id": 115,
+            "type": "0",
+            "name": "20200913Python编程等级考试一级B",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2020-09-13",
+            "id": 116,
+            "type": "1",
+            "name": "20200913Python编程等级考试一级B编程题",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2020-09-13",
+            "id": 84,
+            "type": "1",
+            "name": "20200913Pyhon编程等级考试一级编程题",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2020-06-07",
+            "id": 117,
+            "type": "0",
+            "name": "202006Python编程等级考试一级",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2020-06-07",
+            "id": 118,
+            "type": "1",
+            "name": "202006Python编程等级考试一级编程题",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2019-12-08",
+            "id": 120,
+            "type": "0",
+            "name": "201912Python编程等级考试一级B",
+            "examtime": "30"
+        },
+        {
+            "testtime": "2019-12-08",
+            "id": 119,
+            "type": "0",
+            "name": "201912Python软件编程等级考试一级",
+            "examtime": "30"
+        }
+    ],
+    "tableLabel": [
+        {
+            "prop": "testtime",
+            "label": "考试时间"
+        },
+        {
+            "prop": "name",
+            "label": "考试名称"
+        },
+        {
+            "prop": "examtime",
+            "label": "考试时长"
+        }
+    ],
+    "currentPage": "1",
+    "total": "20",
+    "pageSize": "3"
+}

@@ -1,6 +1,7 @@
 // 用于封装axios
 import axios from "axios";
-import serverConfig from "./config";
+// import serverConfig from "./config";
+import serverConfig from "./config/index";
 // import qs from "qs";
 
 

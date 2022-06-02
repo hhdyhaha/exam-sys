@@ -12,3 +12,17 @@ export const getLoginInfo = () => {
         },
     });
 };
+export const deleteLoginInfo = (row) => {
+    return serviceAxios({
+        url: "/index/login",
+        method: "post",
+        params: {
+            _token:
+                "$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
+        },
+        data:{
+            row:row
+        }
+    });
+};
+
