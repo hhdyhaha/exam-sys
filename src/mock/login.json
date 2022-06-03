@@ -17,7 +17,7 @@
         },
         {
             "id": "3",
-            "usertitle": "学生",
+            "usertitle": "管理员",
             "name": "student2",
             "password": "student",
             "token": "@guid"

@@ -1,21 +1,27 @@
 <template>
   <div>
-    <!-- select 选择器 -->
-    <div>
-      <el-select
-        v-model="value"
-        placeholder="请选择姓名"
-        @change="selectClick"
-        clearable
-      >
-        <el-option
-          v-for="(item,index) in optionData"
-          :key="index"
-          :label="item.name"
-          :value="item.name"
+    <div class="middleData">
+      <!-- select 选择器 -->
+      <div class="select">
+        <el-select
+          v-model="value"
+          placeholder="请选择姓名"
+          @change="selectClick"
+          clearable
         >
-        </el-option>
-      </el-select>
+          <el-option
+            v-for="(item,index) in optionData"
+            :key="index"
+            :label="item.name"
+            :value="item.name"
+          >
+          </el-option>
+        </el-select>
+      </div>
+      <!-- 准备添加数据的插槽 -->
+      <div class="addData">
+        <slot name="addData"></slot>
+      </div>
     </div>
 
     <!-- 表格 -->
@@ -42,7 +48,7 @@
         >
         </el-table-column>
         <!-- 插槽 -->
-        <slot ></slot>
+        <slot></slot>
       </el-table>
 
     </div>
@@ -137,30 +143,46 @@ export default {
 }
 
 // 分页透明
-/deep/ .msg-pagination-container.is-background ,/deep/ .el-pager li {
+/deep/ .msg-pagination-container.is-background,
+/deep/ .el-pager li {
   /*对页数的样式进行修改*/
   background-color: transparent;
   color: rgb(0, 0, 0);
 }
-/deep/ .msg-pagination-container.is-background ,/deep/ .btn-next {
+/deep/ .msg-pagination-container.is-background,
+/deep/ .btn-next {
   /*对下一页的按钮样式进行修改*/
   background-color: transparent !important;
   color: rgb(196, 40, 40);
 }
-/deep/ .msg-pagination-container.is-background,/deep/  .btn-prev {
+/deep/ .msg-pagination-container.is-background,
+/deep/ .btn-prev {
   /*对上一页的按钮样式进行修改*/
   background-color: transparent !important;
   color: rgb(0, 0, 0);
 }
-/deep/ .msg-pagination-container.is-background ,/deep/ .el-pager li:not(.disabled).active {
+/deep/ .msg-pagination-container.is-background,
+/deep/ .el-pager li:not(.disabled).active {
   /*当前选中页数的样式进行修改*/
-  background-color: #99CCCC;
+  background-color: #99cccc;
   color: #fff;
 }
-/deep/ .msg-pagination-container.is-background ,/deep/ .el-input__inner{
+/deep/ .msg-pagination-container.is-background,
+/deep/ .el-input__inner {
   /*当前选中页数的样式进行修改*/
   background-color: transparent;
   color: rgb(2, 2, 2);
-  border-color:rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.middleData{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  .addData{
+    margin: 0 20px;
+    text-align: center;
+  }
+
 }
 </style>
