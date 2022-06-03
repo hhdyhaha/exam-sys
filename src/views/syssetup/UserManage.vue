@@ -15,20 +15,20 @@
         width="150px"
         align="center"
       >
-        <template slot-scope="scope">
+        <template v-slot:default="slotProps">
+          <!-- <div class="operate-btn" v-for="(slotProp,index) in slotProps" :key="index"> -->
           <div class="operate-btn">
-             <el-button
-            @click="deleteClick(scope.row)"
-            type="danger"
-            size="mini"
-          >删除</el-button>
-          <el-button
-            @click="editClick(scope.row)"
-            type="primary"
-            size="mini"
-          >编辑</el-button>
+            <el-button
+              @click="deleteClick(slotProps.row)"
+              type="danger"
+              size="mini"
+            >删除</el-button>
+            <el-button
+              @click="editClick(slotProps.row)"
+              type="primary"
+              size="mini"
+            >编辑</el-button>
           </div>
-         
         </template>
       </el-table-column>
 
@@ -39,7 +39,7 @@
 <script>
 const axios = require("axios").default;
 import CommonTable from "../../components/CommonTable.vue";
-import { getLoginInfo,deleteLoginInfo } from "@/http/api/login";
+import { getLoginInfo, deleteLoginInfo } from "@/http/api/login";
 export default {
   name: "usermanage",
   data() {
@@ -76,17 +76,20 @@ export default {
       });
     },
     // 点击删除按钮
-    deleteClick(row){
+    deleteClick(row) {
       // console.log(row);
-      deleteLoginInfo(row)
-
-    }
+      deleteLoginInfo(row).then((item) => {
+        // console.log(item.data.data.userInfoList);
+        // console.log(item.data.data.userInfoList);
+        this.tableData = item.data.data.userInfoList;
+      });
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
-.operate-btn{
+.operate-btn {
   display: flex;
   flex-direction: row;
   justify-content: space-around;

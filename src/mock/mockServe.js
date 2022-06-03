@@ -8,6 +8,7 @@ import queryQuestionText from './queryQuestionText.json'
 import queryTextPaperList from './queryTextPaperList.json'
 import OlineExam from './OlineExam.json'
 
+// console.log(_login);
 // Mock数据:第一个参数:请求地址 第二个参数:请求数据
 // Mock.mock('/index/login',{code:200,data:login})
 Mock.mock('http://localhost:8080/index/textInfo?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO',{code:200,data:textInfo})
@@ -22,15 +23,16 @@ let list = function (row) {
         // login 用户信息JSON数据
         return {data:login}
     }else{
-        // 点击传来的id
+        // // 点击传来的id
         let id =parseInt(JSON.parse(row.body).row.id) 
-        // JSON数据里的数组
-        let userInfoList = login.userInfoList
-        // 根据id过滤JSON数据
-        userInfoList = userInfoList.filter(item=>item.id!=id)
-        let userInfoList1 = JSON.parse(JSON.stringify(userInfoList))
-        console.log(userInfoList1);
-        return {data:userInfoList1}
+        // 根据id判断删除对应id元素
+        for (let index = 0; index < login.userInfoList.length; index++) {
+            const element = login.userInfoList[index];
+            if(id === Number(element.id) ){
+                login.userInfoList.splice(index,1)
+            }
+        }
+        return {'data':login}
     }
     
 }

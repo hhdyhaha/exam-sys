@@ -42,7 +42,7 @@
         >
         </el-table-column>
         <!-- 插槽 -->
-        <slot></slot>
+        <slot ></slot>
       </el-table>
 
     </div>
