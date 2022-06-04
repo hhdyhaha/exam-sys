@@ -40,6 +40,8 @@ let list = function (row) {
             }
             return { 'data': login }
         }else if(body1.personData){
+            console.log('3');
+            console.log(body1.personData);
             // 如果人员数据存在,添加数据
             // 将JSON长度加1作为id存进去
             let id = login.userInfoList.length+1

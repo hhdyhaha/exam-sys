@@ -135,7 +135,8 @@ export default {
   methods: {
     submitForm(formName) {
       let _this = this;
-      // console.log(this.$refs);
+      console.log(this.$refs);
+      console.log(formName);
       //   validate 对整个表单进行校验的方法，参数为一个回调函数。
       //   该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise
       this.$refs[formName].validate((valid) => {

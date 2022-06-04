@@ -116,7 +116,7 @@
             <el-button @click="dialogFormVisible = false;cancel()">取 消</el-button>
             <el-button
               type="primary"
-              @click="dialogFormVisible = false;addData(ruleForm)"
+              @click="dialogFormVisible = false;addPersonData(ruleForm)"
             >确 定</el-button>
           </div>
         </el-dialog>
@@ -130,10 +130,53 @@
 <script>
 const axios = require("axios").default;
 import CommonTable from "../../components/CommonTable.vue";
-import { getLoginInfo, deleteLoginInfo,addPersonInfo} from "@/http/api/login";
+import { getLoginInfo, deleteLoginInfo, addPersonInfo } from "@/http/api/login";
 export default {
   name: "usermanage",
   data() {
+    // 验证
+    //账号格式5-12位数字
+    var accountPattern = /^[a-zA-Z0-9_-]{4,16}$/;
+    //密码格式6-22位字母数字
+    var passwordPattern = /^[a-zA-Z0-9]{6,22}$/;
+    // 验证用户名
+    var checkAccount = (rule, value, callback) => {
+      if (!value) {
+        return callback(new Error("账户不能为空"));
+      }
+      // 延时一秒
+      setTimeout(() => {
+        if (accountPattern.test(value)) {
+          callback();
+        } else {
+          callback(new Error("请输入4到16位字符（字母，数字，下划线，减号）"));
+        }
+      }, 500);
+    };
+    //   验证密码
+    var validatePass = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else {
+        if (passwordPattern.test(value)) {
+          // console.log("haha");
+          callback();
+        } else {
+          callback(new Error("请输入6-22位字母数字"));
+        }
+      }
+    };
+    // 验证第二次密码是否正确
+    var validatePass2 = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
+      } else if (value !== this.ruleForm.password) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
+    // 返回数据
     return {
       tableData: ["haha"],
       selectData: false,
@@ -148,11 +191,18 @@ export default {
         name: "",
         password: "",
         checkPass: "",
-        token: "@guid"
+        token: "@guid",
       },
       dialogTableVisible: false,
       dialogFormVisible: false,
       formLabelWidth: "120px",
+      // 验证
+      // rules 属性传入约定的验证规则
+      rules: {
+        name: [{ validator: checkAccount, trigger: "blur" }],
+        password: [{ validator: validatePass, trigger: "blur" }],
+        checkPass: [{ validator: validatePass2, trigger: "blur" }],
+      },
     };
   },
   components: {
@@ -187,22 +237,42 @@ export default {
       });
     },
     // 添加人员数据
-    addData(personData) {
+    addPersonData(personData) {
+
+      this.$refs.ruleForm.validate((valid) => {
+        //开启校验
+        if (valid) {
+          // 如果校验通过，请求接口，允许提交表单
+          addPersonInfo(personData).then((item) => {
+            this.tableData = item.data.data.userInfoList;
+          });
+          // alert("submit!");
+        } else {
+          //校验不通过
+          this.$message({
+            message: "请正确输入用户名/密码",
+            type: "warning",
+          });
+          return false;
+        }
+      });
+
+      // addPersonInfo(personData).then((item) => {
+      //   // console.log('2');
+      //   // console.log(personData);
+      //   this.tableData = item.data.data.userInfoList;
+      // });
       //重置form表单
       this.$refs["ruleForm"].resetFields();
       // 重置选择下拉框
-      this.ruleForm.usertitle = ''
+      this.ruleForm.usertitle = "";
       // alert(personData);
-      addPersonInfo(personData).then((item)=>{
-        this.tableData = item.data.data.userInfoList;
-        // console.log(item);
-      })
     },
     cancel() {
       //重置form表单
       this.$refs["ruleForm"].resetFields();
       // 重置选择下拉框
-      this.ruleForm.usertitle = ''
+      this.ruleForm.usertitle = "";
     },
   },
 };

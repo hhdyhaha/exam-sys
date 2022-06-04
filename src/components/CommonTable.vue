@@ -92,7 +92,11 @@ export default {
     "pageSize",
     "tableData2",
   ],
-
+  data() {
+    return {
+      value:''
+    }
+  },
   methods: {
     //每页条数改变时触发 选择一页显示多少行
     handleSizeChange(val) {

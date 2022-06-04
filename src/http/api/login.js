@@ -27,6 +27,8 @@ export const deleteLoginInfo = (row) => {
 };
 
 export const addPersonInfo = (personData) => {
+    // console.log('hhhh');
+    // console.log(personData);
     return serviceAxios({
         url: "/index/login",
         method: "post",
