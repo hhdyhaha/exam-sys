@@ -238,41 +238,41 @@ export default {
     },
     // 添加人员数据
     addPersonData(personData) {
-
-      this.$refs.ruleForm.validate((valid) => {
+      // console.log('1');
+      // console.log(personData);
+      this.$refs.ruleForm.validate(async (valid) => {
         //开启校验
         if (valid) {
           // 如果校验通过，请求接口，允许提交表单
-          addPersonInfo(personData).then((item) => {
+          // 发送axios请求为异步操作 axios返回的就是一个Promise对象 await让promise对象像同步一样等待
+          await addPersonInfo(personData).then((item) => {
             this.tableData = item.data.data.userInfoList;
           });
-          // alert("submit!");
+          
+          this.resetForm()
+          console.log("2haha");
         } else {
           //校验不通过
           this.$message({
             message: "请正确输入用户名/密码",
             type: "warning",
           });
+          this.resetForm()
           return false;
+          
         }
       });
-
-      // addPersonInfo(personData).then((item) => {
-      //   // console.log('2');
-      //   // console.log(personData);
-      //   this.tableData = item.data.data.userInfoList;
-      // });
+      
+    },
+    // 重置表单
+    resetForm: function (params) {
       //重置form表单
       this.$refs["ruleForm"].resetFields();
       // 重置选择下拉框
       this.ruleForm.usertitle = "";
-      // alert(personData);
     },
     cancel() {
-      //重置form表单
-      this.$refs["ruleForm"].resetFields();
-      // 重置选择下拉框
-      this.ruleForm.usertitle = "";
+      this.resetForm()
     },
   },
 };
