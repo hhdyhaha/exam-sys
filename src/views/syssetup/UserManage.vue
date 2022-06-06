@@ -250,7 +250,7 @@ export default {
       tableData2: [],
       // dialog点击弹出窗口
       ruleForm: {
-        id:'',
+        id: "",
         usertitle: "",
         name: "",
         password: "",
@@ -259,7 +259,7 @@ export default {
       },
       // 编辑人员弹出窗口
       editForm: {
-        id:'',
+        id: "",
         usertitle: "",
         name: "",
         password: "",
@@ -312,7 +312,7 @@ export default {
     },
     // 添加人员数据
     addPersonData(personData) {
-      console.log('1');
+      console.log("1");
       console.log(personData);
       this.$refs.ruleForm.validate(async (valid) => {
         //开启校验
@@ -320,11 +320,24 @@ export default {
           // 如果校验通过，请求接口，允许提交表单
           // 发送axios请求为异步操作 axios返回的就是一个Promise对象 await让promise对象像同步一样等待
           await addPersonInfo(personData).then((item) => {
-            this.tableData = item.data.data.userInfoList;
+            console.log("请求成功返回的数据");
+            console.log(typeof item.data.sta);
+            if (item.data.sta) {
+              this.tableData = item.data.data.userInfoList;
+              this.$message({
+                showClose: true,
+                message: "添加用户成功",
+                type: "success",
+              });
+            } else {
+              this.$message({
+                showClose: true,
+                message: "用户已存在",
+                type: "warning",
+              });
+            }
           });
-
           this.resetForm();
-          // console.log("2haha");
         } else {
           //校验不通过
           this.$message({
@@ -338,13 +351,13 @@ export default {
     },
     // 编辑人员数据
     editClick(row) {
-      console.log('row');
+      console.log("row");
       console.log(row);
       // 显示当前表格当前行的数据
       this.editForm.usertitle = row.usertitle;
       this.editForm.name = row.name;
       this.editForm.password = row.password;
-      this.editForm.id = row.id
+      this.editForm.id = row.id;
     },
     editPersonData(personData) {
       // 开启校验

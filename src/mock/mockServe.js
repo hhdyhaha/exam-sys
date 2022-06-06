@@ -49,13 +49,24 @@ let list = function (row) {
           login.userInfoList[rowid - 1] = JSON.parse(row.body).personData;
           return { data: login };
         } else {
+          //   添加的角色类型和名字
+          let usertitle = body1.personData.usertitle;
+          let name = body1.personData.name;
           // 如果人员数据不存在,添加数据
+          for (let index = 0; index < login.userInfoList.length; index++) {
+            const element = login.userInfoList[index];
+            console.log('数据库数据');
+            console.log(element);
+            if(usertitle === element.usertitle && name === element.name){
+                return { data: login,sta:false };
+            }
+          }
           // 将JSON长度加1作为id存进去
           let id = login.userInfoList.length + 1;
           // {} 对象存数据的方式 存id
           body1.personData.id = id + "";
           login.userInfoList.push(body1.personData);
-          return { data: login };
+          return { data: login,sta:true };
         }
       }
     }
