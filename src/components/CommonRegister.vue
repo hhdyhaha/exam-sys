@@ -7,22 +7,35 @@
       ref="ruleForm"
       class="login-form animate__animated animate__jello"
     >
-      <el-form-item>
-        <p>欢迎使用</p>
+      <el-form-item label="角色类型">
+        <el-select
+          placeholder="请选择角色类型"
+          v-model="ruleForm.usertitle"
+        >
+          <el-option
+            label="管理员"
+            value="管理员"
+          ></el-option>
+          <el-option
+            label="超级管理员"
+            value="超级管理员"
+          ></el-option>
+        </el-select>
       </el-form-item>
       <!-- 输入账号 -->
       <!-- Form-Item 的 prop 属性设置为需校验的字段名  prop 表单域 model 字段，在使用 validate、resetFields 方法的情况下，该属性是必填的 -->
       <el-form-item
-        label="账号"
+        label="用户名"
         prop="account"
         class="login-form-item"
       >
         <!-- value / v-model	绑定值 -->
         <el-input
           type="text"
-          v-model="ruleForm.account"
+          v-model="ruleForm.name"
           class="login-form-item-input"
-          placeholder="请输入账号"
+          autocomplete="new-password"
+          placeholder="请输入用户名"
         ></el-input>
       </el-form-item>
       <!-- autocomplete 让input表单输入框不记录输入过信息 -->
@@ -34,45 +47,42 @@
       >
         <el-input
           type="password"
-          v-model="ruleForm.pass"
-          autocomplete="off"
+          v-model="ruleForm.password"
           class="login-form-item-input"
+          autocomplete="new-password"
           placeholder="请输入密码"
         ></el-input>
       </el-form-item>
       <!-- 确认密码 -->
-      <!-- <el-form-item
+      <el-form-item
         label="确认密码"
         prop="checkPass"
         class="login-form-item"
+        autocomplete="new-password"
       >
         <el-input
           type="password"
           v-model="ruleForm.checkPass"
           autocomplete="off"
           class="login-form-item-input"
+          placeholder="请确认密码"
         ></el-input>
-      </el-form-item> -->
+      </el-form-item>
       <!-- 点击按钮 -->
       <el-form-item class="login-form-item">
         <el-button
           type="primary"
-          @click="submitForm('ruleForm')"
+          @click="submitForm(ruleForm)"
           class="login-form-item-input"
         >提交</el-button>
-        <p style="float:right;margin-top:40px">
-          <router-link
-            style="text-decoration: none;"
-            to='/CommonRegister'
-          >立即注册</router-link>
-        </p>
+        <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import { getLoginInfo } from "@/http/api/login";
+import { addPersonInfo } from "@/http/api/login";
 // axios.<method> 能够提供自动完成和参数类型推断功能
 // const axios = require("axios").default;
 export default {
@@ -112,20 +122,23 @@ export default {
       }
     };
     // 验证第二次密码是否正确
-    // var validatePass2 = (rule, value, callback) => {
-    //   if (value === "") {
-    //     callback(new Error("请再次输入密码"));
-    //   } else if (value !== this.ruleForm.pass) {
-    //     callback(new Error("两次输入密码不一致!"));
-    //   } else {
-    //     callback();
-    //   }
-    // };
+    var validatePass2 = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
+      } else if (value !== this.ruleForm.password) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
     return {
       ruleForm: {
-        account: "",
-        pass: "",
-        // checkPass: "",
+        id: "",
+        usertitle: "",
+        name: "",
+        password: "",
+        checkPass: "",
+        token: "@guid",
       },
       userToken: "",
       // rules 属性传入约定的验证规则
@@ -136,61 +149,36 @@ export default {
         // callback：执行回调，使用方法是：callback('...');。
         // 如果不传参：表示验证通过，一般不必专门强调。
         // 如果传入值：字符串会作为错误提示，但是显示优先级低于外层的message。比如callback('嘻嘻嘻');跟message: '哈哈哈'同时存在，则会提示哈哈哈。
-        account: [{ validator: checkAccount, trigger: "blur" }],
-        pass: [{ validator: validatePass, trigger: "blur" }],
-        // checkPass: [{ validator: validatePass2, trigger: "blur" }],
+        name: [{ validator: checkAccount, trigger: "blur" }],
+        password: [{ validator: validatePass, trigger: "blur" }],
+        checkPass: [{ validator: validatePass2, trigger: "blur" }],
       },
     };
   },
   methods: {
     submitForm(formName) {
-      // let _this = this;
-      console.log(this.$refs);
+      console.log("注册表单信息");
       console.log(formName);
       //   validate 对整个表单进行校验的方法，参数为一个回调函数。
       //   该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise
-      this.$refs[formName].validate((valid) => {
+      this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           // 箭头函数解决vue axios 数据（data）赋值问题
-          getLoginInfo()
+          addPersonInfo(formName)
             .then((response) => {
-              // 获取到用户信息 let定义多个变量 ,隔开
-              let res = response.data.data.userInfoList,
-                len = res.length,
-                // 存放获取到的用户和密码
-                userNameArr = [],
-                passWordArr = [],
-                ses = window.sessionStorage;
-              for (let index = 0; index < len; index++) {
-                userNameArr.push(res[index].name);
-                passWordArr.push(res[index].password);
-              }
-              // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
-              if (userNameArr.indexOf(this.ruleForm.account) === -1) {
-                this.$message({
-                  showClose: true,
-                  message: "用户不存在",
-                  type: "error",
-                });
-              } else {
-                //返回的是索引
-                let index = userNameArr.indexOf(this.ruleForm.account);
-                // 判断密码是否正确
-                if (passWordArr[index] === this.ruleForm.pass) {
-                  // 把token放在sessionStorage中
-                  ses.setItem("data", res[index].token);
-                  // alert("密码正确");
-                  this.$message({
-                    message: "密码正确",
-                    type: "success",
-                  });
-                  // 提交用户名和密码以供其他组件使用
-                  this.$store.commit("tab/getRuleForm", this.ruleForm);
-                  this.$router.push({ name: "home" });
-                } else {
-                  this.$message.error("密码错误");
-                }
-              }
+              if (response.data.sta) {
+              this.$message({
+                showClose: true,
+                message: "注册成功!!!",
+                type: "success",
+              });
+            } else {
+              this.$message({
+                showClose: true,
+                message: "用户已存在",
+                type: "warning",
+              });
+            }
             })
             .catch(() => {
               console.log("连接数据库失败");
@@ -199,16 +187,16 @@ export default {
           //   console.log(formName);
           // console.log("error submit!!");
           this.$message({
-            message: "请正确输入账号/密码",
+            message: "请正确输入用户名/密码",
             type: "warning",
           });
           return false;
         }
       });
     },
-    resetForm(formName) {
+    resetForm() {
       //   resetFields	对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
-      this.$refs[formName].resetFields();
+      this.$refs.ruleForm.resetFields();
     },
   },
 };

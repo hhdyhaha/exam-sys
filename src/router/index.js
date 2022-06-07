@@ -19,6 +19,7 @@ import PrepareExam from '../components/CommonPrepareExam.vue'
 import CommonExam from '../components/CommonExam.vue'
 import CommonShowExam from '../components/CommonShowExam.vue'
 import CommonLogin from '../components/CommonLogin.vue'
+import CommonRegister from '../components/CommonRegister.vue'
 
 
 
@@ -40,7 +41,13 @@ export default new VueRouter({
             path:"/",
             name:"Lg",
             component:CommonLogin,
-            meta:{title:'注册登录',keepalive:false,needLogin: false}
+            meta:{title:'登录',keepalive:false,needLogin: false}
+        },
+        {
+            path:"/CommonRegister",
+            name:"Rg",
+            component:CommonRegister,
+            meta:{title:'注册',keepalive:false,needLogin: false}
         },
         // 在线考试
         {

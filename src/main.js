@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     // 没有session,访问任何页面都会跳转到登录页面
-    if(to.path==='/'){
+    if(to.path==='/' || to.path==='/CommonRegister'){
       next()
     }else{
       next({path:'/'})

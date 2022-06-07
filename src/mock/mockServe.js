@@ -66,6 +66,9 @@ let list = function (row) {
           // {} 对象存数据的方式 存id
           body1.personData.id = id + "";
           login.userInfoList.push(body1.personData);
+          // 存进去了
+          console.log('注册人员成功');
+          console.log(login.userInfoList);
           return { data: login,sta:true };
         }
       }
