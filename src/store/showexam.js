@@ -42,9 +42,9 @@ export default {
                 // console.log(question.answer);
                 if(userAnswer[question.id-2265] && userAnswer[question.id-2265]===question.answer){
                     score+=2;
-                    console.log('haha');
+                    // console.log('haha');
                 }else{
-                    console.log('xixi');
+                    // console.log('xixi');
                 }
                 
             }

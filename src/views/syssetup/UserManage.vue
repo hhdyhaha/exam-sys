@@ -312,8 +312,8 @@ export default {
     },
     // 添加人员数据
     addPersonData(personData) {
-      console.log("1");
-      console.log(personData);
+      // console.log("1");
+      // console.log(personData);
       this.$refs.ruleForm.validate(async (valid) => {
         //开启校验
         if (valid) {
@@ -350,8 +350,8 @@ export default {
     },
     // 编辑人员数据
     editClick(row) {
-      console.log("row");
-      console.log(row);
+      // console.log("row");
+      // console.log(row);
       // 显示当前表格当前行的数据
       this.editForm.usertitle = row.usertitle;
       this.editForm.name = row.name;

@@ -55,8 +55,8 @@ let list = function (row) {
           // 如果人员数据不存在,添加数据
           for (let index = 0; index < login.userInfoList.length; index++) {
             const element = login.userInfoList[index];
-            console.log('数据库数据');
-            console.log(element);
+            // console.log('数据库数据');
+            // console.log(element);
             if(usertitle === element.usertitle && name === element.name){
                 return { data: login,sta:false };
             }
@@ -67,8 +67,8 @@ let list = function (row) {
           body1.personData.id = id + "";
           login.userInfoList.push(body1.personData);
           // 存进去了
-          console.log('注册人员成功');
-          console.log(login.userInfoList);
+          // console.log('注册人员成功');
+          // console.log(login.userInfoList);
           return { data: login,sta:true };
         }
       }

@@ -28,8 +28,8 @@ export const deleteLoginInfo = (row) => {
 };
 
 export const addPersonInfo = (personData) => {
-    console.log('api获取到的编辑数据');
-    console.log(personData);
+    // console.log('api获取到的编辑数据');
+    // console.log(personData);
     return serviceAxios({
         url: "/index/login",
         method: "post",

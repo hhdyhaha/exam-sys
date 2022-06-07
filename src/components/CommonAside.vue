@@ -5,7 +5,7 @@
     :collapse="isCollapse"
     default-active
     background-color="#C9E0F2"
-    unique-opened = true
+    unique-opened=true
   >
     <!-- 侧边栏标题 -->
     <h5 style="text-align:center">等级考试</h5>
@@ -46,9 +46,11 @@
 </template>
 
 <script>
+import { getLoginInfo } from "../http/api/login";
 export default {
   data() {
     return {
+      usertitle: "",
       // isCollapse:false
       menu: [
         {
@@ -57,12 +59,14 @@ export default {
           label: "首页",
           icon: "s-home",
           url: "Home/Home",
+          // permissions: "管理员",
         },
         // 在线考试
         {
           path: "/online",
           label: "在线考试",
           icon: "location",
+          permissions: "管理员",
           children: [
             {
               path: "OlineExam",
@@ -70,6 +74,7 @@ export default {
               label: "在线考试",
               icon: "setting",
               url: "Other/PageOne",
+              permissions: "管理员",
             },
             // {
             //   path: "MyRecords",
@@ -92,6 +97,7 @@ export default {
           path: "/exam",
           label: "考试管理",
           icon: "location",
+          permissions: "超级管理员",
           children: [
             {
               path: "/QuestionBank",
@@ -99,6 +105,7 @@ export default {
               label: "题库管理",
               icon: "setting",
               url: "Other/PageOne",
+              permissions: "超级管理员",
             },
             // {
             //   path: "/QuestionManage",
@@ -121,6 +128,7 @@ export default {
           path: "/sys",
           label: "系统设置",
           icon: "location",
+          permissions: "超级管理员",
           children: [
             // {
             //   path: "/SystemConfiguration",
@@ -135,6 +143,7 @@ export default {
               label: "用户管理",
               icon: "setting",
               url: "Other/PageTwo",
+              permissions: "超级管理员",
             },
           ],
         },
@@ -152,13 +161,17 @@ export default {
   // 定义：要用的属性不存在，要通过已有属性计算得来。
   computed: {
     // 列表渲染-替换数组:filter()、concat() 和 slice()。它们不会变更原始数组，而总是返回一个新数组。
-    // 有子项目
+    // 没有子项目
     noChildren() {
       return this.menu.filter((item) => !item.children);
     },
-    // 没有子项目
+    // 有子项目
     hasChildren() {
-      return this.menu.filter((item) => item.children);
+      return this.menu.filter((item) => {
+        // 如果用户是超级管理员返回所有信息,否则返回管理员信息
+        return this.usertitle === "超级管理员" && item.children?item:item.permissions === this.usertitle;
+
+      });
     },
     // 接收isCollapse状态
     // 组件中读取vuex中的数据：```$store.state.sum```
@@ -166,10 +179,24 @@ export default {
       return this.$store.state.tab.isCollapse;
       // return true
     },
+    userName() {
+      return this.$store.state.tab.ruleForm;
+    },
   },
-  // mounted(){
-  //   console.log(this);
-  // }
+  mounted() {
+    getLoginInfo().then((item) => {
+      let userName1 = this.userName.account;
+      let userInfoList = item.data.data.userInfoList;
+      for (let index = 0; index < userInfoList.length; index++) {
+        const element = userInfoList[index];
+        // 判断登录信息和数据库中是否一样
+        if (userName1 === element.name) {
+          // 将当前用户角色类型赋值给usertitle
+          this.usertitle = element.usertitle;
+        }
+      }
+    });
+  },
 };
 </script>
 
@@ -188,6 +215,4 @@ export default {
 .el-menu-item {
   min-width: 64px !important;
 }
-
-
 </style>

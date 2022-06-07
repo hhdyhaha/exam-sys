@@ -6,19 +6,24 @@
       :rules="rules"
       ref="ruleForm"
       class="login-form animate__animated animate__jello"
+      label-width="100px"
     >
-      <el-form-item label="角色类型">
+    <!-- <p>角色类型</p> -->
+      <el-form-item label="角色类型" style="" class="select_item">
         <el-select
           placeholder="请选择角色类型"
           v-model="ruleForm.usertitle"
+          class="login-form-item"
         >
           <el-option
             label="管理员"
             value="管理员"
+            class="login-form-item"
           ></el-option>
           <el-option
             label="超级管理员"
             value="超级管理员"
+            class="login-form-item"
           ></el-option>
         </el-select>
       </el-form-item>
@@ -74,7 +79,7 @@
           type="primary"
           @click="submitForm(ruleForm)"
           class="login-form-item-input"
-        >提交</el-button>
+        >注册</el-button>
         <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
       </el-form-item>
     </el-form>
@@ -157,8 +162,8 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      console.log("注册表单信息");
-      console.log(formName);
+      // console.log("注册表单信息");
+      // console.log(formName);
       //   validate 对整个表单进行校验的方法，参数为一个回调函数。
       //   该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise
       this.$refs.ruleForm.validate((valid) => {
@@ -167,9 +172,10 @@ export default {
           addPersonInfo(formName)
             .then((response) => {
               if (response.data.sta) {
+                this.$router.push({name:'Lg'})
               this.$message({
                 showClose: true,
-                message: "注册成功!!!",
+                message: "注册成功! 请登录!!!",
                 type: "success",
               });
             } else {
@@ -202,7 +208,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .box-bg {
   position: relative;
   top: 0;
@@ -228,5 +234,8 @@ export default {
   left: 30%;
   top: 25%;
   text-align: center;
+  .select_item{
+    text-align: left;
+  }
 }
 </style>

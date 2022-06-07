@@ -71,6 +71,8 @@ export default {
         // 获取账号密码信息
         getRuleForm(state,val){
             state.ruleForm = val
+            console.log('vuex中的账号密码信息');
+            console.log(val);
         }
     },
     //准备actions对象——响应组件中用户的动作

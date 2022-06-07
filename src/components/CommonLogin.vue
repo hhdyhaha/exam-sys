@@ -8,7 +8,7 @@
       class="login-form animate__animated animate__jello"
     >
       <el-form-item>
-        <p>欢迎使用</p>
+        <p style="font-size:20px">等级考试</p>
       </el-form-item>
       <!-- 输入账号 -->
       <!-- Form-Item 的 prop 属性设置为需校验的字段名  prop 表单域 model 字段，在使用 validate、resetFields 方法的情况下，该属性是必填的 -->
@@ -59,7 +59,7 @@
           type="primary"
           @click="submitForm('ruleForm')"
           class="login-form-item-input"
-        >提交</el-button>
+        >登录</el-button>
         <p style="float:right;margin-top:40px">
           <router-link
             style="text-decoration: none;"
@@ -145,8 +145,8 @@ export default {
   methods: {
     submitForm(formName) {
       // let _this = this;
-      console.log(this.$refs);
-      console.log(formName);
+      // console.log(this.$refs);
+      // console.log(formName);
       //   validate 对整个表单进行校验的方法，参数为一个回调函数。
       //   该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise
       this.$refs[formName].validate((valid) => {

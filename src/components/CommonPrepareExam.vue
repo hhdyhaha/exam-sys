@@ -69,7 +69,7 @@ export default {
           // this.$router.replace({name: "CE",params:{exam_info:this.exam_info,questionList:questionList} })
         })
         .catch((e) => {
-          console.log(e)
+          // console.log(e)
           this.$message({
             // type: 'success',
             message: '没有考试题目'
