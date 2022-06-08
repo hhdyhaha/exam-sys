@@ -4,7 +4,7 @@
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     default-active
-    background-color="#C9E0F2"
+    background-color="#FAF8E1"
     unique-opened=true
   >
     <!-- 侧边栏标题 -->

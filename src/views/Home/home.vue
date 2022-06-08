@@ -93,7 +93,9 @@ export default {
 .el-card {
   margin:0 0 20px 0;
   // background-color: #C9E0F2;
-  background-color: #fff;
+  // background-color: #FAF8E1;
+  // background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
+  background-color: transparent;
   padding: 0;
 }
 
@@ -101,10 +103,9 @@ export default {
   text-align: center;
 }
 /deep/ .el-card__header{
-  background-color: #C9E0F2;
-  background-image: linear-gradient(-225deg,#D7FFFE 100%,#FFFEFF 0%);
+  background-color: transparent;
 }
 /deep/ .el-card__body{
-background-color: #fff;
+background-color: transparent;
 }
 </style>
