@@ -179,7 +179,10 @@ export default {
       // this.userAnswer.push(val)
       // console.log(this.userAnswer);
       // 点击完选项之后自动跳到下一题
-      this.num+=1
+      if(this.num<this.questionList.length-1){
+        this.num+=1
+      }
+      
     },
     // tag颜色
     tagClass(id){

@@ -39,7 +39,10 @@ export default {
             let score = 0
             for (let index = 0; index < questionList.length; index++) {
                 const question = questionList[index];
-                // console.log(question.answer);
+                console.log('回答的答案列表');
+                console.log(question.answer);
+                console.log('haha');
+                console.log(userAnswer[question.id-2265]);
                 if(userAnswer[question.id-2265] && userAnswer[question.id-2265]===question.answer){
                     score+=2;
                     // console.log('haha');
