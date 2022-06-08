@@ -43,11 +43,11 @@ export default {
                 console.log(question.answer);
                 console.log('haha');
                 console.log(userAnswer[question.id-2265]);
-                if(userAnswer[question.id-2265] && userAnswer[question.id-2265]===question.answer){
+                if(userAnswer[question.id-2265] && userAnswer[question.id-2265]===question.answer && question.type==="1"){
                     score+=2;
                     // console.log('haha');
-                }else{
-                    // console.log('xixi');
+                }else if(userAnswer[question.id-2265] && userAnswer[question.id-2265]===question.answer_bool && question.type==="3"){
+                    score +=2;
                 }
                 
             }

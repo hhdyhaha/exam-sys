@@ -343,6 +343,8 @@ export default {
       sessionStorage.setItem('num',JSON.stringify(now)||0 )
     },
     userAnswer(now,old){
+      // console.log('用户回答列表');
+      // console.log(typeof(now));
       sessionStorage.setItem('userAnswer',JSON.stringify(now)||[] )
     },
     sec(now,old){
