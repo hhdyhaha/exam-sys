@@ -10,16 +10,30 @@
       :tableData2="tableData2"
     >
       <!-- 删除编辑操作 插槽传递数据 -->
-      <el-table-column fixed="right" label="操作" width="150px" align="center">
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="150px"
+        align="center"
+      >
         <template v-slot:default="slotProps">
           <!-- <div class="operate-btn" v-for="(slotProp,index) in slotProps" :key="index"> -->
           <div class="operate-btn">
-            <el-button
-              @click="deleteClick(slotProps.row)"
-              type="danger"
-              size="mini"
-              >删除</el-button
-            >
+            <div v-if="slotProps.row.usertitle==='超级管理员'">
+              <el-button
+                @click="deleteClick(slotProps.row)"
+                type="danger"
+                size="mini"
+                disabled
+              >删除</el-button>
+            </div>
+            <div v-else>
+              <el-button
+                @click="deleteClick(slotProps.row)"
+                type="danger"
+                size="mini"
+              >删除</el-button>
+            </div>
             <!-- 编辑 -->
             <el-button
               @click="
@@ -28,8 +42,7 @@
               "
               type="primary"
               size="mini"
-              >编辑</el-button
-            >
+            >编辑</el-button>
             <!-- 编辑弹出来的表单 -->
             <el-dialog
               title="编辑"
@@ -45,12 +58,18 @@
                 :rules="rules"
                 ref="editForm"
               >
-                <el-form-item label="角色类型" :label-width="formLabelWidth">
+                <el-form-item
+                  label="角色类型"
+                  :label-width="formLabelWidth"
+                >
                   <el-select
                     placeholder="请选择角色类型"
                     v-model="editForm.usertitle"
                   >
-                    <el-option label="管理员" value="管理员"></el-option>
+                    <el-option
+                      label="管理员"
+                      value="管理员"
+                    ></el-option>
                     <el-option
                       label="超级管理员"
                       value="超级管理员"
@@ -65,7 +84,10 @@
                   :label-width="formLabelWidth"
                 >
                   <!-- value / v-model	绑定值 -->
-                  <el-input type="text" v-model="editForm.name"></el-input>
+                  <el-input
+                    type="text"
+                    v-model="editForm.name"
+                  ></el-input>
                 </el-form-item>
                 <!-- autocomplete 让input表单输入框不记录输入过信息 -->
                 <!-- 输入密码 -->
@@ -82,22 +104,21 @@
                   ></el-input>
                 </el-form-item>
               </el-form>
-              <div slot="footer" class="dialog-footer">
-                <el-button
-                  @click="
+              <div
+                slot="footer"
+                class="dialog-footer"
+              >
+                <el-button @click="
                     editdialogFormVisible = false;
                     cancel();
-                  "
-                  >取 消</el-button
-                >
+                  ">取 消</el-button>
                 <el-button
                   type="primary"
                   @click="
                     editdialogFormVisible = false;
                     editPersonData(editForm);
                   "
-                  >确 定</el-button
-                >
+                >确 定</el-button>
               </div>
             </el-dialog>
           </div>
@@ -105,9 +126,10 @@
       </el-table-column>
       <!-- 添加人员 -->
       <template v-slot:addData>
-        <el-button type="primary" @click="dialogFormVisible = true"
-          >添加</el-button
-        >
+        <el-button
+          type="primary"
+          @click="dialogFormVisible = true"
+        >添加</el-button>
         <el-dialog
           title="添加人员"
           :visible.sync="dialogFormVisible"
@@ -115,14 +137,28 @@
           width="30%"
         >
           <!-- 表单 -->
-          <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm">
-            <el-form-item label="角色类型" :label-width="formLabelWidth">
+          <el-form
+            :model="ruleForm"
+            status-icon
+            :rules="rules"
+            ref="ruleForm"
+          >
+            <el-form-item
+              label="角色类型"
+              :label-width="formLabelWidth"
+            >
               <el-select
                 placeholder="请选择角色类型"
                 v-model="ruleForm.usertitle"
               >
-                <el-option label="管理员" value="管理员"></el-option>
-                <el-option label="超级管理员" value="超级管理员"></el-option>
+                <el-option
+                  label="管理员"
+                  value="管理员"
+                ></el-option>
+                <el-option
+                  label="超级管理员"
+                  value="超级管理员"
+                ></el-option>
               </el-select>
             </el-form-item>
             <!-- 输入账号 -->
@@ -133,7 +169,10 @@
               :label-width="formLabelWidth"
             >
               <!-- value / v-model	绑定值 -->
-              <el-input type="text" v-model="ruleForm.name"></el-input>
+              <el-input
+                type="text"
+                v-model="ruleForm.name"
+              ></el-input>
             </el-form-item>
             <!-- autocomplete 让input表单输入框不记录输入过信息 -->
             <!-- 输入密码 -->
@@ -161,22 +200,21 @@
               ></el-input>
             </el-form-item>
           </el-form>
-          <div slot="footer" class="dialog-footer">
-            <el-button
-              @click="
+          <div
+            slot="footer"
+            class="dialog-footer"
+          >
+            <el-button @click="
                 dialogFormVisible = false;
                 cancel();
-              "
-              >取 消</el-button
-            >
+              ">取 消</el-button>
             <el-button
               type="primary"
               @click="
                 dialogFormVisible = false;
                 addPersonData(ruleForm);
               "
-              >确 定</el-button
-            >
+            >确 定</el-button>
           </div>
         </el-dialog>
       </template>
