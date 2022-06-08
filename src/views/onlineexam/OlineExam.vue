@@ -76,7 +76,7 @@ export default {
         // 箭头函数解决vue axios 数据（data）赋值问题
         getTextPaperListInfo().then((response) => {          
           // this.tableData = response.data.data.tableData;
-          this.tableData = response.data.data.textPaperList;
+          this.tableData = (response.data.data.textPaperList).reverse();
           // console.log(this.tableData);
           this.tableLabel = response.data.data.tableLabel;
           this.currentPage = Number(response.data.data.currentPage);

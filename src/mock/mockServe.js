@@ -57,8 +57,8 @@ let list = function (row) {
             const element = login.userInfoList[index];
             // console.log('数据库数据');
             // console.log(element);
-            if(usertitle === element.usertitle && name === element.name){
-                return { data: login,sta:false };
+            if (usertitle === element.usertitle && name === element.name) {
+              return { data: login, sta: false };
             }
           }
           // 将JSON长度加1作为id存进去
@@ -69,7 +69,7 @@ let list = function (row) {
           // 存进去了
           // console.log('注册人员成功');
           // console.log(login.userInfoList);
-          return { data: login,sta:true };
+          return { data: login, sta: true };
         }
       }
     }
@@ -87,9 +87,39 @@ Mock.mock(
   list
 );
 // 题目
+let list1 =
+{
+  "questionList":"",
+  "examNotesId": 3084250,
+  "code": 0,
+  "msg": "操作成功"
+}
+let questlist = function (row) {
+  let body1 = JSON.parse(row.body);
+  console.log('点击传过来的id');
+  let id = body1.id
+  let mockQuestionList = queryQuestionText.questionList
+  // 循环数据列表
+  for (let index = 0; index < mockQuestionList.length; index++) {
+    // 每个题库的数据对象
+    const element = mockQuestionList[index];
+    // mock中的id
+    let mockId = element.id
+    // 如果传过来的id和数据库中的id一样就修改数据库的JSON数据
+    if (id === mockId) {
+      list1.questionList = element.questionlist
+      console.log('修改后的list数据');
+      console.log(queryQuestionText);
+      return { data: list1 }
+    }
+
+  }
+
+}
+
 Mock.mock(
   "http://localhost:8080/index/queryQuestionText?_token=$2a$10$TRc2n8KZ0udRXkwSvwRYeeChMdf9g95ANrIETrfwZRxfrgUXkAofO",
-  { code: 200, data: queryQuestionText }
+  questlist
 );
 // 考试时间列表
 Mock.mock(

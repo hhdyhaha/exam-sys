@@ -1,1218 +1,1223 @@
 {
     "questionList": [
         {
-            "id": 2265,
-            "answer": "A",
-            "type": "1",
-            "title": " 假设a=20，b=3，那么a or b的结果是（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
+            "id": "119",
+            "questionlist": [
                 {
-                    "id": "A",
-                    "content": "20",
-                    "optionImgFlag": false
+                    "id": 2265,
+                    "answer": "A",
+                    "type": "1",
+                    "title": " 假设a=20，b=3，那么a or b的结果是（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "20",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "0",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "1",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "3",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
                 },
                 {
-                    "id": "B",
-                    "content": "0",
-                    "optionImgFlag": false
+                    "id": 2266,
+                    "answer": "C",
+                    "type": "1",
+                    "title": " 假设a=2,b=3,那么a-b*b的值是（ ）\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "-3",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "-2",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "-7",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "-11",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
                 },
                 {
-                    "id": "C",
-                    "content": "1",
-                    "optionImgFlag": false
+                    "id": 2267,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "下面哪一段代码是绘制一个圆（）\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "circle(50,steps=3)\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "circle(50)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "circle(50,180)\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "circle(50,0)",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
                 },
                 {
-                    "id": "D",
-                    "content": "3",
-                    "optionImgFlag": false
+                    "id": 2268,
+                    "answer": "D",
+                    "type": "1",
+                    "title": "下列Turtle库中画笔属性说法错误的是：",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "turtle.pensize()：设置画笔的宽度；\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "turtle.pencolor()：设置画笔的颜色；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "turtle.speed()：设置画笔移动速度；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "turtle.distance()：设置画笔移动距离",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2269,
+                    "answer": "A",
+                    "type": "1",
+                    "title": "Python中，下列哪个函数用于输出内容到终端？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "print()",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "output()",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "import()",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "echo()",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2270,
+                    "answer": "C",
+                    "type": "1",
+                    "title": " 变量x的值为字符串类型的“2”，如何将他转换为整型？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "float(x)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "str(x)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "int(x)\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "list(x)",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2271,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "以下设置画布命令正确的是：。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "turtle.screensize(800,blue, \"600\")",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "turtle.screensize(800,600, \"green\")",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "turtle.screensize(\"green\"；800；600)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "turtle.screensize(\"800\",\"600\", \"green\")",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2272,
+                    "answer": "A",
+                    "type": "1",
+                    "title": "下列导入Turtle库的方式正确的是？\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "import turtle",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "import (turtle)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "class turtle",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "def turtle",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2273,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "下面的运算符中，按照运算优先级哪一个是最高级（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "==",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "*",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "and",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "<",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2274,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "Pthon中的>=代表的是（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "把左边的值赋值给右边；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "判断是否大于等于；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "比较两边大小；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "把右边值赋值给左边；",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2275,
+                    "answer": "C",
+                    "type": "1",
+                    "title": "a=10,b=20,那么print(b == a)运算的结果是（）\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "10\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "True\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "False",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "20",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2276,
+                    "answer": "D",
+                    "type": "1",
+                    "title": "下面哪一个不是Python的数据类型？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "列表(List)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "元组(Tuples)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "字典(Dictionary)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "类(class)",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2277,
+                    "answer": "C",
+                    "type": "1",
+                    "title": "Python中，以下哪个变量赋值方式是正确的？\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "var a = 2",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "int a = 2",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "a = 2",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "if a = 2",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2278,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "抛硬币，只有反正两种情况，为了统计方便，在程序中怎样做是最合理的？（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "只需要一个变量，统计一种情况；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "需要两个变量，统计两种情况；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "需要三个变量，统计两种情况和总次数；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "需要用到随机数，没有规律可找；",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2279,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "将4、5、6三个数不重复的排列为三位数，有几种排列？（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "3",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "6",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "9",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "2",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2280,
+                    "answer": "A",
+                    "type": "1",
+                    "title": " 在Python中，以下哪个标记是用作多行注释的？\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "''''''",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "$$$",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "///",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "&&&",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2281,
+                    "answer": "D",
+                    "type": "1",
+                    "title": "假设a=2，b=1，c = a and b - 1，那么c的值是（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "3",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "1",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "2",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "0",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2282,
+                    "answer": "C",
+                    "type": "1",
+                    "title": "turtle.goto(x,y)的含义为？（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "以目前坐标为原点，画一个边长为x和y的矩形",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "画笔提笔，移动到x，y的位置",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "按照现在画笔状态，将画笔移动到坐标为x,y的位置",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "将目前原点移动到x，y的位置",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2283,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "print(6+8/2)输出的结果是（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "7\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "10.0",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "10",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "6+8/2",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2284,
+                    "answer": "D",
+                    "type": "1",
+                    "title": " a=\"python3\",print(2 * a)的结果是（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "python6",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "python2",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "python2python3",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "python3python3",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2285,
+                    "answer": "D",
+                    "type": "1",
+                    "title": " 下列Python变量的使用正确的是？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "2a = 4",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "my$ = 4",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "class = 4;",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "a = 4;",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2286,
+                    "answer": "D",
+                    "type": "1",
+                    "title": " 下列的哪个编程工具是Python自带的编程工具？\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "ipython",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "Visual Studio Code",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "JupyterNotebook",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "IDLE",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2287,
+                    "answer": "B",
+                    "type": "1",
+                    "title": " 下面哪个命令是逆时针旋转90度？（）\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "turtle.right（90）",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "turtle.left（90）",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "turtle.goto(0,90)",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "turtle.goto(90,0)",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2288,
+                    "answer": "C",
+                    "type": "1",
+                    "title": " Python中的除法是用哪个符号表示的？（）\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "*\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "x",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "/",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "#",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2289,
+                    "answer": "B",
+                    "type": "1",
+                    "title": " 以下哪个后缀名为Python源码文件的后缀名？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "exe；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "py；\n",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "sb3；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "pip；",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2290,
+                    "answer": "A",
+                    "type": "1",
+                    "title": "下列程序哪个是画一个三角形？（）\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "",
+                            "optionImgFlag": true,
+                            "optionImg": "http://quiz.ddmakr.com/20201201134656Snipaste_2020-12-01_13-46-30.png"
+                        },
+                        {
+                            "id": "B",
+                            "content": "",
+                            "optionImgFlag": true,
+                            "optionImg": "http://quiz.ddmakr.com/20201201134658Snipaste_2020-12-01_13-46-39.png"
+                        },
+                        {
+                            "id": "C",
+                            "content": "",
+                            "optionImgFlag": true,
+                            "optionImg": "http://quiz.ddmakr.com/20201201134701Snipaste_2020-12-01_13-46-45.png"
+                        },
+                        {
+                            "id": "D",
+                            "content": "",
+                            "optionImgFlag": true,
+                            "optionImg": "http://quiz.ddmakr.com/20201201134705Snipaste_2020-12-01_13-46-52.png"
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2291,
+                    "answer": "D",
+                    "type": "1",
+                    "title": "关于Python的表述，下列不正确的是？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "Python是一种解释型程序设计语言；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "Python是一种面对对象型程序设计语言；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "Python是一种动态数据类型程序设计语言；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "Python是一种编译型程序设计语言。",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2292,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "300/4+2*8运行结果是（ ）。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "15",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "91",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "400",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "50",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2293,
+                    "answer": "A",
+                    "type": "1",
+                    "title": " a = 2,b = 3,print(a>b)的结果为？",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "False",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "True",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "32",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "5",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2294,
+                    "answer": "B",
+                    "type": "1",
+                    "title": "turtle.reset()命令含义为（）",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "optionList": [
+                        {
+                            "id": "A",
+                            "content": "不清空turtle窗口，重置turtle的位置和状态；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "B",
+                            "content": "清空turtle窗口，重置turtle状态为起始状态；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "C",
+                            "content": "清空turtle窗口，但是turtle的位置和状态不会改变；",
+                            "optionImgFlag": false
+                        },
+                        {
+                            "id": "D",
+                            "content": "撤销上一个动作",
+                            "optionImgFlag": false
+                        }
+                    ],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2295,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": " print('I'm ok.')因为有三个单引号，所以程序是错误的。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2296,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": " 使用Turtle时，画布默认坐标左上角为画布中心",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2297,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": "turtle.speed()命令设定笔运动的速度，其参数范围是0-10的整数。\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2298,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": "Python 是交互式语言，这意味着，您可以在一个 Python 提示符 >>> 后直接执行代码。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2299,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": " Python是一个种解释型语言，所以我们对代码的缩进不要求。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2300,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "两队进行乒乓球比赛，每队有3名队员，双方每个队员之间都要进行一场比赛，一共需要进行6场比赛。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2301,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": " and是Python的保留字符。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2302,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": "除号在python中是用/来代替，但不能说所有的/都是除号。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2303,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": " Python创建变量很简单，只要为变量分配一个值即可。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2304,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": "turtle库包含100多个功能函数，主要包括窗体函数、画笔状态函数和画笔运动函数3类。\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2305,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "a==b在Python中代表把b的值给a。\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2306,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "从甲地到乙地，每天走剩下路程的一半，两天就可以走完。\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2307,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "Python中单引号和双引号的作用完全相同。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2308,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": "turtle.seth(angle)函数表示小乌龟启动时运动的方向",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2309,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": " Python中想输出一个双引号，需要使用/”。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2310,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "字符串可以用 + 运算符连接在一起，用 – 运算符删除相同字符。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2311,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "15%3运行结果是5",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2312,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "Python中/n代表输出一个字母n。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2313,
+                    "answer": "错误",
+                    "type": "3",
+                    "title": "a=10,b=20,a==b；运行结果是a=20。\n",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
+                },
+                {
+                    "id": 2314,
+                    "answer": "正确",
+                    "type": "3",
+                    "title": " 程序a=12 and b=12是错误的写法。",
+                    "explain": "",
+                    "knowlegeList": [],
+                    "questionsImgFlag": false,
+                    "userAnswer": "",
+                    "showAnswer": false
                 }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2266,
-            "answer": "C",
-            "type": "1",
-            "title": " 假设a=2,b=3,那么a-b*b的值是（ ）\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "-3",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "-2",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "-7",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "-11",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2267,
-            "answer": "B",
-            "type": "1",
-            "title": "下面哪一段代码是绘制一个圆（）\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "circle(50,steps=3)\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "circle(50)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "circle(50,180)\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "circle(50,0)",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2268,
-            "answer": "D",
-            "type": "1",
-            "title": "下列Turtle库中画笔属性说法错误的是：",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "turtle.pensize()：设置画笔的宽度；\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "turtle.pencolor()：设置画笔的颜色；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "turtle.speed()：设置画笔移动速度；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "turtle.distance()：设置画笔移动距离",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2269,
-            "answer": "A",
-            "type": "1",
-            "title": "Python中，下列哪个函数用于输出内容到终端？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "print()",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "output()",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "import()",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "echo()",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2270,
-            "answer": "C",
-            "type": "1",
-            "title": " 变量x的值为字符串类型的“2”，如何将他转换为整型？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "float(x)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "str(x)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "int(x)\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "list(x)",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2271,
-            "answer": "B",
-            "type": "1",
-            "title": "以下设置画布命令正确的是：。",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "turtle.screensize(800,blue, \"600\")",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "turtle.screensize(800,600, \"green\")",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "turtle.screensize(\"green\"；800；600)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "turtle.screensize(\"800\",\"600\", \"green\")",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2272,
-            "answer": "A",
-            "type": "1",
-            "title": "下列导入Turtle库的方式正确的是？\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "import turtle",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "import (turtle)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "class turtle",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "def turtle",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2273,
-            "answer": "B",
-            "type": "1",
-            "title": "下面的运算符中，按照运算优先级哪一个是最高级（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "==",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "*",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "and",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "<",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2274,
-            "answer": "B",
-            "type": "1",
-            "title": "Pthon中的>=代表的是（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "把左边的值赋值给右边；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "判断是否大于等于；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "比较两边大小；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "把右边值赋值给左边；",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2275,
-            "answer": "C",
-            "type": "1",
-            "title": "a=10,b=20,那么print(b == a)运算的结果是（）\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "10\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "True\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "False",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "20",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2276,
-            "answer": "D",
-            "type": "1",
-            "title": "下面哪一个不是Python的数据类型？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "列表(List)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "元组(Tuples)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "字典(Dictionary)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "类(class)",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2277,
-            "answer": "C",
-            "type": "1",
-            "title": "Python中，以下哪个变量赋值方式是正确的？\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "var a = 2",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "int a = 2",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "a = 2",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "if a = 2",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2278,
-            "answer": "B",
-            "type": "1",
-            "title": "抛硬币，只有反正两种情况，为了统计方便，在程序中怎样做是最合理的？（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "只需要一个变量，统计一种情况；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "需要两个变量，统计两种情况；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "需要三个变量，统计两种情况和总次数；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "需要用到随机数，没有规律可找；",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2279,
-            "answer": "B",
-            "type": "1",
-            "title": "将4、5、6三个数不重复的排列为三位数，有几种排列？（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "3",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "6",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "9",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "2",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2280,
-            "answer": "A",
-            "type": "1",
-            "title": " 在Python中，以下哪个标记是用作多行注释的？\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "''''''",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "$$$",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "///",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "&&&",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2281,
-            "answer": "D",
-            "type": "1",
-            "title": "假设a=2，b=1，c = a and b - 1，那么c的值是（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "3",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "1",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "2",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "0",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2282,
-            "answer": "C",
-            "type": "1",
-            "title": "turtle.goto(x,y)的含义为？（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "以目前坐标为原点，画一个边长为x和y的矩形",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "画笔提笔，移动到x，y的位置",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "按照现在画笔状态，将画笔移动到坐标为x,y的位置",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "将目前原点移动到x，y的位置",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2283,
-            "answer": "B",
-            "type": "1",
-            "title": "print(6+8/2)输出的结果是（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "7\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "10.0",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "10",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "6+8/2",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2284,
-            "answer": "D",
-            "type": "1",
-            "title": " a=\"python3\",print(2 * a)的结果是（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "python6",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "python2",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "python2python3",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "python3python3",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2285,
-            "answer": "D",
-            "type": "1",
-            "title": " 下列Python变量的使用正确的是？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "2a = 4",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "my$ = 4",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "class = 4;",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "a = 4;",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2286,
-            "answer": "D",
-            "type": "1",
-            "title": " 下列的哪个编程工具是Python自带的编程工具？\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "ipython",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "Visual Studio Code",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "JupyterNotebook",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "IDLE",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2287,
-            "answer": "B",
-            "type": "1",
-            "title": " 下面哪个命令是逆时针旋转90度？（）\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "turtle.right（90）",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "turtle.left（90）",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "turtle.goto(0,90)",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "turtle.goto(90,0)",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2288,
-            "answer": "C",
-            "type": "1",
-            "title": " Python中的除法是用哪个符号表示的？（）\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "*\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "x",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "/",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "#",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2289,
-            "answer": "B",
-            "type": "1",
-            "title": " 以下哪个后缀名为Python源码文件的后缀名？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "exe；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "py；\n",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "sb3；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "pip；",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2290,
-            "answer": "A",
-            "type": "1",
-            "title": "下列程序哪个是画一个三角形？（）\n",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "",
-                    "optionImgFlag": true,
-                    "optionImg": "http://quiz.ddmakr.com/20201201134656Snipaste_2020-12-01_13-46-30.png"
-                },
-                {
-                    "id": "B",
-                    "content": "",
-                    "optionImgFlag": true,
-                    "optionImg": "http://quiz.ddmakr.com/20201201134658Snipaste_2020-12-01_13-46-39.png"
-                },
-                {
-                    "id": "C",
-                    "content": "",
-                    "optionImgFlag": true,
-                    "optionImg": "http://quiz.ddmakr.com/20201201134701Snipaste_2020-12-01_13-46-45.png"
-                },
-                {
-                    "id": "D",
-                    "content": "",
-                    "optionImgFlag": true,
-                    "optionImg": "http://quiz.ddmakr.com/20201201134705Snipaste_2020-12-01_13-46-52.png"
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2291,
-            "answer": "D",
-            "type": "1",
-            "title": "关于Python的表述，下列不正确的是？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "Python是一种解释型程序设计语言；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "Python是一种面对对象型程序设计语言；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "Python是一种动态数据类型程序设计语言；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "Python是一种编译型程序设计语言。",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2292,
-            "answer": "B",
-            "type": "1",
-            "title": "300/4+2*8运行结果是（ ）。",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "15",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "91",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "400",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "50",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2293,
-            "answer": "A",
-            "type": "1",
-            "title": " a = 2,b = 3,print(a>b)的结果为？",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "False",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "True",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "32",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "5",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2294,
-            "answer": "B",
-            "type": "1",
-            "title": "turtle.reset()命令含义为（）",
-            "explain": "",
-            "knowlegeList": [],
-            "optionList": [
-                {
-                    "id": "A",
-                    "content": "不清空turtle窗口，重置turtle的位置和状态；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "B",
-                    "content": "清空turtle窗口，重置turtle状态为起始状态；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "C",
-                    "content": "清空turtle窗口，但是turtle的位置和状态不会改变；",
-                    "optionImgFlag": false
-                },
-                {
-                    "id": "D",
-                    "content": "撤销上一个动作",
-                    "optionImgFlag": false
-                }
-            ],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2295,
-            "answer": "错误",
-            "type": "3",
-            "title": " print('I'm ok.')因为有三个单引号，所以程序是错误的。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2296,
-            "answer": "错误",
-            "type": "3",
-            "title": " 使用Turtle时，画布默认坐标左上角为画布中心",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2297,
-            "answer": "正确",
-            "type": "3",
-            "title": "turtle.speed()命令设定笔运动的速度，其参数范围是0-10的整数。\n",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2298,
-            "answer": "正确",
-            "type": "3",
-            "title": "Python 是交互式语言，这意味着，您可以在一个 Python 提示符 >>> 后直接执行代码。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2299,
-            "answer": "错误",
-            "type": "3",
-            "title": " Python是一个种解释型语言，所以我们对代码的缩进不要求。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2300,
-            "answer": "错误",
-            "type": "3",
-            "title": "两队进行乒乓球比赛，每队有3名队员，双方每个队员之间都要进行一场比赛，一共需要进行6场比赛。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2301,
-            "answer": "正确",
-            "type": "3",
-            "title": " and是Python的保留字符。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2302,
-            "answer": "正确",
-            "type": "3",
-            "title": "除号在python中是用/来代替，但不能说所有的/都是除号。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2303,
-            "answer": "正确",
-            "type": "3",
-            "title": " Python创建变量很简单，只要为变量分配一个值即可。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2304,
-            "answer": "正确",
-            "type": "3",
-            "title": "turtle库包含100多个功能函数，主要包括窗体函数、画笔状态函数和画笔运动函数3类。\n",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2305,
-            "answer": "错误",
-            "type": "3",
-            "title": "a==b在Python中代表把b的值给a。\n",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2306,
-            "answer": "错误",
-            "type": "3",
-            "title": "从甲地到乙地，每天走剩下路程的一半，两天就可以走完。\n",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2307,
-            "answer": "错误",
-            "type": "3",
-            "title": "Python中单引号和双引号的作用完全相同。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2308,
-            "answer": "正确",
-            "type": "3",
-            "title": "turtle.seth(angle)函数表示小乌龟启动时运动的方向",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2309,
-            "answer": "正确",
-            "type": "3",
-            "title": " Python中想输出一个双引号，需要使用/”。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2310,
-            "answer": "错误",
-            "type": "3",
-            "title": "字符串可以用 + 运算符连接在一起，用 – 运算符删除相同字符。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2311,
-            "answer": "错误",
-            "type": "3",
-            "title": "15%3运行结果是5",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2312,
-            "answer": "错误",
-            "type": "3",
-            "title": "Python中/n代表输出一个字母n。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2313,
-            "answer": "错误",
-            "type": "3",
-            "title": "a=10,b=20,a==b；运行结果是a=20。\n",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
-        },
-        {
-            "id": 2314,
-            "answer": "正确",
-            "type": "3",
-            "title": " 程序a=12 and b=12是错误的写法。",
-            "explain": "",
-            "knowlegeList": [],
-            "questionsImgFlag": false,
-            "userAnswer": "",
-            "showAnswer": false
+            ]
         }
     ],
     "examNotesId": 3084250,
